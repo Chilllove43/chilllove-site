@@ -1,57 +1,72 @@
-async function loadCalendar() {
-  const url = "https://www.airbnb.com/calendar/ical/13384631.ics?s=f5e78b51c6edc38f540d3c849ff76ae4&locale=fr";
-  const calendarDiv = document.getElementById("calendar");
+// ======== Chill Love - Chargement du calendrier Airbnb (.ics) ========
 
+// URL du fichier ICS Airbnb (ton vrai lien)
+const icsUrl = "https://www.airbnb.com/calendar/ical/13384631.ics?s=f5e78b51c6edc38f540d3c849ff76ae4&locale=fr";
+
+// Fallback local : si Airbnb ne répond pas, essaie de charger le fichier ics local (facultatif)
+const localIcsUrl = "ics/airbnb.ics";
+
+// Fonction pour charger le fichier ICS
+async function fetchCalendar(url) {
   try {
-    const res = await fetch(url);
-    const text = await res.text();
-
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = now.getMonth();
-    const firstDay = new Date(year, month, 1);
-    const lastDay = new Date(year, month + 1, 0);
-    const booked = [];
-
-    text.split("BEGIN:VEVENT").forEach(evt => {
-      const startMatch = evt.match(/DTSTART;VALUE=DATE:(\d{8})/);
-      const endMatch = evt.match(/DTEND;VALUE=DATE:(\d{8})/);
-      if (startMatch && endMatch) {
-        const start = new Date(startMatch[1].replace(/(\d{4})(\d{2})(\d{2})/, "$1-$2-$3"));
-        const end = new Date(endMatch[1].replace(/(\d{4})(\d{2})(\d{2})/, "$1-$2-$3"));
-        for (let d = new Date(start); d < end; d.setDate(d.getDate() + 1)) {
-          booked.push(new Date(d).toDateString());
-        }
-      }
-    });
-
-    const days = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];
-    days.forEach(day => {
-      const el = document.createElement("div");
-      el.textContent = day;
-      el.classList.add("header");
-      calendarDiv.appendChild(el);
-    });
-
-    for (let i = 0; i < firstDay.getDay() - 1; i++) {
-      calendarDiv.appendChild(document.createElement("div"));
+    const response = await fetch(url);
+    if (!response.ok) throw new Error("Erreur HTTP " + response.status);
+    const text = await response.text();
+    return text;
+  } catch (error) {
+    console.warn("Erreur avec le lien principal, on tente le fallback local :", error);
+    try {
+      const response = await fetch(localIcsUrl);
+      if (!response.ok) throw new Error("Erreur HTTP " + response.status);
+      const text = await response.text();
+      return text;
+    } catch (err) {
+      throw new Error("Échec du chargement du calendrier : " + err.message);
     }
-
-    for (let d = 1; d <= lastDay.getDate(); d++) {
-      const date = new Date(year, month, d);
-      const el = document.createElement("div");
-      el.textContent = d;
-      if (booked.includes(date.toDateString())) {
-        el.classList.add("booked");
-      } else {
-        el.classList.add("available");
-      }
-      calendarDiv.appendChild(el);
-    }
-  } catch (e) {
-    calendarDiv.innerHTML = "<p>Erreur lors du chargement du calendrier 🕓</p>";
-    console.error(e);
   }
 }
 
-document.addEventListener("DOMContentLoaded", loadCalendar);
+// Fonction pour extraire les dates "OCCUPIED" depuis le .ics
+function parseICSDates(icsData) {
+  const regex = /DTSTART(?:;[^:]+)?:([0-9T]+)/g;
+  const dates = [];
+  let match;
+  while ((match = regex.exec(icsData)) !== null) {
+    const dateStr = match[1].substring(0, 8);
+    const formatted = `${dateStr.substring(0,4)}-${dateStr.substring(4,6)}-${dateStr.substring(6,8)}`;
+    dates.push(formatted);
+  }
+  return dates;
+}
+
+// Afficher les jours dans le calendrier
+function renderCalendar(dates) {
+  const container = document.getElementById("calendar");
+  if (!container) return;
+
+  const today = new Date();
+  const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+  let html = `<div class="calendar-grid">`;
+
+  for (let i = 1; i <= daysInMonth; i++) {
+    const day = String(i).padStart(2, '0');
+    const date = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${day}`;
+    const occupied = dates.includes(date);
+    html += `<div class="day ${occupied ? 'occupied' : 'free'}">${i}</div>`;
+  }
+
+  html += `</div>`;
+  container.innerHTML = html;
+}
+
+// Charger et afficher
+fetchCalendar(icsUrl)
+  .then(data => {
+    const dates = parseICSDates(data);
+    renderCalendar(dates);
+  })
+  .catch(error => {
+    console.error(error);
+    const container = document.getElementById("calendar");
+    if (container) container.innerHTML = `<p style="color:red;">Erreur lors du chargement du calendrier 😢</p>`;
+  });
