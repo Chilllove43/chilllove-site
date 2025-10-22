@@ -2,17 +2,17 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chill Love – Suite romantique</title>
-  <link rel="stylesheet" href="asset/style.css" />
-  <link rel="icon" href="asset/images/favicon.png" type="image/png" />
-  <script src="js/lang.js" defer></script>
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="icon" href="assets/images/favicon.png" type="image/png" />
+  <script src="assets/lang.js" defer></script>
   <script src="js/modal.js" defer></script>
 </head>
 
 <body>
   <header>
-    <img src="asset/images/logo_chilllove.png" alt="Logo Chill Love" class="logo" />
+    <img src="assets/images/logo_chilllove.png" alt="Logo Chill Love" class="logo" />
     <div class="lang-switch">
       <button onclick="switchLang('fr')">FR</button>
       <button onclick="switchLang('en')">EN</button>
@@ -21,51 +21,64 @@
 
   <main>
     <section class="hero">
-      <h1 data-lang="fr">Bienvenue à Chill Love ❤️</h1>
-      <h1 data-lang="en">Welcome to Chill Love ❤️</h1>
-      <p data-lang="fr">Votre refuge romantique entre sérénité et confort</p>
-      <p data-lang="en">Your romantic escape between serenity and comfort</p>
+      <h1 data-lang="fr">Suite romantique avec jacuzzi & sauna</h1>
+      <h1 data-lang="en">Romantic Suite with Jacuzzi & Sauna</h1>
+      <p data-lang="fr">Un séjour inoubliable dans un cadre naturel et apaisant.</p>
+      <p data-lang="en">An unforgettable stay in a natural and soothing setting.</p>
     </section>
 
     <section class="gallery">
-      <h2 data-lang="fr">Galerie</h2>
-      <h2 data-lang="en">Gallery</h2>
       <div class="gallery-grid">
         <!-- 24 photos -->
-        <!-- Change le nom des fichiers si besoin -->
-        <!-- Toutes les images doivent être dans asset/images/ -->
-        <!-- Exemple : asset/images/photo_01.jpg -->
-        <!-- Tu peux coller les 24 balises img suivantes -->
-        ${[...Array(24)].map((_, i) => {
-          const num = String(i + 1).padStart(2, '0');
-          return `<img src="asset/images/photo_${num}.jpg" alt="photo ${num}" onclick="openModal(this)">`;
-        }).join('\n        ')}
+        <!-- Remplace les noms si nécessaire -->
+        <img src="assets/images/photo1.jpg" alt="photo1" onclick="openModal(this)" />
+        <img src="assets/images/photo2.jpg" alt="photo2" onclick="openModal(this)" />
+        <img src="assets/images/photo3.jpg" alt="photo3" onclick="openModal(this)" />
+        <img src="assets/images/photo4.jpg" alt="photo4" onclick="openModal(this)" />
+        <img src="assets/images/photo5.jpg" alt="photo5" onclick="openModal(this)" />
+        <img src="assets/images/photo6.jpg" alt="photo6" onclick="openModal(this)" />
+        <img src="assets/images/photo7.jpg" alt="photo7" onclick="openModal(this)" />
+        <img src="assets/images/photo8.jpg" alt="photo8" onclick="openModal(this)" />
+        <img src="assets/images/photo9.jpg" alt="photo9" onclick="openModal(this)" />
+        <img src="assets/images/photo10.jpg" alt="photo10" onclick="openModal(this)" />
+        <img src="assets/images/photo11.jpg" alt="photo11" onclick="openModal(this)" />
+        <img src="assets/images/photo12.jpg" alt="photo12" onclick="openModal(this)" />
+        <img src="assets/images/photo13.jpg" alt="photo13" onclick="openModal(this)" />
+        <img src="assets/images/photo14.jpg" alt="photo14" onclick="openModal(this)" />
+        <img src="assets/images/photo15.jpg" alt="photo15" onclick="openModal(this)" />
+        <img src="assets/images/photo16.jpg" alt="photo16" onclick="openModal(this)" />
+        <img src="assets/images/photo17.jpg" alt="photo17" onclick="openModal(this)" />
+        <img src="assets/images/photo18.jpg" alt="photo18" onclick="openModal(this)" />
+        <img src="assets/images/photo19.jpg" alt="photo19" onclick="openModal(this)" />
+        <img src="assets/images/photo20.jpg" alt="photo20" onclick="openModal(this)" />
+        <img src="assets/images/photo21.jpg" alt="photo21" onclick="openModal(this)" />
+        <img src="assets/images/photo22.jpg" alt="photo22" onclick="openModal(this)" />
+        <img src="assets/images/photo23.jpg" alt="photo23" onclick="openModal(this)" />
+        <img src="assets/images/photo24.jpg" alt="photo24" onclick="openModal(this)" />
       </div>
 
       <div id="modal" onclick="closeModal()">
-        <img id="modal-img" alt="grand format" />
+        <img id="modal-img" />
       </div>
     </section>
 
     <section class="tarif">
-      <h2 data-lang="fr">Tarification</h2>
-      <h2 data-lang="en">Pricing</h2>
+      <h2 data-lang="fr">Tarifs</h2>
+      <h2 data-lang="en">Rates</h2>
       <ul>
         <li data-lang="fr">🗓️ Dimanche → Jeudi : 120€ / nuit (hors jour férié)</li>
         <li data-lang="en">🗓️ Sunday → Thursday: €120 / night (excluding public holidays)</li>
         <li data-lang="fr">🗓️ Vendredi & Samedi : 150€ / nuit</li>
         <li data-lang="en">🗓️ Friday & Saturday: €150 / night</li>
-        <li data-lang="fr">🥐 Petit-déjeuner (2 pers.) : +20€</li>
-        <li data-lang="en">🥐 Breakfast (2 people): +€20</li>
-        <li data-lang="fr">🍾 Champagne + Pétales de roses : +40€</li>
-        <li data-lang="en">🍾 Champagne + Rose petals: +€40</li>
       </ul>
     </section>
 
     <section class="calendar">
       <h2 data-lang="fr">Disponibilités</h2>
       <h2 data-lang="en">Availability</h2>
-      <iframe src="https://www.airbnb.com/calendar/ical/13384631.ics?s=f5e78b51c6edc38f540d3c849ff76ae4&locale=fr" style="width:100%; height:300px; border:none;">
+      <iframe
+        src="https://www.airbnb.com/calendar/ical/13384631.ics?s=f5e78b51c6edc38f540d3c849ff76ae4&locale=fr"
+        style="width:100%;height:300px;border:none;">
       </iframe>
     </section>
 
@@ -77,7 +90,7 @@
         <blockquote>“Calme, propre, et super bien décoré.” – Julien</blockquote>
         <blockquote>“Le sauna et jacuzzi au top !” – Emma</blockquote>
         <a href="https://www.airbnb.fr/rooms/13384631?viralityEntryPoint=1&s=76" target="_blank">
-          → Voir plus d’avis sur Airbnb
+          → Voir tous les avis Airbnb
         </a>
       </div>
     </section>
@@ -91,9 +104,7 @@
   </main>
 
   <footer>
-    <p>📍 3175 route de Beauzac, 43200 Beaux – Lieu dit Courenc</p>
-    <p>📞 06 66 15 01 48 — 📱 @chill.love43</p>
-    <p>© Chill Love 2025 – Tous droits réservés</p>
+    <p>© 2025 Chill Love – Tous droits réservés</p>
   </footer>
 </body>
 </html>
