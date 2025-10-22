@@ -47,20 +47,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // --- 📅 CALENDRIER AIRBNB (lecture du fichier airbnb.ics local) ---
+  const calRoot = document.getElementById('calendar');
+  if (!calRoot) return;
 
-  // --- 📅 CALENDRIER AIRBNB ---
-  const calendarContainer = document.getElementById("calendar");
-  if (calendarContainer) {
-    const iframe = document.createElement("iframe");
-    iframe.src = "https://www.airbnb.fr/calendar/ical/13384631.ics?s=f5e78b51c6edc38f540d3c849ff76ae4&locale=fr";
-    iframe.style.width = "100%";
-    iframe.style.height = "600px";
-    iframe.style.border = "none";
-    calendarContainer.appendChild(iframe);
-  }
-
-});
-  const events = parseICS(ics);
-  const set = expandDateRangeSet(events);
-  buildCalendar(set);
-}
+  fetch('airbnb.ics')
+    .then(r => {
+      if (!r.ok) throw new Error('ICS introuvable');
+      return r.text();
+    })
+    .then(text => {
+      const booked = new Set();
+      const lines = text.split(/\r?\n/);
+      let dtStart = null, dtEnd = null;
