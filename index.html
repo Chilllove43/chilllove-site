@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chill Love – Suite romantique avec jacuzzi & sauna privés</title>
+<meta name="description" content="Chill Love – Suite romantique à Beaux (Haute-Loire). Gîte de charme, jacuzzi & sauna privés. 120€ en semaine, 150€ vendredi & samedi.">
+<link rel="icon" type="image/png" href="favicon.png" sizes="32x32">
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f4ef; --card:#ffffff; --ink:#243027;
+  --line:rgba(0,0,0,.08); --sauge:#5d8f7a; --sauge-dark:#487363; --gold:#b58b49;
+}
+*{box-sizing:border-box} html,body{margin:0;padding:0;background:var(--bg);color:var(--ink)}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial;line-height:1.6}
+a{color:var(--sauge)} .wrap{max-width:1180px;margin:auto;padding:14px 22px}
+header{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;flex-direction:column;line-height:1}
+.brand .logo{font-family:"Alex Brush", cursive;font-size:36px;color:var(--sauge);text-decoration:none}
+.brand small{color:var(--gold)}
+.links a, .lang button{text-decoration:none;color:#2b2b2b;padding:8px 10px;border-radius:10px;border:1px solid transparent;background:transparent}
+.lang button{border-color:var(--sauge);color:var(--sauge);cursor:pointer;margin-left:6px}
+.hero{padding:28px 0;display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:center}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 10px 30px rgba(0,0,0,.05)}
+h1{margin:6px 0 8px;font-size:clamp(26px,4vw,40px)}
+.tagline{color:var(--gold);font-style:italic;margin:6px 0 6px}
+.subtitle{color:#4a5a51}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px}
+.badge{background:#eef4f1;color:var(--sauge);padding:6px 10px;border-radius:999px;font-size:14px;border:1px solid rgba(78,108,96,.18)}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.ph{border-radius:14px;overflow:hidden;background:#e9e6df;border:1px solid #e2dccf}
+.ph img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+.section{padding:34px 22px} .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+h2{font-size:26px;margin:0 0 12px} .fine{font-size:13px;color:#6b6b6b}
+input,textarea,select{width:100%;padding:12px 14px;border:1px solid #d8d2c5;border-radius:10px;background:#fff;font:inherit}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cta{display:inline-block;background:var(--sauge);color:white;text-decoration:none;padding:14px 18px;border-radius:12px;font-weight:600;transition:.25s}
+.cta:hover{background:var(--sauge-dark);transform:translateY(-1px)}
+.cal .month{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;padding:12px;border:1px solid var(--line);border-radius:14px;background:#fff;margin-top:10px}
+.cal .mhead{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;margin:6px 0}
+.cal .day{height:36px;display:flex;align-items:center;justify-content:center;border-radius:8px;border:1px solid #eee;background:#faf9f6}
+.cal .day.unavail{background:#ffecec;border-color:#ffd0d0;color:#b30000;text-decoration:line-through}
+footer{padding:30px 22px;color:#666} .mapwrap iframe{width:100%;height:340px;border:0;border-radius:16px}
+[data-lang="en"]{display:none}
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr 1fr}
+  .grid{grid-template-columns:1fr}
+  .two{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="brand">
+        <a class="logo" href="#top">Chill Love</a>
+        <small>Gîte romantique à Beaux</small>
+      </div>
+      <div class="lang">
+        <button id="btn-fr">FR</button>
+        <button id="btn-en">EN</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="top" class="wrap">
+  <section class="hero">
+    <div class="card">
+      <div data-lang="fr">
+        <h1>Chill Love – Suite romantique avec jacuzzi & sauna privés</h1>
+        <div class="tagline">Un cocon d’amour au cœur de la nature, entre douceur et détente.</div>
+        <p class="subtitle">Gîte à la ferme • Beaux, Haute-Loire (Auvergne‑Rhône‑Alpes)</p>
+      </div>
+      <div data-lang="en">
+        <h1>Chill Love – Romantic Farm Lodge with private jacuzzi & sauna</h1>
+        <div class="tagline">A love cocoon in the heart of nature, between tenderness and relaxation.</div>
+        <p class="subtitle">Farm lodge • Beaux, Haute‑Loire (Auvergne‑Rhône‑Alpes)</p>
+      </div>
+      <div class="badges">
+        <span class="badge">Jacuzzi privatif</span><span class="badge">Sauna privatif</span>
+        <span class="badge">Vue montagnes</span><span class="badge">Sans vis‑à‑vis</span>
+        <span class="badge">Parking sécurisé</span><span class="badge">Animaux bienvenus</span>
+      </div>
+      <p class="fine" data-lang="fr">Adresse : 3175 route de Beauzac, 43200 Beaux • Tel : <a href="tel:+33666050148">06 66 05 01 48</a></p>
+      <p class="fine" data-lang="en">Address: 3175 route de Beauzac, 43200 Beaux • Phone: <a href="tel:+33666050148">+33 6 66 05 01 48</a></p>
+      <p class="fine" data-lang="fr">💬 Le paiement se fait uniquement après confirmation de disponibilité.</p>
+      <p class="fine" data-lang="en">💬 Payment is only made after we confirm availability.</p>
+    </div>
+    <div class="gallery">
+      <figure class="ph"><img src="images/photo_01.jpg" alt="Chill Love photo 1" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_02.jpg" alt="Chill Love photo 2" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_03.jpg" alt="Chill Love photo 3" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_04.jpg" alt="Chill Love photo 4" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_05.jpg" alt="Chill Love photo 5" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_06.jpg" alt="Chill Love photo 6" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_07.jpg" alt="Chill Love photo 7" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_08.jpg" alt="Chill Love photo 8" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_09.jpg" alt="Chill Love photo 9" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_10.jpg" alt="Chill Love photo 10" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_11.jpg" alt="Chill Love photo 11" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_12.jpg" alt="Chill Love photo 12" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_13.jpg" alt="Chill Love photo 13" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_14.jpg" alt="Chill Love photo 14" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_15.jpg" alt="Chill Love photo 15" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_16.jpg" alt="Chill Love photo 16" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_17.jpg" alt="Chill Love photo 17" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_18.jpg" alt="Chill Love photo 18" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_19.jpg" alt="Chill Love photo 19" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_20.jpg" alt="Chill Love photo 20" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_21.jpg" alt="Chill Love photo 21" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_22.jpg" alt="Chill Love photo 22" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_23.jpg" alt="Chill Love photo 23" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_24.jpg" alt="Chill Love photo 24" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_25.jpg" alt="Chill Love photo 25" loading="lazy"></figure>
+    </div>
+  </section>
+</main>
+
+<section id="tarifs" class="section">
+  <div class="wrap">
+    <div class="grid">
+      <div class="card" data-lang="fr">
+        <h2>Tarifs (par nuit)</h2>
+        <ul style="list-style:none;padding:0;margin:0">
+          <li style="display:flex;justify-content:space-between;border-bottom:1px dashed #dfd7c6;padding:6px 0"><span>🗓️ Dimanche → Jeudi</span> <strong>120€ / nuit</strong></li>
+          <li style="display:flex;justify-content:space-between;border-bottom:1px dashed #dfd7c6;padding:6px 0"><span>⭐ Vendredi & Samedi</span> <strong>150€ / nuit</strong></li>
+        </ul>
+        <h3 style="margin-top:16px">Suppléments (par séjour)</h3>
+        <ul style="list-style:none;padding:0;margin:0">
+          <li style="display:flex;justify-content:space-between;border-bottom:1px dashed #dfd7c6;padding:6px 0"><span>🥐 Petit‑déjeuner (2 pers.)</span> <strong>+ 20€</strong></li>
+          <li style="display:flex;justify-content:space-between;border-bottom:1px dashed #dfd7c6;padding:6px 0"><span>🍾 Champagne + pétales de roses</span> <strong>+ 40€</strong></li>
+        </ul>
+        <p class="fine" style="margin-top:8px">Les prix s’entendent par nuit. Arrivée autonome. Taxes locales éventuelles en sus.</p>
+      </div>
+      <div class="card" data-lang="en">
+        <h2>Rates (per night)</h2>
+        <ul style="list-style:none;padding:0;margin:0">
+          <li style="display:flex;justify-content:space-between;border-bottom:1px dashed #dfd7c6;padding:6px 0"><span>🗓️ Sunday → Thursday</span> <strong>€120 / night</strong></li>
+          <li style="display:flex;justify-content:space-between;border-bottom:1px dashed #dfd7c6;padding:6px 0"><span>⭐ Friday & Saturday</span> <strong>€150 / night</strong></li>
+        </ul>
+        <h3 style="margin-top:16px">Extras (per stay)</h3>
+        <ul style="list-style:none;padding:0;margin:0">
+          <li style="display:flex;justify-content:space-between;border-bottom:1px dashed #dfd7c6;padding:6px 0"><span>🥐 Breakfast (2 guests)</span> <strong>+ €20</strong></li>
+          <li style="display:flex;justify-content:space-between;border-bottom:1px dashed #dfd7c6;padding:6px 0"><span>🍾 Champagne + rose petals</span> <strong>+ €40</strong></li>
+        </ul>
+        <p class="fine" style="margin-top:8px">Rates are per night. Self check‑in. Local taxes may apply.</p>
+      </div>
+      <div class="card cal">
+        <div class="mhead">
+          <h2 data-lang="fr" style="margin:0">Calendrier des disponibilités</h2>
+          <h2 data-lang="en" style="margin:0">Availability calendar</h2>
+        </div>
+        <div id="calendar"></div>
+        <p class="fine" data-lang="fr">ℹ️ Les dates en <span style="color:#b30000;">rouge</span> sont déjà réservées (Airbnb). Mise à jour automatique.</p>
+        <p class="fine" data-lang="en">ℹ️ Dates in <span style="color:#b30000;">red</span> are already booked (Airbnb). Auto‑updated.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="photos" class="section">
+  <div class="wrap">
+    <div class="card">
+      <h2 data-lang="fr">Galerie</h2>
+      <h2 data-lang="en">Gallery</h2>
+      <div class="gallery">
+        <figure class="ph"><img src="images/photo_01.jpg" alt="Chill Love photo 1" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_02.jpg" alt="Chill Love photo 2" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_03.jpg" alt="Chill Love photo 3" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_04.jpg" alt="Chill Love photo 4" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_05.jpg" alt="Chill Love photo 5" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_06.jpg" alt="Chill Love photo 6" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_07.jpg" alt="Chill Love photo 7" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_08.jpg" alt="Chill Love photo 8" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_09.jpg" alt="Chill Love photo 9" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_10.jpg" alt="Chill Love photo 10" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_11.jpg" alt="Chill Love photo 11" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_12.jpg" alt="Chill Love photo 12" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_13.jpg" alt="Chill Love photo 13" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_14.jpg" alt="Chill Love photo 14" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_15.jpg" alt="Chill Love photo 15" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_16.jpg" alt="Chill Love photo 16" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_17.jpg" alt="Chill Love photo 17" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_18.jpg" alt="Chill Love photo 18" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_19.jpg" alt="Chill Love photo 19" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_20.jpg" alt="Chill Love photo 20" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_21.jpg" alt="Chill Love photo 21" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_22.jpg" alt="Chill Love photo 22" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_23.jpg" alt="Chill Love photo 23" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_24.jpg" alt="Chill Love photo 24" loading="lazy"></figure>
+          <figure class="ph"><img src="images/photo_25.jpg" alt="Chill Love photo 25" loading="lazy"></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="wrap">
+    <div class="card">
+      <h2 data-lang="fr">Demande de réservation</h2>
+      <h2 data-lang="en">Booking request</h2>
+      <p class="fine" data-lang="fr">Remplissez ce formulaire. Nous confirmons la disponibilité rapidement par email.</p>
+      <p class="fine" data-lang="en">Fill out this form. We’ll confirm availability quickly by email.</p>
+      <form action="mailto:sadri.berrabah@gmail.com" method="post" enctype="text/plain">
+        <div class="two">
+          <input required name="Nom" placeholder="Nom & prénom / Full name" />
+          <input required type="email" name="Email" placeholder="Email" />
+        </div>
+        <div class="two">
+          <input required type="tel" name="Téléphone" placeholder="Téléphone / Phone" />
+          <select name="Guests">
+            <option value="" disabled selected>Nombre de personnes / Guests</option>
+            <option>1</option><option>2</option><option>3</option><option>4</option>
+          </select>
+        </div>
+        <div class="two">
+          <input required type="date" id="f-in" name="Arrivée" placeholder="Arrivée / Check-in" />
+          <input required type="date" id="f-out" name="Départ" placeholder="Départ / Check-out" />
+        </div>
+        <label style="display:flex;gap:8px;align-items:center;margin-top:6px">
+          <input type="checkbox" name="Petit-dejeuner"> Petit‑déj (2 pers.) +20€ / Breakfast +€20
+        </label>
+        <label style="display:flex;gap:8px;align-items:center;margin-top:6px">
+          <input type="checkbox" name="Champagne"> Champagne + pétales +40€ / Champagne + petals +€40
+        </label>
+        <textarea name="Message" rows="5" placeholder="Message (options, animaux, horaires, etc.) / Message (options, pets, timing, etc.)"></textarea>
+        <p class="fine" data-lang="fr" style="margin:6px 0 0">💬 Le paiement se fait uniquement après confirmation de disponibilité.</p>
+        <p class="fine" data-lang="en" style="margin:6px 0 0">💬 Payment is only made after we confirm availability.</p>
+        <div style="margin-top:10px">
+          <a class="cta" href="https://www.paypal.me/chilllove43?locale.x=fr_FR" target="_blank" rel="noopener">Payer via PayPal</a>
+        </div>
+        <p class="fine" style="margin-top:10px">Email : <a href="mailto:sadri.berrabah@gmail.com">sadri.berrabah@gmail.com</a> • Instagram : <a href="https://www.instagram.com/chill.love43" target="_blank">@chill.love43</a></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <hr style="border:none;border-top:1px solid var(--line);margin:0 0 18px">
+  <div class="fine">Site réalisé par Chill Love © 2025 – Tous droits réservés • <a href="https://www.instagram.com/chill.love43" target="_blank">@chill.love43</a></div>
+</footer>
+
+<script>
+// Language switch
+const btnFr = document.getElementById('btn-fr');
+const btnEn = document.getElementById('btn-en');
+function setLang(lang) {
+  document.querySelectorAll('[data-lang="fr"]').forEach(el => el.style.display = (lang==='fr'?'':'none'));
+  document.querySelectorAll('[data-lang="en"]').forEach(el => el.style.display = (lang==='en'?'':'none'));
+  localStorage.setItem('lang', lang);
+}
+btnFr.addEventListener('click', ()=>setLang('fr'));
+btnEn.addEventListener('click', ()=>setLang('en'));
+setLang(localStorage.getItem('lang') || 'fr');
+
+// Dates min today for form
+function ymd(d){const p=n=>String(n).padStart(2,'0');return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}`}
+const today=new Date();
+['f-in','f-out'].forEach(id=>{const el=document.getElementById(id); if(el) el.min=ymd(today)});
+
+// Airbnb iCal calendar (with CORS fallback to local /ics/airbnb.ics)
+const CAL_SRC = "https://www.airbnb.com/calendar/ical/13384631.ics?s=f5e78b51c6edc38f540d3c849ff76ae4&locale=fr";
+const calRoot = document.getElementById('calendar');
+
+async function fetchICS(url) {
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('HTTP '+res.status);
+    return await res.text();
+  } catch(e) {
+    try {
+      const res2 = await fetch('ics/airbnb.ics');
+      if (!res2.ok) throw new Error('Local ICS missing');
+      return await res2.text();
+    } catch(e2) {
+      calRoot.innerHTML = '<div class="fine">Impossible de charger le calendrier distant (CORS). Placez une copie de votre fichier iCal dans <code>/ics/airbnb.ics</code> ou fournissez un lien iCal public.</div>';
+      return null;
+    }
+  }
+}
+
+function parseICS(ics) {
+  const lines = ics.split(/\r?\n/);
+  const events = [];
+  let cur = null;
+  for (let line of lines) {
+    if (line.startsWith('BEGIN:VEVENT')) cur = {};
+    else if (line.startsWith('DTSTART')) cur.start = line.split(':').pop().trim();
+    else if (line.startsWith('DTEND')) cur.end = line.split(':').pop().trim();
+    else if (line.startsWith('SUMMARY')) cur.summary = line.split(':').slice(1).join(':').trim();
+    else if (line.startsWith('END:VEVENT')) { if (cur) events.push(cur); cur = null; }
+  }
+  return events;
+}
+
+function ymdToDate(s) { const y=+s.slice(0,4), m=+s.slice(4,6)-1, d=+s.slice(6,8); return new Date(y,m,d); }
+
+function buildCalendar(unavailableSet) {
+  const now = new Date(); const monthsToShow = 6;
+  calRoot.innerHTML = '';
+  for (let i=0;i<monthsToShow;i++) {
+    const first = new Date(now.getFullYear(), now.getMonth()+i, 1);
+    const head = document.createElement('div'); head.className='mhead';
+    head.innerHTML = '<strong>'+ first.toLocaleDateString(localStorage.getItem('lang')==='en'?'en-GB':'fr-FR', { month: 'long', year: 'numeric' }) +'</strong>';
+    const grid = document.createElement('div'); grid.className='month';
+    const startDow = (first.getDay()+6)%7; // Monday start
+    for (let k=0;k<startDow;k++) { const e=document.createElement('div'); e.className='day'; e.style.visibility='hidden'; grid.appendChild(e);}
+    const daysInMonth = new Date(first.getFullYear(), first.getMonth()+1, 0).getDate();
+    for (let d=1; d<=daysInMonth; d++) {
+      const cell = document.createElement('div'); cell.className='day';
+      const key = first.getFullYear()+'-'+String(first.getMonth()+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
+      if (unavailableSet.has(key)) cell.classList.add('unavail');
+      cell.textContent = d; grid.appendChild(cell);
+    }
+    const wrap = document.createElement('div'); wrap.appendChild(head); wrap.appendChild(grid); calRoot.appendChild(wrap);
+  }
+}
+
+function expandDateRangeSet(events) {
+  const set = new Set();
+  for (const ev of events) {
+    if (!ev.start || !ev.end) continue;
+    const s = ymdToDate(ev.start.replace(/-/g,''));
+    const e = ymdToDate(ev.end.replace(/-/g,''));
+    for (let d = new Date(s); d < e; d.setDate(d.getDate()+1)) {
+      const key = d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+      set.add(key);
+    }
+  }
+  return set;
+}
+
+(async () => {
+  const ics = await fetchICS(CAL_SRC);
+  if (!ics) return;
+  const events = parseICS(ics);
+  const set = expandDateRangeSet(events);
+  buildCalendar(set);
+})();
+</script>
+</body>
+</html>
