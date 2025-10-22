@@ -1,4 +1,3 @@
-
 :root{ --bg:#f7f4ef; --card:#ffffff; --ink:#243027; --line:rgba(0,0,0,.08); --sauge:#5d8f7a; --sauge-dark:#487363; --gold:#b58b49; }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial;line-height:1.6}
