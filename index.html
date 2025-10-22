@@ -4,15 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chill Love – Suite romantique</title>
-  <link rel="stylesheet" href="assets/style.css" />
-  <link rel="icon" href="assets/images/favicon.png" type="image/png" />
-  <script src="assets/lang.js" defer></script>
-  <script src="js/modal.js" defer></script>
+  <link rel="stylesheet" href="asset/style.css" />
+  <link rel="icon" href="asset/images/favicon.png" type="image/png" />
+  <script src="js/scooter.js" defer></script>
+  <script src="js/lang.js" defer></script>
 </head>
 
 <body>
   <header>
-    <img src="assets/images/logo_chilllove.png" alt="Logo Chill Love" class="logo" />
+    <img src="asset/images/logo_chilllove.png" alt="Logo Chill Love" class="logo" />
     <div class="lang-switch">
       <button onclick="switchLang('fr')">FR</button>
       <button onclick="switchLang('en')">EN</button>
@@ -29,34 +29,32 @@
 
     <section class="gallery">
       <div class="gallery-grid">
-        <!-- 24 photos -->
-        <!-- Remplace les noms si nécessaire -->
-        <img src="assets/images/photo1.jpg" alt="photo1" onclick="openModal(this)" />
-        <img src="assets/images/photo2.jpg" alt="photo2" onclick="openModal(this)" />
-        <img src="assets/images/photo3.jpg" alt="photo3" onclick="openModal(this)" />
-        <img src="assets/images/photo4.jpg" alt="photo4" onclick="openModal(this)" />
-        <img src="assets/images/photo5.jpg" alt="photo5" onclick="openModal(this)" />
-        <img src="assets/images/photo6.jpg" alt="photo6" onclick="openModal(this)" />
-        <img src="assets/images/photo7.jpg" alt="photo7" onclick="openModal(this)" />
-        <img src="assets/images/photo8.jpg" alt="photo8" onclick="openModal(this)" />
-        <img src="assets/images/photo9.jpg" alt="photo9" onclick="openModal(this)" />
-        <img src="assets/images/photo10.jpg" alt="photo10" onclick="openModal(this)" />
-        <img src="assets/images/photo11.jpg" alt="photo11" onclick="openModal(this)" />
-        <img src="assets/images/photo12.jpg" alt="photo12" onclick="openModal(this)" />
-        <img src="assets/images/photo13.jpg" alt="photo13" onclick="openModal(this)" />
-        <img src="assets/images/photo14.jpg" alt="photo14" onclick="openModal(this)" />
-        <img src="assets/images/photo15.jpg" alt="photo15" onclick="openModal(this)" />
-        <img src="assets/images/photo16.jpg" alt="photo16" onclick="openModal(this)" />
-        <img src="assets/images/photo17.jpg" alt="photo17" onclick="openModal(this)" />
-        <img src="assets/images/photo18.jpg" alt="photo18" onclick="openModal(this)" />
-        <img src="assets/images/photo19.jpg" alt="photo19" onclick="openModal(this)" />
-        <img src="assets/images/photo20.jpg" alt="photo20" onclick="openModal(this)" />
-        <img src="assets/images/photo21.jpg" alt="photo21" onclick="openModal(this)" />
-        <img src="assets/images/photo22.jpg" alt="photo22" onclick="openModal(this)" />
-        <img src="assets/images/photo23.jpg" alt="photo23" onclick="openModal(this)" />
-        <img src="assets/images/photo24.jpg" alt="photo24" onclick="openModal(this)" />
+        <!-- 24 images -->
+        <img src="asset/images/photo_01.jpg" alt="photo1" onclick="openModal(this)" />
+        <img src="asset/images/photo_02.jpg" alt="photo2" onclick="openModal(this)" />
+        <img src="asset/images/photo_03.jpg" alt="photo3" onclick="openModal(this)" />
+        <img src="asset/images/photo_04.jpg" alt="photo4" onclick="openModal(this)" />
+        <img src="asset/images/photo_05.jpg" alt="photo5" onclick="openModal(this)" />
+        <img src="asset/images/photo_06.jpg" alt="photo6" onclick="openModal(this)" />
+        <img src="asset/images/photo_07.jpg" alt="photo7" onclick="openModal(this)" />
+        <img src="asset/images/photo_08.jpg" alt="photo8" onclick="openModal(this)" />
+        <img src="asset/images/photo_09.jpg" alt="photo9" onclick="openModal(this)" />
+        <img src="asset/images/photo_10.jpg" alt="photo10" onclick="openModal(this)" />
+        <img src="asset/images/photo_11.jpg" alt="photo11" onclick="openModal(this)" />
+        <img src="asset/images/photo_12.jpg" alt="photo12" onclick="openModal(this)" />
+        <img src="asset/images/photo_13.jpg" alt="photo13" onclick="openModal(this)" />
+        <img src="asset/images/photo_14.jpg" alt="photo14" onclick="openModal(this)" />
+        <img src="asset/images/photo_15.jpg" alt="photo15" onclick="openModal(this)" />
+        <img src="asset/images/photo_16.jpg" alt="photo16" onclick="openModal(this)" />
+        <img src="asset/images/photo_17.jpg" alt="photo17" onclick="openModal(this)" />
+        <img src="asset/images/photo_18.jpg" alt="photo18" onclick="openModal(this)" />
+        <img src="asset/images/photo_19.jpg" alt="photo19" onclick="openModal(this)" />
+        <img src="asset/images/photo_20.jpg" alt="photo20" onclick="openModal(this)" />
+        <img src="asset/images/photo_21.jpg" alt="photo21" onclick="openModal(this)" />
+        <img src="asset/images/photo_22.jpg" alt="photo22" onclick="openModal(this)" />
+        <img src="asset/images/photo_23.jpg" alt="photo23" onclick="openModal(this)" />
+        <img src="asset/images/photo_24.jpg" alt="photo24" onclick="openModal(this)" />
       </div>
-
       <div id="modal" onclick="closeModal()">
         <img id="modal-img" />
       </div>
@@ -70,16 +68,22 @@
         <li data-lang="en">🗓️ Sunday → Thursday: €120 / night (excluding public holidays)</li>
         <li data-lang="fr">🗓️ Vendredi & Samedi : 150€ / nuit</li>
         <li data-lang="en">🗓️ Friday & Saturday: €150 / night</li>
+        <li data-lang="fr">🥐 Petit-déjeuner (2 pers.) : +20€</li>
+        <li data-lang="en">🥐 Breakfast (2 people): +€20</li>
+        <li data-lang="fr">🍾 Option Champagne + Pétales de roses : +40€</li>
+        <li data-lang="en">🍾 Champagne + Rose Petals Option: +€40</li>
       </ul>
+      <a href="https://www.paypal.com/paypalme/chilllove" class="reserver-btn">Réserver maintenant via PayPal</a>
     </section>
 
     <section class="calendar">
       <h2 data-lang="fr">Disponibilités</h2>
       <h2 data-lang="en">Availability</h2>
-      <iframe
-        src="https://www.airbnb.com/calendar/ical/13384631.ics?s=f5e78b51c6edc38f540d3c849ff76ae4&locale=fr"
-        style="width:100%;height:300px;border:none;">
-      </iframe>
+      <p data-lang="fr">📅 Cliquez ci-dessous pour consulter les disponibilités sur Airbnb</p>
+      <p data-lang="en">📅 Click below to view availability on Airbnb</p>
+      <a href="https://www.airbnb.fr/calendar/ical/13384631.ics?s=f5e78b51c6edc38f540d3c849ff76ae4&locale=fr" target="_blank">
+        Consulter le calendrier
+      </a>
     </section>
 
     <section class="avis">
@@ -89,9 +93,7 @@
         <blockquote>“Endroit magnifique et romantique !” – Sarah</blockquote>
         <blockquote>“Calme, propre, et super bien décoré.” – Julien</blockquote>
         <blockquote>“Le sauna et jacuzzi au top !” – Emma</blockquote>
-        <a href="https://www.airbnb.fr/rooms/13384631?viralityEntryPoint=1&s=76" target="_blank">
-          → Voir tous les avis Airbnb
-        </a>
+        <a href="https://www.airbnb.fr/rooms/13384631?viralityEntryPoint=1&s=76" target="_blank">→ Voir tous les avis Airbnb</a>
       </div>
     </section>
 
@@ -104,7 +106,9 @@
   </main>
 
   <footer>
-    <p>© 2025 Chill Love – Tous droits réservés</p>
+    <p>📍 3175 route de Beauzac, 43200 Beaux – Lieu dit Courenc</p>
+    <p>📞 06 66 15 01 48 — 📷 @chill.love43</p>
+    <p>© Chill Love 2025 — Tous droits réservés</p>
   </footer>
 </body>
 </html>
