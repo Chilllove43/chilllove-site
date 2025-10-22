@@ -1,117 +1,86 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chill Love – Suite romantique avec jacuzzi & sauna privés</title>
-  <meta name="description" content="Gîte romantique à Beaux (43) avec jacuzzi & sauna privés, vue nature. Réservez votre nuitée – petit-déjeuner & option champagne.">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="asset/favicon.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/script.js" defer></script>
 </head>
-<body>
-  <header class="header">
-    <div class="nav container">
-      <a class="brand" href="#">
-        <img src="assets/favicon.svg" alt="logo" width="28" height="28">
-        <span class="brand-title">Chill Love</span>
-      </a>
 
-      <div class="langs">
-        <button data-lang="fr" class="active">FR</button>
-        <button data-lang="en">EN</button>
-      </div>
+<body>
+  <header>
+    <h1>Chill Love – Suite romantique avec jacuzzi & sauna privés</h1>
+    <p>Un cocon d'amour au cœur de la nature, entre jacuzzi, sauna et douceur.</p>
+
+    <div class="infos">
+      <p>📍 Beaux, Haute-Loire (Auvergne-Rhône-Alpes)</p>
+      <p>
+        💌 <a href="mailto:chill.bambahan@gmail.com">chill.bambahan@gmail.com</a> |
+        💖 <a href="https://www.instagram.com/chill.love43" target="_blank">@chill.love43</a>
+      </p>
+    </div>
+
+    <div class="buttons">
+      <a href="https://www.paypal.me/" target="_blank" class="btn">Payer via PayPal</a>
+      <a href="ics/airbnb.ics" target="_blank" class="btn">📅 Voir le calendrier</a>
     </div>
   </header>
 
-  <main class="container">
-    <section class="hero">
-      <h1 data-i18n="title">Chill Love – Suite romantique avec jacuzzi & sauna privés</h1>
-      <p class="sub" data-i18n="tagline">Un cocon d’amour au cœur de la nature, entre jacuzzi, sauna et douceur.</p>
-
-      <div class="pills">
-        <span>Jacuzzi privatif</span><span>Sauna privé</span><span>Vue montagne</span><span>Wifi</span>
-      </div>
-
-      <div class="kpis">
-        <span>📍 Beaux, Haute-Loire</span>
-        <span>💌 <a href="mailto:sadri.berrabah@gmail.com">sadri.berrabah@gmail.com</a></span>
-        <span>💚 <a target="_blank" rel="noopener" href="https://www.instagram.com/chill.love43">@chill.love43</a></span>
-      </div>
-
-      <div class="ctas">
-        <a class="btn btn-primary" target="_blank" rel="noopener"
-           href="https://www.paypal.me/chilllove43?locale.x=fr_FR" data-i18n="cta">Payer via PayPal</a>
-        <a class="btn btn-secondary" href="#calendar">Voir le calendrier</a>
-      </div>
-    </section>
-
-    <section class="section">
+  <main>
+    <section class="gallery">
       <h2>Galerie</h2>
-      <div class="gallery" id="gallery"></div>
+      <div class="photo-grid">
+        <!-- Les photos locales -->
+        <img src="photo_01.jpg" alt="Chill Love" loading="lazy" />
+        <img src="photo_02.jpg" alt="Chill Love" loading="lazy" />
+        <img src="photo_03.jpg" alt="Chill Love" loading="lazy" />
+        <img src="photo_04.jpg" alt="Chill Love" loading="lazy" />
+        <img src="photo_05.jpg" alt="Chill Love" loading="lazy" />
+        <img src="photo_06.jpg" alt="Chill Love" loading="lazy" />
+        <img src="photo_07.jpg" alt="Chill Love" loading="lazy" />
+        <img src="photo_08.jpg" alt="Chill Love" loading="lazy" />
+        <img src="photo_09.jpg" alt="Chill Love" loading="lazy" />
+        <img src="photo_10.jpg" alt="Chill Love" loading="lazy" />
+      </div>
     </section>
 
-    <section class="section" id="reviews">
-      <h2 data-i18n="reviewsTitle">Avis récents</h2>
-      <div class="reviews">
-        <article class="review">
-          <div class="stars">★★★★★</div>
-          <p>« Un séjour inoubliable, jacuzzi et vue superbe ! »</p>
-          <small>— Laura, octobre 2025</small>
-        </article>
-        <article class="review">
-          <div class="stars">★★★★★</div>
-          <p>« Endroit paisible et très propre. Parfait pour une escapade romantique. »</p>
-          <small>— Maxime, août 2025</small>
-        </article>
-        <article class="review">
-          <div class="stars">★★★★★</div>
-          <p>« Accueil chaleureux, décor magnifique et sauna au top. »</p>
-          <small>— Clara, juin 2025</small>
-        </article>
-      </div>
-      <p style="margin-top:8px">
-        <a target="_blank" rel="noopener" href="https://www.airbnb.fr/rooms/13384631" data-i18n="moreAirbnb">
-          Voir plus d’avis sur Airbnb
-        </a>
-      </p>
+    <section class="reviews">
+      <h2>Avis récents</h2>
+
+      <blockquote>
+        <p>« Un séjour inoubliable, jacuzzi et vue superbe ! »</p>
+        <cite>— Laura, octobre 2025 ⭐⭐⭐⭐⭐</cite>
+      </blockquote>
+
+      <blockquote>
+        <p>« Endroit paisible et très propre. Parfait pour une escapade romantique. »</p>
+        <cite>— Maxime, août 2025 ⭐⭐⭐⭐⭐</cite>
+      </blockquote>
+
+      <blockquote>
+        <p>« Accueil chaleureux, décor magnifique et sauna au top. »</p>
+        <cite>— Clara, juin 2025 ⭐⭐⭐⭐⭐</cite>
+      </blockquote>
+
+      <a href="https://www.airbnb.fr/rooms/13384631" class="btn" target="_blank">
+        Voir plus d’avis sur Airbnb
+      </a>
     </section>
 
-    <section class="section" id="calendar">
-      <h2 data-i18n="calendarTitle">Disponibilités</h2>
-      <div class="calendar card">
-        <div class="cal-header">
-          <button id="prev" class="btn btn-secondary">◀</button>
-          <strong id="monthLabel"></strong>
-          <button id="next" class="btn btn-secondary">▶</button>
-        </div>
-        <div id="cal"></div>
-      </div>
-      <div class="legend"><span>🔴 Occupé</span><span>⬜ Libre</span></div>
-      <p class="hint">Le calendrier lit <code>ics/airbnb.ics</code>. Remplace-le par ton export Airbnb.</p>
+    <section class="calendar">
+      <h2>Disponibilités</h2>
+      <iframe
+        src="ics/airbnb.ics"
+        title="Calendrier des disponibilités"
+        style="width: 100%; height: 400px; border: 1px solid #ccc; border-radius: 8px;">
+      </iframe>
     </section>
   </main>
 
-  <footer class="container footer">
-    <span>© Chill Love – Beaux, Haute-Loire</span>
-    <a target="_blank" rel="noopener" href="https://www.airbnb.fr/rooms/13384631">Airbnb</a>
-    <a target="_blank" rel="noopener" href="https://www.instagram.com/chill.love43">@chill.love43</a>
+  <footer>
+    <p>© 2025 Chill Love – Gîte romantique à Beaux | Site officiel</p>
   </footer>
-
-  <!-- Lightbox -->
-  <div class="lightbox" aria-hidden="true"><img alt=""></div>
-
-  <script src="js/script.js"></script>
-
-  <!-- Liste des fichiers de la galerie (mets ici les noms réels dans /imgs) -->
-  <script>
-    const FILES = [
-      "photo_01.jpg","photo_02.jpg","photo_03.jpg","photo_04.jpg","photo_05.jpg",
-      "photo_06.jpg","photo_07.jpg","photo_08.jpg","photo_09.jpg","photo_10.jpg",
-      "photo_11.jpg","photo_12.jpg","photo_13.jpg","photo_14.jpg","photo_15.jpg",
-      "photo_16.jpg","photo_17.jpg","photo_18.jpg","photo_19.jpg","photo_20.jpg",
-      "photo_21.jpg","photo_22.jpg","photo_23.jpg","photo_24.jpg","photo_25.jpg"
-    ];
-    window.__GALLERY_FILES__ = FILES;
-  </script>
 </body>
 </html>
