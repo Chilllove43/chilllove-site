@@ -1,196 +1,117 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chill Love – Suite romantique avec jacuzzi & sauna privés</title>
-<meta name="description" content="Chill Love – Suite romantique à Beaux (Haute-Loire). Jacuzzi & sauna privés. Parfait pour une escapade nature.">
-<link rel="icon" type="image/png" href="favicon.png" sizes="32x32">
-<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<script defer src="script.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chill Love – Suite romantique avec jacuzzi & sauna privés</title>
+  <meta name="description" content="Gîte romantique à Beaux (43) avec jacuzzi & sauna privés, vue nature. Réservez votre nuitée – petit-déjeuner & option champagne.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <nav>
-      <div class="brand">
-        <a class="logo" href="#top"><img src="favicon.png" alt=""> Chill Love</a>
-        <small>Gîte romantique à Beaux</small>
-      </div>
-      <div class="header-links">
-        <a class="insta" href="https://www.instagram.com/chill.love43?igsh=Z2MyNXZnM3g4ZWs3" target="_blank" rel="noopener">
-          <span class="dot"></span> @chill.love43
-        </a>
-        <div class="lang">
-          <button id="btn-fr">FR</button>
-          <button id="btn-en">EN</button>
-        </div>
-      </div>
-    </nav>
-  </div>
-</header>
+  <header class="header">
+    <div class="nav container">
+      <a class="brand" href="#">
+        <img src="assets/favicon.svg" alt="logo" width="28" height="28">
+        <span class="brand-title">Chill Love</span>
+      </a>
 
-<main id="top" class="wrap">
-  <section class="hero">
-    <div class="card fade">
-      <div data-lang="fr">
-        <h1>Chill Love – Suite romantique avec jacuzzi & sauna privés</h1>
-        <div class="tagline">Un cocon d’amour au cœur de la nature, entre jacuzzi, sauna et douceur.</div>
-        <p class="subtitle">Bienvenue dans notre suite romantique, nichée au cœur de la Haute-Loire.</p>
-      </div>
-      <div data-lang="en">
-        <h1>Chill Love – Romantic suite with private jacuzzi & sauna</h1>
-        <div class="tagline">A love cocoon in the heart of nature, with jacuzzi, sauna and serenity.</div>
-        <p class="subtitle">Welcome to our romantic suite, nestled in Haute-Loire.</p>
-      </div>
-
-      <div class="badges">
-        <span class="badge">Jacuzzi privatif</span><span class="badge">Sauna privatif</span>
-        <span class="badge">Vue montagnes</span><span class="badge">Sans vis-à-vis</span>
-        <span class="badge">Parking sécurisé</span><span class="badge">Animaux bienvenus</span>
-      </div>
-
-      <div style="margin-top:10px">
-        <a class="cta" href="https://www.paypal.me/chilllove43?locale.x=fr_FR" target="_blank" rel="noopener">Payer via PayPal</a>
+      <div class="langs">
+        <button data-lang="fr" class="active">FR</button>
+        <button data-lang="en">EN</button>
       </div>
     </div>
+  </header>
 
-    <!-- Galerie: remplie automatiquement par script.js
-         Il liste photo_01.jpg ... photo_40.jpg (à la racine OU dans /images) et ignore les fichiers cassés -->
-    <div id="gallery" class="gallery fade"></div>
-  </section>
-</main>
+  <main class="container">
+    <section class="hero">
+      <h1 data-i18n="title">Chill Love – Suite romantique avec jacuzzi & sauna privés</h1>
+      <p class="sub" data-i18n="tagline">Un cocon d’amour au cœur de la nature, entre jacuzzi, sauna et douceur.</p>
 
-<section id="tarifs" class="section">
-  <div class="wrap">
-    <div class="grid">
-      <div class="card fade" data-lang="fr">
-        <h2>Tarifs (par nuit)</h2>
-        <ul style="list-style:none;padding:0;margin:0">
-          <li style="display:flex;justify-content:space-between;border-bottom:1px dashed #dfd7c6;padding:6px 0">
-            <span>🗓️ Dimanche → Jeudi</span> <strong>120€ / nuit</strong>
-          </li>
-          <li style="display:flex;justify-content:space-between;border-bottom:1px dashed #dfd7c6;padding:6px 0">
-            <span>⭐ Vendredi & Samedi</span> <strong>150€ / nuit</strong>
-          </li>
-        </ul>
-        <h3 style="margin-top:16px">Suppléments (par séjour)</h3>
-        <ul style="list-style:none;padding:0;margin:0">
-          <li style="display:flex;justify-content:space-between;border-bottom:1px dashed #dfd7c6;padding:6px 0">
-            <span>🥐 Petit-déjeuner (2 pers.)</span> <strong>+ 20€</strong>
-          </li>
-          <li style="display:flex;justify-content:space-between;border-bottom:1px dashed #dfd7c6;padding:6px 0">
-            <span>🍾 Champagne + pétales de roses</span> <strong>+ 40€</strong>
-          </li>
-        </ul>
-        <p class="fine" style="margin-top:8px">Les prix s’entendent par nuit.</p>
+      <div class="pills">
+        <span>Jacuzzi privatif</span><span>Sauna privé</span><span>Vue montagne</span><span>Wifi</span>
       </div>
 
-      <div class="card fade" data-lang="en">
-        <h2>Rates (per night)</h2>
-        <ul style="list-style:none;padding:0;margin:0">
-          <li style="display:flex;justify-content:space-between;border-bottom:1px dashed #dfd7c6;padding:6px 0">
-            <span>🗓️ Sunday → Thursday</span> <strong>€120 / night</strong>
-          </li>
-          <li style="display:flex;justify-content:space-between;border-bottom:1px dashed #dfd7c6;padding:6px 0">
-            <span>⭐ Friday & Saturday</span> <strong>€150 / night</strong>
-          </li>
-        </ul>
-        <h3 style="margin-top:16px">Extras (per stay)</h3>
-        <ul style="list-style:none;padding:0;margin:0">
-          <li style="display:flex;justify-content:space-between;border-bottom:1px dashed #dfd7c6;padding:6px 0">
-            <span>🥐 Breakfast (2 guests)</span> <strong>+ €20</strong>
-          </li>
-          <li style="display:flex;justify-content:space-between;border-bottom:1px dashed #dfd7c6;padding:6px 0">
-            <span>🍾 Champagne + rose petals</span> <strong>+ €40</strong>
-          </li>
-        </ul>
-        <p class="fine" style="margin-top:8px">Rates are per night.</p>
+      <div class="kpis">
+        <span>📍 Beaux, Haute-Loire</span>
+        <span>💌 <a href="mailto:sadri.berrabah@gmail.com">sadri.berrabah@gmail.com</a></span>
+        <span>💚 <a target="_blank" rel="noopener" href="https://www.instagram.com/chill.love43">@chill.love43</a></span>
       </div>
 
-      <div class="card cal fade">
-        <div class="mhead">
-          <h2 data-lang="fr" style="margin:0">Calendrier des disponibilités</h2>
-          <h2 data-lang="en" style="margin:0">Availability calendar</h2>
-        </div>
-        <div id="calendar"></div>
-        <p class="fine" data-lang="fr">ℹ️ Les dates en <span style="color:#b30000;">rouge</span> sont déjà réservées (Airbnb). Mise à jour automatique.</p>
-        <p class="fine" data-lang="en">ℹ️ Dates in <span style="color:#b30000;">red</span> are already booked (Airbnb). Auto-updated.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://www.paypal.me/chilllove43?locale.x=fr_FR" data-i18n="cta">Payer via PayPal</a>
+        <a class="btn btn-secondary" href="#calendar">Voir le calendrier</a>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section id="avis" class="section">
-  <div class="wrap">
-    <div class="card fade">
-      <h2>Avis clients (Airbnb)</h2>
+    <section class="section">
+      <h2>Galerie</h2>
+      <div class="gallery" id="gallery"></div>
+    </section>
+
+    <section class="section" id="reviews">
+      <h2 data-i18n="reviewsTitle">Avis récents</h2>
       <div class="reviews">
-        <div class="review">
+        <article class="review">
           <div class="stars">★★★★★</div>
-          <p><em>« Un séjour inoubliable, jacuzzi et vue superbe ! »</em></p>
-          <p class="fine">— Laura, octobre 2025</p>
-        </div>
-        <div class="review">
-          <div class="stars">★★★★☆</div>
-          <p><em>« Endroit paisible et très propre. Parfait pour une escapade romantique. »</em></p>
-          <p class="fine">— Maxime, août 2025</p>
-        </div>
-        <div class="review">
+          <p>« Un séjour inoubliable, jacuzzi et vue superbe ! »</p>
+          <small>— Laura, octobre 2025</small>
+        </article>
+        <article class="review">
           <div class="stars">★★★★★</div>
-          <p><em>« Accueil chaleureux, décor magnifique et jacuzzi top ! »</em></p>
-          <p class="fine">— Clara, juin 2025</p>
-        </div>
+          <p>« Endroit paisible et très propre. Parfait pour une escapade romantique. »</p>
+          <small>— Maxime, août 2025</small>
+        </article>
+        <article class="review">
+          <div class="stars">★★★★★</div>
+          <p>« Accueil chaleureux, décor magnifique et sauna au top. »</p>
+          <small>— Clara, juin 2025</small>
+        </article>
       </div>
-      <p style="margin-top:10px"><a href="https://www.airbnb.fr/rooms/13384631?viralityEntryPoint=1&s=76" target="_blank" rel="noopener">Voir plus d’avis sur Airbnb</a></p>
-    </div>
-  </div>
-</section>
+      <p style="margin-top:8px">
+        <a target="_blank" rel="noopener" href="https://www.airbnb.fr/rooms/13384631" data-i18n="moreAirbnb">
+          Voir plus d’avis sur Airbnb
+        </a>
+      </p>
+    </section>
 
-<section id="contact" class="section">
-  <div class="wrap">
-    <div class="card fade">
-      <h2 data-lang="fr">Demande de réservation</h2>
-      <h2 data-lang="en">Booking request</h2>
-      <form action="mailto:sadri.berrabah@gmail.com" method="post" enctype="text/plain">
-        <div class="two">
-          <input required name="Nom" placeholder="Nom & prénom / Full name" />
-          <input required type="email" name="Email" placeholder="Email" />
+    <section class="section" id="calendar">
+      <h2 data-i18n="calendarTitle">Disponibilités</h2>
+      <div class="calendar card">
+        <div class="cal-header">
+          <button id="prev" class="btn btn-secondary">◀</button>
+          <strong id="monthLabel"></strong>
+          <button id="next" class="btn btn-secondary">▶</button>
         </div>
-        <div class="two">
-          <input required type="tel" name="Téléphone" placeholder="Téléphone / Phone" />
-          <select name="Guests">
-            <option value="" disabled selected>Nombre de personnes / Guests</option>
-            <option>1</option><option>2</option><option>3</option><option>4</option>
-          </select>
-        </div>
-        <div class="two">
-          <input required type="date" id="f-in" name="Arrivée" placeholder="Arrivée / Check-in" />
-          <input required type="date" id="f-out" name="Départ" placeholder="Départ / Check-out" />
-        </div>
-        <label style="display:flex;gap:8px;align-items:center;margin-top:6px">
-          <input type="checkbox" name="Petit-dejeuner"> Petit-déj (2 pers.) +20€ / Breakfast +€20
-        </label>
-        <label style="display:flex;gap:8px;align-items:center;margin-top:6px">
-          <input type="checkbox" name="Champagne"> Champagne + pétales +40€ / Champagne + petals +€40
-        </label>
-        <textarea name="Message" rows="5" placeholder="Message (options, animaux, horaires, etc.) / Message (options, pets, timing, etc.)"></textarea>
-        <div style="margin-top:10px">
-          <a class="cta" href="https://www.paypal.me/chilllove43?locale.x=fr_FR" target="_blank" rel="noopener">Payer via PayPal</a>
-        </div>
-        <p class="fine" style="margin-top:10px">
-          Email : <a href="mailto:sadri.berrabah@gmail.com">sadri.berrabah@gmail.com</a> •
-          Instagram : <a href="https://www.instagram.com/chill.love43?igsh=Z2MyNXZnM3g4ZWs3" target="_blank">@chill.love43</a>
-        </p>
-      </form>
-    </div>
-  </div>
-</section>
+        <div id="cal"></div>
+      </div>
+      <div class="legend"><span>🔴 Occupé</span><span>⬜ Libre</span></div>
+      <p class="hint">Le calendrier lit <code>ics/airbnb.ics</code>. Remplace-le par ton export Airbnb.</p>
+    </section>
+  </main>
 
-<footer class="wrap">
-  <hr style="border:none;border-top:1px solid var(--line);margin:0 0 18px">
-  <div class="fine">Site réalisé par Chill Love © 2025 – Tous droits réservés</div>
-</footer>
+  <footer class="container footer">
+    <span>© Chill Love – Beaux, Haute-Loire</span>
+    <a target="_blank" rel="noopener" href="https://www.airbnb.fr/rooms/13384631">Airbnb</a>
+    <a target="_blank" rel="noopener" href="https://www.instagram.com/chill.love43">@chill.love43</a>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" aria-hidden="true"><img alt=""></div>
+
+  <script src="js/script.js"></script>
+
+  <!-- Liste des fichiers de la galerie (mets ici les noms réels dans /imgs) -->
+  <script>
+    const FILES = [
+      "photo_01.jpg","photo_02.jpg","photo_03.jpg","photo_04.jpg","photo_05.jpg",
+      "photo_06.jpg","photo_07.jpg","photo_08.jpg","photo_09.jpg","photo_10.jpg",
+      "photo_11.jpg","photo_12.jpg","photo_13.jpg","photo_14.jpg","photo_15.jpg",
+      "photo_16.jpg","photo_17.jpg","photo_18.jpg","photo_19.jpg","photo_20.jpg",
+      "photo_21.jpg","photo_22.jpg","photo_23.jpg","photo_24.jpg","photo_25.jpg"
+    ];
+    window.__GALLERY_FILES__ = FILES;
+  </script>
 </body>
 </html>
