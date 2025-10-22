@@ -28,11 +28,41 @@
     </section>
 
     <section class="gallery">
-      <!-- 24 IMAGES — exemple -->
       <div class="gallery-grid">
+        <!-- 24 photos -->
+        <!-- Tu dois les nommer photo1.jpg → photo24.jpg -->
+        <!-- Toutes doivent être dans assets/images/ -->
+        <!-- Ce code se charge de les afficher -->
+        <!-- Tu peux supprimer ou ajouter plus d'images ici -->
+        <!-- 👇 COPIER jusqu’à photo24.jpg -->
+        <!-- Si tu en veux plus, change juste le chiffre -->
+        <!-- Et ajoute dans le dossier assets/images -->
+        <!-- Début boucle -->
         <img src="assets/images/photo1.jpg" alt="photo1" onclick="openModal(this)" />
         <img src="assets/images/photo2.jpg" alt="photo2" onclick="openModal(this)" />
-        <!-- ... jusqu'à photo24.jpg -->
+        <img src="assets/images/photo3.jpg" alt="photo3" onclick="openModal(this)" />
+        <img src="assets/images/photo4.jpg" alt="photo4" onclick="openModal(this)" />
+        <img src="assets/images/photo5.jpg" alt="photo5" onclick="openModal(this)" />
+        <img src="assets/images/photo6.jpg" alt="photo6" onclick="openModal(this)" />
+        <img src="assets/images/photo7.jpg" alt="photo7" onclick="openModal(this)" />
+        <img src="assets/images/photo8.jpg" alt="photo8" onclick="openModal(this)" />
+        <img src="assets/images/photo9.jpg" alt="photo9" onclick="openModal(this)" />
+        <img src="assets/images/photo10.jpg" alt="photo10" onclick="openModal(this)" />
+        <img src="assets/images/photo11.jpg" alt="photo11" onclick="openModal(this)" />
+        <img src="assets/images/photo12.jpg" alt="photo12" onclick="openModal(this)" />
+        <img src="assets/images/photo13.jpg" alt="photo13" onclick="openModal(this)" />
+        <img src="assets/images/photo14.jpg" alt="photo14" onclick="openModal(this)" />
+        <img src="assets/images/photo15.jpg" alt="photo15" onclick="openModal(this)" />
+        <img src="assets/images/photo16.jpg" alt="photo16" onclick="openModal(this)" />
+        <img src="assets/images/photo17.jpg" alt="photo17" onclick="openModal(this)" />
+        <img src="assets/images/photo18.jpg" alt="photo18" onclick="openModal(this)" />
+        <img src="assets/images/photo19.jpg" alt="photo19" onclick="openModal(this)" />
+        <img src="assets/images/photo20.jpg" alt="photo20" onclick="openModal(this)" />
+        <img src="assets/images/photo21.jpg" alt="photo21" onclick="openModal(this)" />
+        <img src="assets/images/photo22.jpg" alt="photo22" onclick="openModal(this)" />
+        <img src="assets/images/photo23.jpg" alt="photo23" onclick="openModal(this)" />
+        <img src="assets/images/photo24.jpg" alt="photo24" onclick="openModal(this)" />
+        <!-- Fin boucle -->
       </div>
       <div id="modal" onclick="closeModal()">
         <img id="modal-img" />
@@ -53,10 +83,11 @@
     <section class="calendar">
       <h2 data-lang="fr">Disponibilités</h2>
       <h2 data-lang="en">Availability</h2>
-      <iframe
-        src="https://www.airbnb.com/calendar/ical/13384631.ics?s=f5e78b51c6edc38f540d3c849ff76ae4&locale=fr"
-        style="width:100%;height:300px;border:none;">
-      </iframe>
+      <p data-lang="fr">📅 Cliquez ci-dessous pour consulter les disponibilités sur Airbnb :</p>
+      <p data-lang="en">📅 Click below to view availability on Airbnb:</p>
+      <a href="https://www.airbnb.fr/rooms/13384631?check_in=2023-11-01&check_out=2023-11-02" target="_blank" class="reserver-btn">
+        Consulter le calendrier
+      </a>
     </section>
 
     <section class="avis">
