@@ -1,3 +1,7 @@
+/* ================================
+   🌿 Chill Love – Style complet
+   ================================ */
+
 :root {
   --sauge: #b8c1a8;
   --sauge-clair: #e7ede2;
@@ -14,7 +18,9 @@ body {
   text-align: center;
 }
 
-/* HEADER */
+/* =======================
+   HEADER
+   ======================= */
 header {
   background: linear-gradient(135deg, var(--sauge), var(--sauge-clair));
   color: var(--texte);
@@ -34,6 +40,7 @@ header .tagline {
   color: #3e493c;
 }
 
+/* Boutons de langue 🇫🇷 🇬🇧 */
 .lang-switch {
   position: absolute;
   top: 14px;
@@ -58,7 +65,9 @@ header .tagline {
   font-weight: bold;
 }
 
-/* GALERIE */
+/* =======================
+   GALERIE
+   ======================= */
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -82,7 +91,9 @@ header .tagline {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* LIGHTBOX */
+/* =======================
+   LIGHTBOX
+   ======================= */
 .lightbox {
   display: none;
   position: fixed;
@@ -136,7 +147,9 @@ header .tagline {
   color: var(--sauge-clair);
 }
 
-/* TARIFS */
+/* =======================
+   TARIFS
+   ======================= */
 .tarifs {
   background-color: var(--sauge-clair);
   border-radius: 12px;
@@ -174,54 +187,56 @@ header .tagline {
   background: var(--accent);
 }
 
-/* CALENDRIER */
-.calendar-wrap {
-  background-color: var(--sauge-clair);
+/* =======================
+   CALENDRIER (Airbnb)
+   ======================= */
+#calendar {
+  max-width: 380px;
+  margin: 20px auto;
+  background: rgba(255, 255, 255, 0.85);
   border-radius: 12px;
-  padding: 20px;
-  max-width: 900px;
-  margin: 40px auto;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 15px 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  backdrop-filter: blur(5px);
 }
 
-.calendar {
+#calendar h3 {
+  color: #4A635D; /* vert sauge */
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 5px;
-  margin-top: 10px;
+  gap: 6px;
 }
 
-.calendar div {
+.day {
   padding: 10px;
-  border-radius: 6px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
-.calendar .header {
-  background: var(--sauge);
-  color: var(--blanc);
-  font-weight: bold;
+.day.free {
+  background: #E6EFEA;
+  color: #4A635D;
 }
 
-.calendar .booked {
-  background-color: #dc6e6e;
+.day.occupied {
+  background: #C76C6C;
   color: white;
 }
 
-.calendar .available {
-  background-color: #cfe3c1;
-  color: #333;
+.day.free:hover {
+  background: #bcd0c2;
 }
 
-.legend {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  margin-top: 10px;
-  color: #555;
-  font-size: 0.95em;
-}
-
-/* FOOTER */
+/* =======================
+   FOOTER
+   ======================= */
 footer {
   background-color: var(--sauge);
   color: var(--blanc);
@@ -239,12 +254,14 @@ footer a:hover {
   text-decoration: underline;
 }
 
+/* =======================
+   ANIMATIONS + RESPONSIVE
+   ======================= */
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.98); }
   to { opacity: 1; transform: scale(1); }
 }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
   .gallery img {
     width: 90%;
