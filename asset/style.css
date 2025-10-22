@@ -32,7 +32,7 @@ header {
 
 .logo {
   height: 50px;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .lang-switch button {
@@ -76,14 +76,13 @@ header {
   border-radius: 8px;
   cursor: pointer;
   transition: transform 0.2s;
-  object-fit: cover;
-  height: 180px;
 }
 
 .gallery-grid img:hover {
   transform: scale(1.05);
 }
 
+/* Modal */
 #modal {
   display: none;
   position: fixed;
@@ -103,7 +102,7 @@ header {
   box-shadow: 0 0 20px rgba(255,255,255,0.5);
 }
 
-/* Tarifs, Calendrier, Avis */
+/* Tarifs & Calendrier & Avis */
 .tarif, .calendar, .avis {
   padding: 30px 20px;
   background: #fff;
@@ -116,7 +115,6 @@ header {
 
 .tarif li {
   margin: 5px 0;
-  font-size: 1em;
 }
 
 /* Avis */
@@ -134,7 +132,7 @@ header {
   text-decoration: underline;
 }
 
-/* CTA / Instagram */
+/* CTA & Instagram */
 .cta {
   text-align: center;
   padding: 30px 20px;
@@ -149,7 +147,6 @@ header {
   color: white;
   text-decoration: none;
   border-radius: 8px;
-  font-weight: bold;
 }
 
 .insta-link {
@@ -161,11 +158,13 @@ header {
 
 /* Footer */
 footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   background: var(--vert-sauge);
   text-align: center;
-  padding: 15px 10px;
+  padding: 10px;
   font-size: 0.9em;
-  line-height: 1.4em;
 }
 
 /* Responsive */
@@ -177,3 +176,9 @@ footer {
   .logo {
     height: 40px;
   }
+
+  .reserver-btn {
+    font-size: 0.9em;
+    padding: 8px 16px;
+  }
+}
