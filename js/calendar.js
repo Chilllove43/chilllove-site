@@ -1,9 +1,9 @@
 // ======== Chill Love - Chargement du calendrier Airbnb (.ics) ========
 
-// URL du fichier ICS Airbnb (ton vrai lien)
+// Lien principal Airbnb
 const icsUrl = "https://www.airbnb.com/calendar/ical/13384631.ics?s=f5e78b51c6edc38f540d3c849ff76ae4&locale=fr";
 
-// Fallback local : si Airbnb ne répond pas, essaie de charger le fichier ics local (facultatif)
+// Lien secours local (si Airbnb ne répond pas)
 const localIcsUrl = "ics/airbnb.ics";
 
 // Fonction pour charger le fichier ICS
@@ -14,7 +14,7 @@ async function fetchCalendar(url) {
     const text = await response.text();
     return text;
   } catch (error) {
-    console.warn("Erreur avec le lien principal, on tente le fallback local :", error);
+    console.warn("Airbnb indisponible, tentative de lecture locale :", error);
     try {
       const response = await fetch(localIcsUrl);
       if (!response.ok) throw new Error("Erreur HTTP " + response.status);
@@ -26,7 +26,7 @@ async function fetchCalendar(url) {
   }
 }
 
-// Fonction pour extraire les dates "OCCUPIED" depuis le .ics
+// Extraction des dates réservées depuis le .ics
 function parseICSDates(icsData) {
   const regex = /DTSTART(?:;[^:]+)?:([0-9T]+)/g;
   const dates = [];
@@ -39,14 +39,17 @@ function parseICSDates(icsData) {
   return dates;
 }
 
-// Afficher les jours dans le calendrier
+// Afficher le calendrier sur la page
 function renderCalendar(dates) {
   const container = document.getElementById("calendar");
   if (!container) return;
 
   const today = new Date();
+  const month = today.toLocaleString('fr-FR', { month: 'long', year: 'numeric' });
   const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
-  let html = `<div class="calendar-grid">`;
+
+  let html = `<h3>${month.charAt(0).toUpperCase() + month.slice(1)}</h3>`;
+  html += `<div class="calendar-grid">`;
 
   for (let i = 1; i <= daysInMonth; i++) {
     const day = String(i).padStart(2, '0');
@@ -59,7 +62,7 @@ function renderCalendar(dates) {
   container.innerHTML = html;
 }
 
-// Charger et afficher
+// Charger et afficher le calendrier
 fetchCalendar(icsUrl)
   .then(data => {
     const dates = parseICSDates(data);
@@ -68,5 +71,6 @@ fetchCalendar(icsUrl)
   .catch(error => {
     console.error(error);
     const container = document.getElementById("calendar");
-    if (container) container.innerHTML = `<p style="color:red;">Erreur lors du chargement du calendrier 😢</p>`;
+    if (container)
+      container.innerHTML = `<p style="color:red;">Erreur lors du chargement du calendrier 😢</p>`;
   });
