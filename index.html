@@ -1,278 +1,85 @@
-/* ================================
-   🌿 Chill Love – Style complet
-   ================================ */
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chill Love – Suite romantique</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="icon" href="assets/images/favicon.png" type="image/png" />
+  <script src="assets/scooter.js" defer></script>
+  <script src="assets/lang.js" defer></script>
+</head>
 
-:root {
-  --sauge: #b8c1a8;
-  --sauge-clair: #e7ede2;
-  --accent: #a4b494;
-  --texte: #2b2b2b;
-  --blanc: #ffffff;
-}
+<body>
+  <header>
+    <img src="assets/images/logo_chilllove.png" alt="Logo Chill Love" class="logo" />
+    <div class="lang-switch">
+      <button onclick="switchLang('fr')">FR</button>
+      <button onclick="switchLang('en')">EN</button>
+    </div>
+  </header>
 
-body {
-  font-family: "Poppins", system-ui, -apple-system, Arial;
-  background-color: var(--blanc);
-  color: var(--texte);
-  margin: 0;
-  text-align: center;
-}
+  <main>
+    <section class="hero">
+      <h1 data-lang="fr">Suite romantique avec jacuzzi & sauna</h1>
+      <h1 data-lang="en">Romantic Suite with Jacuzzi & Sauna</h1>
+      <p data-lang="fr">Un séjour inoubliable dans un cadre naturel et apaisant.</p>
+      <p data-lang="en">An unforgettable stay in a natural and soothing setting.</p>
+    </section>
 
-/* =======================
-   HEADER
-   ======================= */
-header {
-  background: linear-gradient(135deg, var(--sauge), var(--sauge-clair));
-  color: var(--texte);
-  padding: 30px 20px;
-  position: relative;
-}
+    <section class="gallery">
+      <!-- 24 IMAGES — exemple -->
+      <div class="gallery-grid">
+        <img src="assets/images/photo1.jpg" alt="photo1" onclick="openModal(this)" />
+        <img src="assets/images/photo2.jpg" alt="photo2" onclick="openModal(this)" />
+        <!-- ... jusqu'à photo24.jpg -->
+      </div>
+      <div id="modal" onclick="closeModal()">
+        <img id="modal-img" />
+      </div>
+    </section>
 
-header h1 {
-  margin: 0;
-  font-size: 2.5em;
-  letter-spacing: 1px;
-}
+    <section class="tarif">
+      <h2 data-lang="fr">Tarifs</h2>
+      <h2 data-lang="en">Rates</h2>
+      <ul>
+        <li data-lang="fr">🗓️ Dimanche → Jeudi : 120€ / nuit (hors jour férié)</li>
+        <li data-lang="en">🗓️ Sunday → Thursday: €120 / night (excluding public holidays)</li>
+        <li data-lang="fr">🗓️ Vendredi & Samedi : 150€ / nuit</li>
+        <li data-lang="en">🗓️ Friday & Saturday: €150 / night</li>
+      </ul>
+    </section>
 
-header .tagline {
-  margin-top: 5px;
-  font-style: italic;
-  color: #3e493c;
-}
+    <section class="calendar">
+      <h2 data-lang="fr">Disponibilités</h2>
+      <h2 data-lang="en">Availability</h2>
+      <iframe
+        src="https://www.airbnb.com/calendar/ical/13384631.ics?s=f5e78b51c6edc38f540d3c849ff76ae4&locale=fr"
+        style="width:100%;height:300px;border:none;">
+      </iframe>
+    </section>
 
-/* Boutons de langue 🇫🇷 🇬🇧 */
-.lang-switch {
-  position: absolute;
-  top: 14px;
-  right: 16px;
-  display: flex;
-  gap: 8px;
-}
+    <section class="avis">
+      <h2 data-lang="fr">Avis</h2>
+      <h2 data-lang="en">Reviews</h2>
+      <div class="avis-bloc">
+        <blockquote>“Endroit magnifique et romantique !” – Sarah</blockquote>
+        <blockquote>“Calme, propre, et super bien décoré.” – Julien</blockquote>
+        <blockquote>“Le sauna et jacuzzi au top !” – Emma</blockquote>
+        <a href="https://www.airbnb.fr/rooms/13384631?viralityEntryPoint=1&s=76" target="_blank">→ Voir tous les avis Airbnb</a>
+      </div>
+    </section>
 
-.lang-btn {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  border: 2px solid var(--blanc);
-  cursor: pointer;
-  background: none;
-  font-size: 18px;
-}
+    <section class="cta">
+      <a href="https://www.instagram.com/chill.love43" target="_blank" class="insta-link">
+        📸 Suivez-nous sur Instagram
+      </a>
+      <a href="#reserver" class="reserver-btn">Réserver maintenant</a>
+    </section>
+  </main>
 
-.lang-btn.active {
-  background: var(--blanc);
-  color: var(--sauge);
-  font-weight: bold;
-}
-
-/* =======================
-   GALERIE
-   ======================= */
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 20px;
-  gap: 10px;
-}
-
-.gallery img {
-  width: 320px;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
-}
-
-.gallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* =======================
-   LIGHTBOX
-   ======================= */
-.lightbox {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(8px);
-  justify-content: center;
-  align-items: center;
-}
-
-.lightbox.active {
-  display: flex;
-}
-
-.lightbox img {
-  max-width: 90%;
-  max-height: 80%;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-  object-fit: contain;
-  animation: fadeIn 0.3s ease;
-}
-
-.lightbox .close,
-.lightbox .prev,
-.lightbox .next {
-  position: absolute;
-  color: var(--blanc);
-  font-size: 2.5em;
-  cursor: pointer;
-  user-select: none;
-}
-
-.lightbox .close {
-  top: 30px;
-  right: 40px;
-}
-
-.lightbox .prev {
-  left: 50px;
-}
-
-.lightbox .next {
-  right: 50px;
-}
-
-.lightbox .prev:hover,
-.lightbox .next:hover,
-.lightbox .close:hover {
-  color: var(--sauge-clair);
-}
-
-/* =======================
-   TARIFS
-   ======================= */
-.tarifs {
-  background-color: var(--sauge-clair);
-  border-radius: 12px;
-  padding: 25px;
-  max-width: 900px;
-  margin: 40px auto;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.tarifs h2 {
-  color: var(--sauge);
-  margin-top: 0;
-}
-
-.tarifs p {
-  font-size: 1.1em;
-  margin: 10px 0;
-}
-
-.paypal-btn {
-  display: inline-block;
-  margin-top: 16px;
-  padding: 12px 22px;
-  background: var(--sauge);
-  color: var(--blanc);
-  border: none;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: background 0.3s;
-}
-
-.paypal-btn:hover {
-  background: var(--accent);
-}
-
-/* =======================
-   CALENDRIER (Airbnb)
-   ======================= */
-#calendar {
-  max-width: 380px;
-  margin: 20px auto;
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 12px;
-  padding: 15px 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  text-align: center;
-  backdrop-filter: blur(5px);
-}
-
-#calendar h3 {
-  color: #4A635D; /* vert sauge */
-  margin-bottom: 10px;
-  font-weight: 600;
-}
-
-.calendar-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 6px;
-}
-
-.day {
-  padding: 10px;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.day.free {
-  background: #E6EFEA;
-  color: #4A635D;
-}
-
-.day.occupied {
-  background: #C76C6C;
-  color: white;
-}
-
-.day.free:hover {
-  background: #bcd0c2;
-}
-
-/* =======================
-   FOOTER
-   ======================= */
-footer {
-  background-color: var(--sauge);
-  color: var(--blanc);
-  padding: 30px 10px;
-  margin-top: 40px;
-}
-
-footer a {
-  color: var(--blanc);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
-/* =======================
-   ANIMATIONS + RESPONSIVE
-   ======================= */
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.98); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-@media (max-width: 768px) {
-  .gallery img {
-    width: 90%;
-    height: auto;
-  }
-
-  .lightbox .prev {
-    left: 20px;
-  }
-
-  .lightbox .next {
-    right: 20px;
-  }
-}
+  <footer>
+    <p>© 2025 Chill Love – Tous droits réservés</p>
+  </footer>
+</body>
+</html>
