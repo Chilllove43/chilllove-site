@@ -1,26 +1,32 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const langButtons = document.querySelectorAll(".lang-switch button");
-  const langElements = document.querySelectorAll("[data-lang]");
+// === Chill Love 43 💛 — Gestion multilingue FR / EN ===
 
-  // Langue par défaut = français
-  let currentLang = "fr";
-  updateLanguage();
+// Langue par défaut
+let currentLang = "fr";
 
-  langButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      currentLang = btn.textContent.toLowerCase();
-      updateLanguage();
+function switchLang(lang) {
+  currentLang = lang;
 
-      // Visuel du bouton actif
-      langButtons.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-    });
+  // Tous les éléments traduisibles
+  const elements = document.querySelectorAll("[data-lang]");
+
+  elements.forEach((el) => {
+    // On masque ceux qui ne correspondent pas
+    if (el.getAttribute("data-lang") === currentLang) {
+      el.style.display = "block";
+    } else {
+      el.style.display = "none";
+    }
   });
 
-  function updateLanguage() {
-    langElements.forEach((el) => {
-      const lang = el.getAttribute("data-lang");
-      el.style.display = lang === currentLang ? "block" : "none";
-    });
-  }
+  // Sauvegarde du choix dans le navigateur
+  localStorage.setItem("lang", lang);
+}
+
+// === Au chargement de la page ===
+document.addEventListener("DOMContentLoaded", () => {
+  // Récupère la langue choisie précédemment si disponible
+  const savedLang = localStorage.getItem("lang");
+  if (savedLang) currentLang = savedLang;
+
+  switchLang(currentLang); // applique la langue active
 });
