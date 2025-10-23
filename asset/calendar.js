@@ -1,116 +1,106 @@
-// ==============================
-// 💛 Chill Love 43 — Calendrier Airbnb interactif
-// ==============================
-
 document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById("calendar-container");
-  const prevBtn = document.createElement("button");
-  const nextBtn = document.createElement("button");
-  const monthTitle = document.createElement("h3");
 
-  prevBtn.textContent = "←";
-  nextBtn.textContent = "→";
-  prevBtn.classList.add("nav-btn");
-  nextBtn.classList.add("nav-btn");
+  if (!container) return;
 
-  let currentMonthOffset = 0;
-  let reservedDates = [];
+  // Conteneurs de navigation
+  const header = document.createElement("div");
+  const title = document.createElement("h3");
+  const prev = document.createElement("button");
+  const next = document.createElement("button");
 
-  // === 1️⃣ Charger le flux Airbnb .ics ===
-  async function loadCalendarData() {
+  prev.textContent = "←";
+  next.textContent = "→";
+  prev.className = next.className = "nav-btn";
+  header.className = "calendar-header";
+  header.append(prev, title, next);
+
+  const grid = document.createElement("div");
+  grid.className = "calendar-grid";
+  container.append(header, grid);
+
+  // État interne
+  let offset = 0;
+  let reserved = [];
+
+  // Charge le flux .ics depuis Airbnb
+  async function fetchAirbnbICS() {
+    const icsUrl = "https://www.airbnb.com/calendar/ical/13384631.ics?s=f5e78b51c6edc38f540d3c849ff76ae4&locale=fr";
     try {
-      const url =
-        "https://www.airbnb.com/calendar/ical/13384631.ics?s=f5e78b51c6edc38f540d3c849ff76ae4&locale=fr";
-      const response = await fetch(url);
-      const text = await response.text();
+      const res = await fetch(icsUrl);
+      const text = await res.text();
 
-      reservedDates = [];
+      reserved = [];
       const regex = /DTSTART;VALUE=DATE:(\d{8})[\s\S]*?DTEND;VALUE=DATE:(\d{8})/g;
-      let match;
-
-      while ((match = regex.exec(text)) !== null) {
-        const start = new Date(
-          match[1].substring(0, 4),
-          match[1].substring(4, 6) - 1,
-          match[1].substring(6, 8)
-        );
-        const end = new Date(
-          match[2].substring(0, 4),
-          match[2].substring(4, 6) - 1,
-          match[2].substring(6, 8)
-        );
-
+      let m;
+      while ((m = regex.exec(text)) !== null) {
+        const start = new Date(`${m[1].slice(0, 4)}-${m[1].slice(4, 6)}-${m[1].slice(6, 8)}`);
+        const end = new Date(`${m[2].slice(0, 4)}-${m[2].slice(4, 6)}-${m[2].slice(6, 8)}`);
         for (let d = new Date(start); d < end; d.setDate(d.getDate() + 1)) {
-          reservedDates.push(d.toISOString().split("T")[0]);
+          reserved.push(d.toISOString().split("T")[0]);
         }
       }
 
       renderCalendar();
-    } catch (error) {
-      console.error("Erreur lors du chargement du calendrier :", error);
-      container.innerHTML = "<p>❌ Impossible de charger le calendrier Airbnb.</p>";
+    } catch (e) {
+      console.error("Erreur de chargement du calendrier :", e);
+      container.innerHTML = "<p>📅 Calendrier Airbnb indisponible pour le moment.</p>";
     }
   }
 
-  // === 2️⃣ Afficher le mois courant / sélectionné ===
+  // Rendu du calendrier
   function renderCalendar() {
-    container.innerHTML = "";
+    grid.innerHTML = "";
 
     const today = new Date();
-    const displayedMonth = new Date(today.getFullYear(), today.getMonth() + currentMonthOffset, 1);
-    const monthName = displayedMonth.toLocaleString("fr-FR", { month: "long" });
-    const year = displayedMonth.getFullYear();
+    const current = new Date(today.getFullYear(), today.getMonth() + offset, 1);
+    const year = current.getFullYear();
+    const month = current.getMonth();
 
-    // En-tête
-    const header = document.createElement("div");
-    header.classList.add("calendar-header");
-    monthTitle.textContent = `${monthName.charAt(0).toUpperCase() + monthName.slice(1)} ${year}`;
-    header.appendChild(prevBtn);
-    header.appendChild(monthTitle);
-    header.appendChild(nextBtn);
-    container.appendChild(header);
+    const monthName = current.toLocaleDateString("fr-FR", { month: "long" });
+    title.textContent = `${monthName.charAt(0).toUpperCase() + monthName.slice(1)} ${year}`;
 
-    // Jours du mois
-    const grid = document.createElement("div");
-    grid.classList.add("calendar-grid");
+    // En-têtes des jours
+    const days = ["L", "M", "M", "J", "V", "S", "D"];
+    days.forEach((d) => {
+      const day = document.createElement("div");
+      day.textContent = d;
+      day.className = "calendar-day header";
+      grid.appendChild(day);
+    });
 
-    const daysInMonth = new Date(year, displayedMonth.getMonth() + 1, 0).getDate();
-    const startDay = new Date(year, displayedMonth.getMonth(), 1).getDay();
-
-    // Espacement avant le 1er jour
-    for (let i = 0; i < (startDay === 0 ? 6 : startDay - 1); i++) {
+    // Calcul du premier jour
+    const firstDay = new Date(year, month, 1).getDay() || 7;
+    for (let i = 1; i < firstDay; i++) {
       const empty = document.createElement("div");
+      empty.className = "calendar-day empty";
       grid.appendChild(empty);
     }
 
-    // Jours
-    for (let day = 1; day <= daysInMonth; day++) {
-      const date = new Date(year, displayedMonth.getMonth(), day);
+    // Jours du mois
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    for (let i = 1; i <= daysInMonth; i++) {
+      const date = new Date(year, month, i);
       const iso = date.toISOString().split("T")[0];
       const div = document.createElement("div");
-      div.textContent = day;
-      div.classList.add("calendar-day");
-
-      if (reservedDates.includes(iso)) div.classList.add("reserved");
+      div.textContent = i;
+      div.className = "calendar-day";
+      if (reserved.includes(iso)) div.classList.add("reserved");
       else div.classList.add("available");
-
       grid.appendChild(div);
     }
-
-    container.appendChild(grid);
   }
 
-  // === 3️⃣ Navigation entre mois ===
-  prevBtn.addEventListener("click", () => {
-    currentMonthOffset--;
+  // Navigation entre mois
+  prev.addEventListener("click", () => {
+    offset--;
+    renderCalendar();
+  });
+  next.addEventListener("click", () => {
+    offset++;
     renderCalendar();
   });
 
-  nextBtn.addEventListener("click", () => {
-    currentMonthOffset++;
-    renderCalendar();
-  });
-
-  // === 4️⃣ Lancer le chargement ===
-  await loadCalendarData();
+  // Lancer
+  await fetchAirbnbICS();
 });
