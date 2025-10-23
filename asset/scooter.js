@@ -1,6 +1,6 @@
-// === Chill Love 43 💛 — Gestion galerie + réservation ===
+// === Chill Love 43 💛 — Galerie + Réservation ===
 
-// ---- GALERIE PHOTO (zoom en grand) ----
+// ---- GALERIE PHOTO ----
 function openModal(img) {
   const modal = document.getElementById("modal");
   const modalImg = document.getElementById("modal-img");
@@ -9,22 +9,21 @@ function openModal(img) {
 }
 
 function closeModal() {
-  const modal = document.getElementById("modal");
-  modal.style.display = "none";
+  document.getElementById("modal").style.display = "none";
 }
 
 // ---- SIMULATEUR DE RÉSERVATION ----
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("bookingForm");
+  const startInput = document.getElementById("start");
+  const endInput = document.getElementById("end");
   const totalDisplay = document.getElementById("total");
+  const calcBtn = document.getElementById("calculateBtn");
 
-  if (!form) return;
+  if (!calcBtn) return;
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const startDate = new Date(document.getElementById("start").value);
-    const endDate = new Date(document.getElementById("end").value);
+  calcBtn.addEventListener("click", () => {
+    const startDate = new Date(startInput.value);
+    const endDate = new Date(endInput.value);
 
     if (isNaN(startDate) || isNaN(endDate) || endDate <= startDate) {
       alert("Veuillez sélectionner des dates valides.");
@@ -35,17 +34,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const dayMs = 24 * 60 * 60 * 1000;
 
     for (let d = new Date(startDate); d < endDate; d = new Date(d.getTime() + dayMs)) {
-      const day = d.getDay(); // 0 = dimanche, 6 = samedi
-      if (day === 5 || day === 6) total += 150; // Vendredi, Samedi
-      else total += 120; // Autres jours
+      const day = d.getDay();
+      total += (day === 5 || day === 6) ? 150 : 120;
     }
 
     totalDisplay.textContent = `💰 Total : ${total} €`;
 
-    // Redirection vers PayPal après un léger délai
+    // Redirection vers PayPal après 1,5s
     setTimeout(() => {
-      const paypalUrl = "https://www.paypal.me/chilllove43?locale.x=fr_FR";
-      window.open(paypalUrl, "_blank");
+      window.open("https://www.paypal.me/chilllove43?locale.x=fr_FR", "_blank");
     }, 1500);
   });
 });
