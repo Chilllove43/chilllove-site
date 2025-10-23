@@ -7,13 +7,6 @@
   --translucide: rgba(0, 0, 0, 0.75);
   --police: 'Segoe UI', 'Dancing Script', cursive, sans-serif;
 }
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   font-family: var(--police);
   background-color: var(--fond-clair);
@@ -21,7 +14,6 @@ body {
   line-height: 1.6;
   padding-bottom: 80px;
 }
-
 header {
   background-color: var(--vert-sauge);
   padding: 10px 20px;
@@ -29,59 +21,21 @@ header {
   justify-content: space-between;
   align-items: center;
 }
-
 .logo {
   height: 50px;
   opacity: 0.9;
 }
-
-.lang-switch button {
-  background: var(--rose-doux);
-  color: var(--texte);
-  border: 1px solid var(--accent);
-  border-radius: 5px;
-  margin-left: 5px;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
-.hero {
-  text-align: center;
-  padding: 30px 20px;
-  background: var(--rose-doux);
-}
-
-.hero h1 {
-  font-size: 2.2em;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  font-size: 1.1em;
-}
-
-.gallery {
-  padding: 30px 10px;
-}
-
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 10px;
   padding: 10px;
 }
-
 .gallery-grid img {
   width: 100%;
   border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.2s;
 }
-
-.gallery-grid img:hover {
-  transform: scale(1.05);
-}
-
 #modal {
   display: none;
   position: fixed;
@@ -93,69 +47,11 @@ header {
   justify-content: center;
   align-items: center;
 }
-
 #modal-img {
   max-width: 90%;
   max-height: 90%;
   border-radius: 8px;
-  box-shadow: 0 0 20px rgba(255,255,255,0.5);
 }
-
-/* Tarifs & Calendrier */
-.tarif, .calendar, .avis {
-  padding: 30px 20px;
-  background: #fff;
-}
-
-.tarif ul {
-  list-style: none;
-  margin-top: 10px;
-}
-
-.tarif li {
-  margin: 5px 0;
-}
-
-/* Avis */
-.avis-bloc blockquote {
-  font-style: italic;
-  margin: 10px 0;
-  border-left: 4px solid var(--accent);
-  padding-left: 10px;
-}
-
-.avis a {
-  display: inline-block;
-  margin-top: 10px;
-  color: var(--accent);
-  text-decoration: underline;
-}
-
-/* CTA & Instagram */
-.cta {
-  text-align: center;
-  padding: 30px 20px;
-  background-color: var(--vert-sauge);
-}
-
-.reserver-btn {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 20px;
-  background: var(--accent);
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-}
-
-.insta-link {
-  display: block;
-  margin-bottom: 10px;
-  color: var(--texte);
-  font-size: 1.1em;
-}
-
-/* Footer */
 footer {
   position: fixed;
   bottom: 0;
@@ -163,21 +59,4 @@ footer {
   background: var(--vert-sauge);
   text-align: center;
   padding: 10px;
-  font-size: 0.9em;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 1.6em;
-  }
-
-  .logo {
-    height: 40px;
-  }
-
-  .reserver-btn {
-    font-size: 0.9em;
-    padding: 8px 16px;
-  }
 }
