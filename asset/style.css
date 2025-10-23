@@ -4,68 +4,72 @@
   --rose-doux: #f8e8e8;
   --texte: #2d2d2d;
   --accent: #a67c8b;
+  --doré: #d4af37;
   --translucide: rgba(0, 0, 0, 0.75);
-  --doré: #d6b26c;
-  --police: 'Dancing Script', 'Segoe UI', cursive, sans-serif;
+  --police: 'Segoe UI', 'Dancing Script', cursive, sans-serif;
 }
 
-/* --- Réinitialisation --- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* --- Corps du site --- */
 body {
   font-family: var(--police);
   background-color: var(--fond-clair);
   color: var(--texte);
   line-height: 1.6;
+  padding-bottom: 80px;
 }
 
-/* --- Header --- */
+/* === HEADER === */
 header {
   background-color: var(--vert-sauge);
-  padding: 15px 25px;
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 10;
 }
 
 .logo {
-  font-size: 1.8em;
-  color: var(--doré);
-  font-style: italic;
+  height: 50px;
+  opacity: 0.9;
 }
 
 .lang-switch button {
   background: var(--rose-doux);
+  color: var(--texte);
   border: 1px solid var(--accent);
   border-radius: 5px;
+  margin-left: 5px;
   padding: 5px 10px;
   cursor: pointer;
-  margin-left: 5px;
-  transition: all 0.2s ease-in-out;
+  font-size: 0.9em;
 }
 
-.lang-switch button.active,
-.lang-switch button:hover {
-  background: var(--accent);
-  color: white;
+/* === RUBANS DE SÉPARATION === */
+section {
+  position: relative;
 }
 
-/* --- Hero --- */
+section::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(to right, var(--rose-doux), var(--vert-sauge));
+  margin: 30px 0;
+}
+
+/* === HERO === */
 .hero {
   text-align: center;
   padding: 40px 20px;
   background: var(--rose-doux);
 }
 
-.hero h2 {
+.hero h1 {
   font-size: 2.2em;
   margin-bottom: 10px;
 }
@@ -74,56 +78,40 @@ header {
   font-size: 1.1em;
 }
 
-/* --- Ruban séparateur --- */
-.ruban {
-  height: 8px;
-  background: linear-gradient(90deg, var(--vert-sauge), var(--rose-doux));
-  margin: 30px 0;
-  border-radius: 5px;
-}
-
-/* --- À propos --- */
-.about {
-  text-align: center;
-  padding: 40px 20px;
+/* === À PROPOS === */
+.apropos {
+  padding: 30px 20px;
   background: #fff;
 }
 
-.about h2 {
+.apropos h2 {
   color: var(--accent);
+  margin-bottom: 15px;
+  font-size: 1.5em;
+}
+
+.apropos p {
   margin-bottom: 10px;
-  font-size: 1.8em;
+  text-align: justify;
 }
 
-.about p {
-  max-width: 800px;
-  margin: 10px auto;
-  font-size: 1.05em;
-}
-
-/* --- Galerie --- */
+/* === GALERIE === */
 .gallery {
   padding: 30px 10px;
-  background: #fff;
-  text-align: center;
-}
-
-.gallery h2 {
-  color: var(--accent);
-  margin-bottom: 20px;
 }
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  padding: 10px;
 }
 
 .gallery-grid img {
   width: 100%;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.3s;
+  transition: transform 0.2s;
 }
 
 .gallery-grid img:hover {
@@ -133,7 +121,8 @@ header {
 #modal {
   display: none;
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background-color: var(--translucide);
@@ -146,13 +135,12 @@ header {
   max-width: 90%;
   max-height: 90%;
   border-radius: 8px;
-  box-shadow: 0 0 20px rgba(255,255,255,0.5);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
 }
 
-/* --- Tarifs --- */
-.tarif {
-  padding: 40px 20px;
-  text-align: center;
+/* === TARIFS === */
+.tarif, .calendar, .avis, .cta, .contact {
+  padding: 30px 20px;
   background: #fff;
 }
 
@@ -163,133 +151,74 @@ header {
 
 .tarif li {
   margin: 5px 0;
-  font-size: 1.05em;
 }
 
-/* --- Calendrier --- */
-.calendar {
-  padding: 40px 20px;
-  background: var(--rose-doux);
-  text-align: center;
+/* === CALENDRIER INTERACTIF === */
+.calendar-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 10px;
 }
 
-.calendar h2 {
-  color: var(--accent);
-  margin-bottom: 20px;
+.nav-btn {
+  background-color: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  font-size: 1.1em;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.nav-btn:hover {
+  background-color: var(--doré);
 }
 
 .calendar-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
   gap: 6px;
 }
 
 .calendar-day {
   padding: 10px;
   border-radius: 6px;
-  font-size: 0.9em;
   text-align: center;
+  font-size: 0.9em;
 }
 
 .calendar-day.available {
   background-color: #cfe8cf;
+  color: #2d2d2d;
 }
 
 .calendar-day.reserved {
   background-color: #f8cfcf;
+  color: #2d2d2d;
 }
 
-/* --- Réservation --- */
-.reservation {
-  text-align: center;
-  padding: 40px 20px;
-  background: #fff;
-}
-
-.reservation form {
-  display: inline-block;
-  text-align: left;
-  max-width: 300px;
-}
-
-.reservation label {
-  display: block;
-  margin-top: 10px;
-  font-size: 1em;
-}
-
-.reservation input {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border: 1px solid var(--accent);
-  border-radius: 5px;
-}
-
-.reservation button {
-  margin-top: 15px;
-  background: var(--accent);
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.reservation button:hover {
-  background: var(--doré);
-}
-
-/* --- Avis --- */
-.avis {
-  padding: 40px 20px;
-  background: var(--rose-doux);
-  text-align: center;
-}
-
+/* === AVIS === */
 .avis-bloc blockquote {
   font-style: italic;
-  margin: 15px auto;
+  margin: 10px 0;
   border-left: 4px solid var(--accent);
   padding-left: 10px;
-  max-width: 600px;
 }
 
 .avis a {
   display: inline-block;
-  margin-top: 15px;
+  margin-top: 10px;
   color: var(--accent);
   text-decoration: underline;
 }
 
-/* --- Contact --- */
-.contact {
-  text-align: center;
-  padding: 40px 20px;
-  background: #fff;
-}
-
-.contact a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-.contact a:hover {
-  text-decoration: underline;
-}
-
-/* --- Instagram --- */
+/* === CTA & INSTAGRAM === */
 .cta {
   text-align: center;
-  padding: 30px 20px;
   background-color: var(--vert-sauge);
-}
-
-.insta-link {
-  display: block;
-  margin-bottom: 10px;
-  color: var(--texte);
-  font-size: 1.1em;
 }
 
 .reserver-btn {
@@ -300,32 +229,72 @@ header {
   color: white;
   text-decoration: none;
   border-radius: 8px;
+  transition: background 0.3s ease;
 }
 
-/* --- Footer --- */
+.reserver-btn:hover {
+  background: var(--doré);
+}
+
+.insta-link {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--texte);
+  font-size: 1.1em;
+}
+
+/* === CONTACT === */
+.contact form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: auto;
+}
+
+.contact input, .contact textarea {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid var(--accent);
+  border-radius: 5px;
+}
+
+.contact button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.contact button:hover {
+  background: var(--doré);
+}
+
+/* === FOOTER === */
 footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   background: var(--vert-sauge);
   text-align: center;
   padding: 10px;
   font-size: 0.9em;
-  color: #fff;
 }
 
-/* --- Responsive --- */
+/* === RESPONSIVE === */
 @media (max-width: 768px) {
-  .hero h2 {
-    font-size: 1.5em;
+  .hero h1 {
+    font-size: 1.6em;
   }
 
   .logo {
-    font-size: 1.4em;
+    height: 40px;
   }
 
-  .gallery-grid {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  }
-
-  .reservation form {
-    width: 100%;
+  .reserver-btn {
+    font-size: 0.9em;
+    padding: 8px 16px;
   }
 }
