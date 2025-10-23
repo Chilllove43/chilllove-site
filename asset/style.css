@@ -60,33 +60,53 @@ header {
   font-size: 1.1em;
 }
 
-.ruban {
-  height: 6px;
-  background: var(--accent);
-  margin: 40px auto;
-  width: 90%;
-  border-radius: 3px;
+/* Ruban décoratif entre sections */
+.separator {
+  height: 15px;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--vert-sauge),
+    var(--vert-sauge) 10px,
+    var(--rose-doux) 10px,
+    var(--rose-doux) 20px
+  );
 }
 
-/* GALERIE */
+/* À propos */
+.a-propos {
+  padding: 30px 20px;
+  background-color: white;
+}
+
+.a-propos ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+/* Galerie */
 .gallery {
   padding: 30px 10px;
-  background: #fff;
+  background: white;
+}
+
+.gallery h2 {
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 8px;
-  padding: 10px;
+  padding: 0 10px;
 }
 
 .gallery-grid img {
   width: 100%;
   border-radius: 6px;
   cursor: pointer;
-  transition: transform 0.2s ease-in-out;
-  height: 100px;
+  transition: transform 0.2s;
+  max-height: 100px;
   object-fit: cover;
 }
 
@@ -109,17 +129,17 @@ header {
 #modal-img {
   max-width: 90%;
   max-height: 90%;
-  border-radius: 10px;
-  box-shadow: 0 0 25px rgba(0,0,0,0.5);
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.5);
 }
 
-/* TARIFS */
-.tarif, .calendar, .avis {
+/* Tarifs, calendrier, réservation, avis, contact */
+.tarif, .calendar, .reservation, .avis, .contact {
   padding: 30px 20px;
   background: #fff;
 }
 
-.tarif ul {
+.tarif ul, .a-propos ul {
   list-style: none;
   margin-top: 10px;
 }
@@ -128,7 +148,25 @@ header {
   margin: 5px 0;
 }
 
-/* AVIS */
+.reservation form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+}
+
+.reservation input, .reservation button {
+  padding: 10px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+}
+
+.reservation button {
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+}
+
 .avis-bloc blockquote {
   font-style: italic;
   margin: 10px 0;
@@ -158,7 +196,6 @@ header {
   color: white;
   text-decoration: none;
   border-radius: 8px;
-  font-weight: bold;
 }
 
 .insta-link {
@@ -168,50 +205,16 @@ header {
   font-size: 1.1em;
 }
 
-/* RESERVATION FORM */
-.reserver-section {
-  background: var(--rose-doux);
-  padding: 30px 20px;
-  text-align: center;
-}
-
-.reserver-section form {
-  max-width: 400px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.reserver-section input[type="date"] {
-  padding: 10px;
-  border: 1px solid var(--accent);
-  border-radius: 5px;
-  font-size: 1em;
-}
-
-.reserver-section button {
-  padding: 10px;
-  background: var(--accent);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 1.1em;
-  cursor: pointer;
-}
-
-/* FOOTER */
+/* Footer */
 footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
   background: var(--vert-sauge);
   text-align: center;
   padding: 10px;
   font-size: 0.9em;
+  margin-top: 30px;
 }
 
-/* RESPONSIVE */
+/* Responsive */
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 1.6em;
@@ -224,5 +227,14 @@ footer {
   .reserver-btn {
     font-size: 0.9em;
     padding: 8px 16px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  #modal-img {
+    max-width: 95%;
+    max-height: 80%;
   }
 }
