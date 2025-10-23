@@ -1,4 +1,39 @@
-// 🎯 MODALE POUR AGRANDIR LES PHOTOS
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("reservation-form");
+  const resultDiv = document.getElementById("result");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const startDate = new Date(document.getElementById("start-date").value);
+    const endDate = new Date(document.getElementById("end-date").value);
+
+    if (isNaN(startDate) || isNaN(endDate) || endDate <= startDate) {
+      resultDiv.innerHTML = "<p style='color:red;'>Dates invalides. Veuillez réessayer.</p>";
+      return;
+    }
+
+    let currentDate = new Date(startDate);
+    let total = 0;
+
+    while (currentDate < endDate) {
+      const day = currentDate.getDay(); // 0 = dimanche, 6 = samedi
+      if (day === 5 || day === 6) {
+        total += 150;
+      } else {
+        total += 120;
+      }
+      currentDate.setDate(currentDate.getDate() + 1);
+    }
+
+    resultDiv.innerHTML = `<p>Total : <strong>${total} €</strong></p>`;
+
+    // Redirection PayPal après petit délai
+    setTimeout(() => {
+      window.open("https://www.paypal.me/chilllove43?locale.x=fr_FR", "_blank");
+    }, 1500);
+  });
+});// 🎯 MODALE POUR AGRANDIR LES PHOTOS
 function openModal(img) {
   const modal = document.getElementById("modal");
   const modalImg = document.getElementById("modal-img");
