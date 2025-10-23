@@ -1,39 +1,26 @@
-// ----- GESTION DE LA LANGUE -----
-const translations = {
-  en: {
-    "Suite romantique avec jacuzzi & sauna": "Romantic Suite with Jacuzzi & Sauna",
-    "Un séjour inoubliable dans un cadre naturel et apaisant.": "An unforgettable stay in a natural and soothing setting.",
-    "À propos de ce logement": "About this accommodation",
-    "Le logement": "The accommodation",
-    "Photos": "Photos",
-    "Tarifs": "Rates",
-    "Réserver": "Booking",
-    "Date d'arrivée :": "Check-in date:",
-    "Date de départ :": "Check-out date:",
-    "Calculer et réserver": "Calculate and book",
-    "Disponibilités": "Availability",
-    "Voir le calendrier": "View calendar",
-    "Avis clients": "Customer reviews",
-    "Contact": "Contact",
-    "Email :": "Email:",
-    "Téléphone :": "Phone:",
-    "Consultez nos disponibilités directement sur Airbnb :": "Check our availability directly on Airbnb:",
-    "Calme, propre et super bien décoré.": "Quiet, clean and beautifully decorated.",
-    "Le sauna et jacuzzi, un vrai plus. Merci ! 💕": "The sauna and jacuzzi are a real plus. Thank you! 💕",
-    "Endroit magnifique et romantique !": "Beautiful and romantic place!"
-  }
-};
+document.addEventListener("DOMContentLoaded", () => {
+  const langButtons = document.querySelectorAll(".lang-switch button");
+  const langElements = document.querySelectorAll("[data-lang]");
 
-let currentLang = "fr";
+  // Langue par défaut = français
+  let currentLang = "fr";
+  updateLanguage();
 
-function switchLang(lang) {
-  if (lang === currentLang) return;
-  currentLang = lang;
+  langButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      currentLang = btn.textContent.toLowerCase();
+      updateLanguage();
 
-  document.querySelectorAll("*").forEach((el) => {
-    const text = el.textContent.trim();
-    if (translations[lang] && translations[lang][text]) {
-      el.textContent = translations[lang][text];
-    }
+      // Visuel du bouton actif
+      langButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+    });
   });
-}
+
+  function updateLanguage() {
+    langElements.forEach((el) => {
+      const lang = el.getAttribute("data-lang");
+      el.style.display = lang === currentLang ? "block" : "none";
+    });
+  }
+});
