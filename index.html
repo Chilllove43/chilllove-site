@@ -5,9 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>💛 Chill Love 43 – Suite romantique</title>
 
-  <!-- Liens vers les styles et scripts -->
+  <!-- Style et favicon -->
   <link rel="stylesheet" href="asset/style.css" />
   <link rel="icon" href="asset/images/favicon.png" type="image/png" />
+
+  <!-- Masquer l’anglais au chargement -->
+  <style>[data-lang="en"] { display: none; }</style>
+
+  <!-- Scripts -->
   <script src="js/lang.js" defer></script>
   <script src="js/calendar.js" defer></script>
   <script src="js/scooter.js" defer></script>
@@ -46,10 +51,9 @@
 
   <!-- GALERIE -->
   <section class="gallery">
-    <h2 data-lang="fr">Galerie</h2>
-    <h2 data-lang="en">Gallery</h2>
+    <h2 data-lang="fr">Photos</h2>
+    <h2 data-lang="en">Photos</h2>
     <div class="gallery-grid">
-      <!-- 24 images -->
       <img src="asset/images/photo_01.jpg" alt="photo1" onclick="openModal(this)" />
       <img src="asset/images/photo_02.jpg" alt="photo2" onclick="openModal(this)" />
       <img src="asset/images/photo_03.jpg" alt="photo3" onclick="openModal(this)" />
@@ -77,7 +81,7 @@
     </div>
   </section>
 
-  <!-- MODAL (agrandissement photo) -->
+  <!-- MODAL PHOTO -->
   <div id="modal" onclick="closeModal()">
     <img id="modal-img" />
   </div>
@@ -107,17 +111,16 @@
     <h2 data-lang="fr">Disponibilités</h2>
     <h2 data-lang="en">Availability</h2>
     <div id="calendar-container">
-      <p>Chargement du calendrier en cours...</p>
+      <p>Chargement du calendrier en cours…</p>
     </div>
   </section>
 
   <div class="separator"></div>
 
-  <!-- FORMULAIRE DE RÉSERVATION -->
+  <!-- RÉSERVATION -->
   <section class="reserver">
     <h2 data-lang="fr">Réservation</h2>
     <h2 data-lang="en">Booking</h2>
-
     <form id="booking-form">
       <label for="start-date">Date d’arrivée :</label>
       <input type="date" id="start-date" required />
