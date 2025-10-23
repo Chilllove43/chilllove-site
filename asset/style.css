@@ -15,6 +15,20 @@
   box-sizing: border-box;
 }
 
+/* ANIMATION APPARITION */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* BODY */
 body {
   font-family: var(--police);
@@ -79,6 +93,7 @@ header {
   background: linear-gradient(90deg, var(--vert-sauge), var(--rose-doux), var(--accent));
   margin: 40px 0;
   border-radius: 20px;
+  animation: fadeIn 1.2s ease-out;
 }
 
 /* À PROPOS */
@@ -103,6 +118,11 @@ header {
 }
 
 /* GALERIE */
+.gallery h2 {
+  margin-bottom: 15px;
+  color: var(--accent);
+}
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -117,12 +137,13 @@ header {
   object-fit: cover;
   border-radius: 10px;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
 .gallery-grid img:hover {
   transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 /* MODALE */
@@ -274,6 +295,7 @@ footer {
   text-align: center;
   font-size: 0.9em;
   border-top: 3px solid var(--accent);
+  animation: fadeIn 1.5s ease-out;
 }
 
 /* RESPONSIVE */
