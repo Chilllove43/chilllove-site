@@ -9,6 +9,7 @@
   --police: 'Segoe UI', 'Dancing Script', cursive, sans-serif;
 }
 
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -26,15 +27,22 @@ body {
 /* === HEADER === */
 header {
   background-color: var(--vert-sauge);
-  padding: 10px 20px;
+  padding: 15px 20px;
+  text-align: center;
+}
+
+.header-content {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
 }
 
-.logo {
-  height: 50px;
-  opacity: 0.9;
+.header-logo {
+  color: white;
+  font-family: 'Dancing Script', cursive;
+  font-size: 2em;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
 }
 
 .lang-switch button {
@@ -42,13 +50,18 @@ header {
   color: var(--texte);
   border: 1px solid var(--accent);
   border-radius: 5px;
-  margin-left: 5px;
-  padding: 5px 10px;
+  margin: 3px;
+  padding: 6px 10px;
   cursor: pointer;
   font-size: 0.9em;
 }
 
-/* === RUBANS DE SÉPARATION === */
+.lang-switch button:hover {
+  background: var(--accent);
+  color: white;
+}
+
+/* === RUBANS ENTRE SECTIONS === */
 section {
   position: relative;
 }
@@ -72,6 +85,7 @@ section::before {
 .hero h1 {
   font-size: 2.2em;
   margin-bottom: 10px;
+  color: var(--accent);
 }
 
 .hero p {
@@ -100,10 +114,16 @@ section::before {
   padding: 30px 10px;
 }
 
+.gallery h2 {
+  text-align: center;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 8px;
   padding: 10px;
 }
 
@@ -111,11 +131,12 @@ section::before {
   width: 100%;
   border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.2s, box-shadow 0.3s;
 }
 
 .gallery-grid img:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(166, 124, 139, 0.4);
 }
 
 #modal {
@@ -138,7 +159,7 @@ section::before {
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
 }
 
-/* === TARIFS === */
+/* === TARIFS / CALENDRIER / AVIS / CONTACT === */
 .tarif, .calendar, .avis, .cta, .contact {
   padding: 30px 20px;
   background: #fff;
@@ -154,6 +175,12 @@ section::before {
 }
 
 /* === CALENDRIER INTERACTIF === */
+.calendar h2 {
+  text-align: center;
+  color: var(--accent);
+  margin-bottom: 15px;
+}
+
 .calendar-header {
   display: flex;
   justify-content: center;
@@ -201,6 +228,12 @@ section::before {
 }
 
 /* === AVIS === */
+.avis h2 {
+  text-align: center;
+  color: var(--accent);
+  margin-bottom: 15px;
+}
+
 .avis-bloc blockquote {
   font-style: italic;
   margin: 10px 0;
@@ -215,7 +248,7 @@ section::before {
   text-decoration: underline;
 }
 
-/* === CTA & INSTAGRAM === */
+/* === CTA (Réservation) === */
 .cta {
   text-align: center;
   background-color: var(--vert-sauge);
@@ -230,46 +263,34 @@ section::before {
   text-decoration: none;
   border-radius: 8px;
   transition: background 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
 
 .reserver-btn:hover {
   background: var(--doré);
 }
 
-.insta-link {
-  display: block;
-  margin-bottom: 10px;
-  color: var(--texte);
-  font-size: 1.1em;
+#prix {
+  margin-top: 10px;
+  color: var(--accent);
+  font-weight: bold;
 }
 
 /* === CONTACT === */
-.contact form {
-  display: flex;
-  flex-direction: column;
-  max-width: 500px;
-  margin: auto;
+.contact h2 {
+  text-align: center;
+  color: var(--accent);
+  margin-bottom: 15px;
 }
 
-.contact input, .contact textarea {
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid var(--accent);
-  border-radius: 5px;
+.contact a {
+  color: var(--accent);
+  text-decoration: none;
 }
 
-.contact button {
-  background: var(--accent);
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.contact button:hover {
-  background: var(--doré);
+.contact a:hover {
+  text-decoration: underline;
 }
 
 /* === FOOTER === */
@@ -283,18 +304,30 @@ footer {
   font-size: 0.9em;
 }
 
-/* === RESPONSIVE === */
+/* === RESPONSIVE MOBILE === */
 @media (max-width: 768px) {
+  .header-logo {
+    font-size: 1.7em;
+  }
+
+  .lang-switch {
+    margin-top: 5px;
+  }
+
   .hero h1 {
     font-size: 1.6em;
   }
 
-  .logo {
-    height: 40px;
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
   }
 
   .reserver-btn {
     font-size: 0.9em;
     padding: 8px 16px;
+  }
+
+  footer {
+    font-size: 0.8em;
   }
 }
