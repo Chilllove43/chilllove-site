@@ -40,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     totalDisplay.textContent = `💰 Total : ${total} €`;
 
-    // Redirection vers PayPal après 1,5s
     setTimeout(() => {
       window.open("https://www.paypal.me/chilllove43?locale.x=fr_FR", "_blank");
     }, 1500);
