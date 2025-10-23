@@ -1,45 +1,58 @@
-// === Chill Love 43 💛 — Galerie + Réservation ===
+// === Chill Love 43 💛 — Simulateur de réservation + redirection PayPal ===
 
-// ---- GALERIE PHOTO ----
-function openModal(img) {
-  const modal = document.getElementById("modal");
-  const modalImg = document.getElementById("modal-img");
-  modal.style.display = "flex";
-  modalImg.src = img.src;
-}
-
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
-}
-
-// ---- SIMULATEUR DE RÉSERVATION ----
+// On attend que la page soit complètement chargée
 document.addEventListener("DOMContentLoaded", () => {
-  const startInput = document.getElementById("start");
-  const endInput = document.getElementById("end");
-  const totalDisplay = document.getElementById("total");
-  const calcBtn = document.getElementById("calculateBtn");
+  const form = document.getElementById("booking-form");
+  const arrivalInput = document.getElementById("arrival");
+  const departureInput = document.getElementById("departure");
+  const resultDiv = document.getElementById("result");
 
-  calcBtn.addEventListener("click", () => {
-    const startDate = new Date(startInput.value);
-    const endDate = new Date(endInput.value);
+  // Fonction pour calculer la différence de jours entre 2 dates
+  function differenceInDays(date1, date2) {
+    const diffTime = Math.abs(date2 - date1);
+    return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  }
 
-    if (isNaN(startDate) || isNaN(endDate) || endDate <= startDate) {
-      alert("Veuillez sélectionner des dates valides.");
-      return;
+  // Fonction pour calculer le prix selon les jours
+  function calculerTarif() {
+    const arrivalDate = new Date(arrivalInput.value);
+    const departureDate = new Date(departureInput.value);
+
+    if (isNaN(arrivalDate) || isNaN(departureDate) || arrivalDate >= departureDate) {
+      resultDiv.textContent = "Veuillez choisir des dates valides.";
+      return null;
     }
 
     let total = 0;
-    const dayMs = 24 * 60 * 60 * 1000;
+    let currentDate = new Date(arrivalDate);
 
-    for (let d = new Date(startDate); d < endDate; d = new Date(d.getTime() + dayMs)) {
-      const day = d.getDay();
-      total += (day === 5 || day === 6) ? 150 : 120;
+    while (currentDate < departureDate) {
+      const day = currentDate.getDay(); // 0 = dimanche ... 6 = samedi
+      if (day === 5 || day === 6) total += 150; // vendredi & samedi
+      else total += 120; // autres jours
+      currentDate.setDate(currentDate.getDate() + 1);
     }
 
-    totalDisplay.textContent = `💰 Total : ${total} €`;
+    const nuits = differenceInDays(arrivalDate, departureDate);
+    resultDiv.textContent = `🛏️ ${nuits} nuit${nuits > 1 ? "s" : ""} – Total : ${total} €`;
 
+    return total;
+  }
+
+  // === Gestion du formulaire ===
+  form.addEventListener("submit", (e) => {
+    e.preventDefault(); // Empêche le rechargement de la page
+
+    const total = calculerTarif();
+    if (total === null) return;
+
+    // Petite indication visuelle
+    resultDiv.innerHTML += "<br>💛 Redirection vers PayPal en cours...";
+
+    // Redirection vers PayPal pro avec le montant pré-rempli
+    const paypalUrl = `https://www.paypal.me/chilllove43/${total}?locale.x=fr_FR`;
     setTimeout(() => {
-      window.open("https://www.paypal.me/chilllove43?locale.x=fr_FR", "_blank");
-    }, 1500);
+      window.open(paypalUrl, "_blank");
+    }, 1500); // délai de 1,5s pour que l'utilisateur voie le message
   });
 });
