@@ -12,17 +12,20 @@
 </head>
 
 <body>
+  <!-- HEADER -->
   <header>
-    <h1 style="color:white; font-family:'Dancing Script', cursive;">Chill Love 43 💛</h1>
-    <div class="lang-switch">
-      <button onclick="switchLang('fr')">FR</button>
-      <button onclick="switchLang('en')">EN</button>
+    <div class="header-content">
+      <h1 class="header-logo">Chill Love 43 💛</h1>
+      <div class="lang-switch">
+        <button onclick="switchLang('fr')">FR</button>
+        <button onclick="switchLang('en')">EN</button>
+      </div>
     </div>
   </header>
 
   <main>
 
-    <!-- Section Héro -->
+    <!-- HERO -->
     <section class="hero">
       <h1 data-lang="fr">Suite romantique avec jacuzzi & sauna privatifs</h1>
       <h1 data-lang="en" style="display:none;">Romantic suite with private jacuzzi & sauna</h1>
@@ -30,7 +33,7 @@
       <p data-lang="en" style="display:none;">An unforgettable stay in a natural and soothing setting.</p>
     </section>
 
-    <!-- À propos -->
+    <!-- À PROPOS -->
     <section class="apropos">
       <h2>À propos de ce logement</h2>
       <p>Offrez-vous une escapade romantique dans une ferme du 18ᵉ siècle rénovée. Studio chaleureux avec vue panoramique sur les montagnes, jacuzzi & sauna privatifs, sans vis-à-vis. 🌹 Champagne, fleurs & pétales disponibles pour sublimer vos soirées. Espace extérieur cosy avec barbecue, à 5 min des restaurants & rivière. 📍35 min St-Étienne, 10 min Yssingeaux, 30 min Le Puy, 10 min passerelles himalayennes.</p>
@@ -41,7 +44,7 @@
       <p>🐾 Animaux bienvenus • 💐 Options : champagne, pétales, petit-déjeuner • 🅿️ Parking gratuit</p>
     </section>
 
-    <!-- Galerie photos -->
+    <!-- GALERIE -->
     <section class="gallery">
       <h2>Galerie</h2>
       <div class="gallery-grid">
@@ -76,7 +79,7 @@
       </div>
     </section>
 
-    <!-- Tarifs -->
+    <!-- TARIFS -->
     <section class="tarif">
       <h2>Tarifs</h2>
       <ul>
@@ -87,13 +90,13 @@
       </ul>
     </section>
 
-    <!-- Calendrier interactif -->
+    <!-- CALENDRIER -->
     <section class="calendar">
       <h2>Disponibilités</h2>
       <div id="calendar-container"></div>
     </section>
 
-    <!-- Avis -->
+    <!-- AVIS -->
     <section class="avis">
       <h2>Avis</h2>
       <div class="avis-bloc">
@@ -104,7 +107,7 @@
       </div>
     </section>
 
-    <!-- Réservation -->
+    <!-- RÉSERVATION -->
     <section class="cta" id="reserver">
       <h2>Réserver maintenant</h2>
       <form id="bookingForm">
@@ -117,19 +120,19 @@
       <p id="prix"></p>
     </section>
 
-    <!-- Contact -->
+    <!-- CONTACT -->
     <section class="contact">
       <h2>Contact</h2>
       <p>📧 <a href="mailto:sadri.berrabah@gmail.com">sadri.berrabah@gmail.com</a></p>
       <p>📞 <a href="tel:+33666050148">+33 6 66 05 01 48</a></p>
     </section>
-
   </main>
 
   <footer>
     <p>© 2025 Chill Love 43 💛 – Tous droits réservés</p>
   </footer>
 
+  <!-- SCRIPT PRINCIPAL -->
   <script>
     // --- Modal images ---
     function openModal(img) {
@@ -142,7 +145,7 @@
       document.getElementById("modal").style.display = "none";
     }
 
-    // --- Calcul et redirection PayPal ---
+    // --- Calcul & redirection PayPal ---
     document.getElementById("bookingForm").addEventListener("submit", (e) => {
       e.preventDefault();
       const start = new Date(document.getElementById("start").value);
