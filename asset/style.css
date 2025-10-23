@@ -1,12 +1,15 @@
-/* === CHILL LOVE 43 💛 — Style principal === */
+/* ===========================
+   🌸 Chill Love 43 – Style global
+   =========================== */
+
 :root {
-  --fond-clair: #fffdfd;
-  --vert-sauge: #c9d3c0;
-  --rose-doux: #f3e5e8;
-  --texte: #2d2d2d;
-  --accent: #a6787b;
+  --fond-clair: #fefefe;
+  --vert-sauge: #c8d0c1;
+  --rose-doux: #f4e3e3;
+  --accent: #a67c8b;
+  --texte: #2e2e2e;
   --translucide: rgba(0, 0, 0, 0.7);
-  --police: 'Segoe UI', 'Dancing Script', cursive, sans-serif;
+  --police: 'Dancing Script', 'Segoe UI', sans-serif;
 }
 
 * {
@@ -16,208 +19,226 @@
 }
 
 body {
-  font-family: var(--police);
-  background-color: var(--fond-clair);
+  background: var(--fond-clair);
   color: var(--texte);
+  font-family: var(--police);
   line-height: 1.6;
+  text-align: center;
 }
 
-/* === HEADER === */
+/* ===========================
+   🌿 HEADER
+   =========================== */
+
 header {
-  background: var(--vert-sauge);
-  color: var(--texte);
-  padding: 15px 25px;
+  background-color: var(--vert-sauge);
+  padding: 12px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.1em;
+  font-size: 1.2em;
 }
 
 .logo-text {
-  font-family: 'Dancing Script', cursive;
-  font-size: 1.8em;
+  font-weight: bold;
+  font-size: 1.3em;
+  color: var(--accent);
 }
 
 .lang-switch button {
   background: var(--rose-doux);
-  color: var(--texte);
   border: 1px solid var(--accent);
-  border-radius: 6px;
-  margin-left: 5px;
+  border-radius: 5px;
+  margin-left: 6px;
   padding: 5px 10px;
   cursor: pointer;
+  color: var(--texte);
 }
 
-/* === RUBAN SÉPARATEUR === */
-.separator {
-  height: 6px;
-  background: linear-gradient(to right, var(--rose-doux), var(--vert-sauge));
-  margin: 40px auto;
-  border-radius: 10px;
-  width: 85%;
-}
+/* ===========================
+   💕 HERO
+   =========================== */
 
-/* === TITRES === */
-h2 {
-  text-align: center;
-  font-family: 'Dancing Script', cursive;
-  color: var(--accent);
-  margin-bottom: 15px;
-  font-size: 2em;
-}
-
-/* === SECTION HERO === */
 .hero {
-  text-align: center;
   padding: 40px 20px;
-  background: var(--rose-doux);
-  border-bottom: 4px solid var(--vert-sauge);
+  background-color: var(--rose-doux);
 }
 
 .hero h2 {
-  font-size: 2.2em;
-  color: var(--texte);
+  font-size: 1.8em;
   margin-bottom: 10px;
 }
 
-/* === À PROPOS === */
+.hero p {
+  font-size: 1.1em;
+}
+
+/* ===========================
+   🌹 À PROPOS
+   =========================== */
+
 .apropos {
-  padding: 20px 25px;
+  padding: 30px 15px;
   max-width: 900px;
   margin: auto;
-  text-align: left;
+  font-size: 1.05em;
 }
 
-.apropos ul {
-  margin-top: 10px;
-  padding-left: 20px;
-}
+/* ===========================
+   🖼️ GALERIE
+   =========================== */
 
-.apropos li {
-  margin-bottom: 6px;
-}
-
-/* === GALERIE === */
 .gallery {
-  text-align: center;
   padding: 20px;
 }
 
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 8px;
-  margin-top: 10px;
+  gap: 10px;
+  margin-top: 15px;
 }
 
 .gallery-grid img {
   width: 100%;
-  height: 100px;
-  object-fit: cover;
   border-radius: 10px;
   cursor: pointer;
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s, box-shadow 0.3s;
 }
 
 .gallery-grid img:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
-/* === MODAL PHOTO === */
+/* Modale photo */
 #modal {
   display: none;
   position: fixed;
-  z-index: 1000;
   top: 0; left: 0;
   width: 100%;
   height: 100%;
-  background: var(--translucide);
+  background-color: var(--translucide);
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
 
 #modal-img {
   max-width: 90%;
   max-height: 90%;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
 }
 
-/* === TARIFS === */
+/* ===========================
+   💰 TARIFS
+   =========================== */
+
 .tarif {
-  text-align: center;
-  padding: 20px;
+  padding: 40px 20px;
+  background: #fff;
+}
+
+.tarif h2 {
+  font-size: 1.6em;
+  margin-bottom: 10px;
 }
 
 .tarif ul {
   list-style: none;
-  display: inline-block;
-  text-align: left;
+  margin-top: 10px;
 }
 
 .tarif li {
-  margin: 5px 0;
+  margin: 6px 0;
   font-size: 1.1em;
-  font-family: 'Dancing Script', cursive;
 }
 
-/* === CALENDRIER === */
+/* ===========================
+   📅 CALENDRIER
+   =========================== */
+
 #calendar {
-  text-align: center;
-  padding: 20px;
+  padding: 40px 20px;
 }
 
 #calendar-container {
-  display: inline-block;
-  background: #fff;
-  border: 1px solid var(--rose-doux);
-  border-radius: 8px;
-  padding: 10px;
-  margin-top: 10px;
+  margin-top: 20px;
+  text-align: center;
 }
 
 .calendar-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 5px;
-}
-
-.nav-btn {
-  background: var(--rose-doux);
-  border: none;
-  border-radius: 6px;
-  padding: 5px 10px;
-  cursor: pointer;
+  gap: 15px;
 }
 
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 5px;
+  margin-top: 10px;
 }
 
 .calendar-day {
-  padding: 8px 0;
-  border-radius: 5px;
+  padding: 10px;
+  border-radius: 6px;
   font-size: 0.9em;
 }
 
-.calendar-day.reserved {
+.available {
+  background-color: #d4f8d4;
+}
+
+.reserved {
+  background-color: #f8d4d4;
+}
+
+/* ===========================
+   🛏️ RÉSERVATION
+   =========================== */
+
+.reserver {
+  padding: 40px 20px;
+}
+
+#booking-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  max-width: 300px;
+  margin: auto;
+}
+
+#booking-form input,
+#booking-form button {
+  padding: 10px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  width: 100%;
+}
+
+#booking-form button {
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#booking-form button:hover {
   background: var(--rose-doux);
-  color: #666;
-  text-decoration: line-through;
+  color: var(--texte);
 }
 
-.calendar-day.available {
-  background: var(--vert-sauge);
-  color: white;
-}
+/* ===========================
+   💬 AVIS
+   =========================== */
 
-/* === AVIS === */
 .avis {
-  text-align: center;
-  padding: 20px;
+  padding: 40px 20px;
 }
 
 .avis blockquote {
@@ -225,18 +246,22 @@ h2 {
   margin: 10px auto;
   border-left: 4px solid var(--accent);
   padding-left: 10px;
-  max-width: 700px;
+  max-width: 600px;
 }
 
 .avis a {
+  display: inline-block;
+  margin-top: 10px;
   color: var(--accent);
   text-decoration: underline;
 }
 
-/* === CONTACT === */
+/* ===========================
+   📞 CONTACT
+   =========================== */
+
 .contact {
-  text-align: center;
-  padding: 20px;
+  padding: 40px 20px;
 }
 
 .contact a {
@@ -244,55 +269,47 @@ h2 {
   text-decoration: none;
 }
 
-/* === FORMULAIRE DE RÉSERVATION === */
-.reserver {
-  text-align: center;
-  padding: 25px;
+/* ===========================
+   🎀 SÉPARATEURS
+   =========================== */
+
+.separator {
+  width: 90%;
+  height: 6px;
+  background: linear-gradient(to right, var(--rose-doux), var(--vert-sauge));
+  margin: 30px auto;
+  border-radius: 10px;
 }
 
-.reserver form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 350px;
-  margin: auto;
-}
+/* ===========================
+   👣 FOOTER
+   =========================== */
 
-.reserver input,
-.reserver button {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid var(--accent);
-  font-size: 1em;
-}
-
-.reserver button {
-  background: var(--accent);
-  color: white;
-  cursor: pointer;
-}
-
-.reserver button:hover {
-  opacity: 0.9;
-}
-
-/* === FOOTER === */
 footer {
-  text-align: center;
-  padding: 15px;
   background: var(--vert-sauge);
+  padding: 15px;
   font-size: 0.9em;
   color: var(--texte);
-  margin-top: 40px;
 }
 
-/* === RESPONSIVE === */
+/* ===========================
+   📱 RESPONSIVE
+   =========================== */
+
 @media (max-width: 768px) {
-  .gallery-grid img {
-    height: 80px;
+  .hero h2 {
+    font-size: 1.4em;
   }
 
-  .hero h2 {
-    font-size: 1.6em;
+  .logo-text {
+    font-size: 1.1em;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  .tarif li {
+    font-size: 1em;
   }
 }
