@@ -2,13 +2,16 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chill Love – Suite romantique</title>
+
   <link rel="stylesheet" href="asset/style.css" />
   <link rel="icon" href="asset/images/favicon.png" type="image/png" />
+
+  <!-- Scripts -->
   <script src="asset/lang.js" defer></script>
   <script src="asset/modal.js" defer></script>
-  <script src="asset/reservation.js" defer></script>
+  <script src="asset/js/reservation.js" defer></script>
 </head>
 
 <body>
@@ -21,6 +24,7 @@
   </header>
 
   <main>
+    <!-- HERO -->
     <section class="hero">
       <h1 data-lang="fr">Suite romantique avec jacuzzi & sauna</h1>
       <p data-lang="fr">Un séjour inoubliable dans un cadre naturel et apaisant.</p>
@@ -28,28 +32,58 @@
 
     <div class="ruban"></div>
 
+    <!-- À PROPOS -->
     <section class="propos">
       <h2>À propos de ce logement</h2>
-      <p>Offrez-vous une escapade romantique dans une ferme du 18ᵉ siècle rénovée. Studio chaleureux avec vue panoramique sur les montagnes, jacuzzi & sauna privatifs, sans vis-à-vis. 🌹 Champagne, fleurs & pétales disponibles pour sublimer vos soirées. Espace extérieur cosy avec barbecue, à 5 min des restaurants & rivière.</p>
-      <p>✨ Insta : @chill.love43</p>
-      <p>💦 Jacuzzi hydromassant & sauna privatifs<br>
-      🌄 Vue panoramique depuis le lit<br>
-      🎬 Rétroprojecteur 2,4 m (Netflix/Prime + popcorn offert)<br>
-      🐾 Animaux bienvenus<br>
-      🔥 Espace extérieur + barbecue</p>
+      <p>
+        Offrez-vous une escapade romantique dans une ferme du 18ᵉ siècle rénovée.
+        Studio chaleureux avec vue panoramique sur les montagnes, jacuzzi & sauna privatifs,
+        sans vis-à-vis. 🌹 Champagne, fleurs & pétales disponibles pour sublimer vos soirées.
+        Espace extérieur cosy avec barbecue, à 5 min des restaurants & rivière.
+      </p>
+      <p>
+        ✨ Insta : @chill.love43
+      </p>
+      <p>
+        💦 Jacuzzi hydromassant & sauna privatifs<br>
+        🌄 Vue panoramique depuis le lit<br>
+        🎬 Rétroprojecteur 2,4 m (Netflix / Prime + popcorn offert)<br>
+        🐾 Animaux bienvenus<br>
+        🔥 Espace extérieur + barbecue
+      </p>
     </section>
 
     <div class="ruban"></div>
 
+    <!-- GALERIE -->
     <section class="gallery">
       <h2>Photos</h2>
       <div class="gallery-grid">
-        <!-- 24 photos — attention aux noms exacts -->
-        <!-- Exemple -->
+        <!-- Mets ici tes 24 photos dans asset/images -->
         <img src="asset/images/photo_01.jpg" alt="photo 1" onclick="openModal(this)">
         <img src="asset/images/photo_02.jpg" alt="photo 2" onclick="openModal(this)">
         <img src="asset/images/photo_03.jpg" alt="photo 3" onclick="openModal(this)">
-        <!-- ... jusqu'à photo_24.jpg -->
+        <img src="asset/images/photo_04.jpg" alt="photo 4" onclick="openModal(this)">
+        <img src="asset/images/photo_05.jpg" alt="photo 5" onclick="openModal(this)">
+        <img src="asset/images/photo_06.jpg" alt="photo 6" onclick="openModal(this)">
+        <img src="asset/images/photo_07.jpg" alt="photo 7" onclick="openModal(this)">
+        <img src="asset/images/photo_08.jpg" alt="photo 8" onclick="openModal(this)">
+        <img src="asset/images/photo_09.jpg" alt="photo 9" onclick="openModal(this)">
+        <img src="asset/images/photo_10.jpg" alt="photo 10" onclick="openModal(this)">
+        <img src="asset/images/photo_11.jpg" alt="photo 11" onclick="openModal(this)">
+        <img src="asset/images/photo_12.jpg" alt="photo 12" onclick="openModal(this)">
+        <img src="asset/images/photo_13.jpg" alt="photo 13" onclick="openModal(this)">
+        <img src="asset/images/photo_14.jpg" alt="photo 14" onclick="openModal(this)">
+        <img src="asset/images/photo_15.jpg" alt="photo 15" onclick="openModal(this)">
+        <img src="asset/images/photo_16.jpg" alt="photo 16" onclick="openModal(this)">
+        <img src="asset/images/photo_17.jpg" alt="photo 17" onclick="openModal(this)">
+        <img src="asset/images/photo_18.jpg" alt="photo 18" onclick="openModal(this)">
+        <img src="asset/images/photo_19.jpg" alt="photo 19" onclick="openModal(this)">
+        <img src="asset/images/photo_20.jpg" alt="photo 20" onclick="openModal(this)">
+        <img src="asset/images/photo_21.jpg" alt="photo 21" onclick="openModal(this)">
+        <img src="asset/images/photo_22.jpg" alt="photo 22" onclick="openModal(this)">
+        <img src="asset/images/photo_23.jpg" alt="photo 23" onclick="openModal(this)">
+        <img src="asset/images/photo_24.jpg" alt="photo 24" onclick="openModal(this)">
       </div>
       <div id="modal" onclick="closeModal()">
         <img id="modal-img" />
@@ -58,6 +92,7 @@
 
     <div class="ruban"></div>
 
+    <!-- TARIFS -->
     <section class="tarif">
       <h2>Tarifs</h2>
       <ul>
@@ -70,16 +105,22 @@
 
     <div class="ruban"></div>
 
+    <!-- CALENDRIER -->
     <section class="calendar">
       <h2>Disponibilités</h2>
-      <p>📅 Cliquez ci-dessous pour consulter les disponibilités sur Airbnb</p>
-      <a href="https://www.airbnb.fr/rooms/13384631?viralityEntryPoint=1&s=76" target="_blank">
-        Voir le calendrier
-      </a>
+      <iframe src="https://www.airbnb.com/calendar/ical/13384631.ics?s=f5e78b51c6edc38f540d3c849ff76ae4&locale=fr"
+        style="width:100%;height:400px;border:none;"></iframe>
+      <p>
+        📅 Voir plus sur 
+        <a href="https://www.airbnb.fr/rooms/13384631?viralityEntryPoint=1&s=76" target="_blank">
+          Airbnb
+        </a>
+      </p>
     </section>
 
     <div class="ruban"></div>
 
+    <!-- AVIS -->
     <section class="avis">
       <h2>Avis</h2>
       <div class="avis-bloc">
@@ -94,14 +135,15 @@
 
     <div class="ruban"></div>
 
+    <!-- RÉSERVATION -->
     <section class="reservation">
       <h2>Réserver</h2>
       <form id="booking-form">
         <label for="start-date">Date d’arrivée :</label>
-        <input type="date" id="start-date" name="start-date" required>
+        <input type="date" id="start-date" name="start-date" required />
 
         <label for="end-date">Date de départ :</label>
-        <input type="date" id="end-date" name="end-date" required>
+        <input type="date" id="end-date" name="end-date" required />
 
         <button type="submit">Réserver maintenant</button>
       </form>
@@ -109,18 +151,20 @@
 
     <div class="ruban"></div>
 
-    <section class="cta">
-      <a href="https://www.instagram.com/chill.love43" target="_blank" class="insta-link">
-        📸 Suivez-nous sur Instagram
-      </a>
-    </section>
-
-    <div class="ruban"></div>
-
+    <!-- CONTACT -->
     <section class="contact">
       <h2>Contact</h2>
       <p>📧 <a href="mailto:sadri.berrabah@gmail.com">sadri.berrabah@gmail.com</a></p>
       <p>📞 <a href="tel:+33666050148">+33 6 66 05 01 48</a></p>
+    </section>
+
+    <div class="ruban"></div>
+
+    <!-- INSTAGRAM -->
+    <section class="cta">
+      <a href="https://www.instagram.com/chill.love43" target="_blank" class="insta-link">
+        📸 Suivez-nous sur Instagram
+      </a>
     </section>
   </main>
 
