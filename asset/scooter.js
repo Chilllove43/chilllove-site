@@ -1,43 +1,41 @@
+// === Chill Love 43 💛 — Réservation avec calcul automatique + redirection PayPal ===
+
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("booking-form");
-  const totalEl = document.getElementById("total");
+  const totalDiv = document.getElementById("total");
+
+  if (!form) return;
 
   form.addEventListener("submit", (e) => {
-    e.preventDefault(); // Empêche le rechargement de la page
+    e.preventDefault(); // 🔥 Empêche le rechargement de la page
 
     const start = new Date(document.getElementById("start-date").value);
     const end = new Date(document.getElementById("end-date").value);
 
-    if (!start || !end || end <= start) {
-      totalEl.textContent = "⚠️ Veuillez sélectionner des dates valides.";
+    if (isNaN(start) || isNaN(end) || end <= start) {
+      totalDiv.textContent = "⚠️ Sélectionnez des dates valides.";
       return;
     }
 
     // Calcul du nombre de nuits
-    const nights = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
-
-    if (nights <= 0) {
-      totalEl.textContent = "⚠️ Durée minimale : 1 nuit.";
-      return;
-    }
-
-    // Calcul du tarif
+    const nights = (end - start) / (1000 * 60 * 60 * 24);
     let total = 0;
+
     for (let i = 0; i < nights; i++) {
       const day = new Date(start);
       day.setDate(start.getDate() + i);
-      const isWeekend = day.getDay() === 5 || day.getDay() === 6; // Vendredi ou samedi
-      total += isWeekend ? 150 : 120;
+      const weekday = day.getDay(); // 0 = dimanche ... 6 = samedi
+
+      // 💰 Tarifs
+      if (weekday === 5 || weekday === 6) total += 150; // Vendredi & samedi
+      else total += 120; // Dimanche → jeudi
     }
 
-    totalEl.textContent = `💰 Total pour ${nights} nuit(s) : ${total} €`;
+    totalDiv.textContent = `💶 Total pour ${nights} nuit(s) : ${total} €`;
 
-    // Lien PayPal professionnel
-    const paypalURL = `https://www.paypal.me/chilllove43?locale.x=fr_FR`;
-
-    // Attendre un court instant avant de rediriger
+    // 💛 Redirection vers PayPal Pro après 2 secondes
     setTimeout(() => {
-      window.open(paypalURL, "_blank");
+      window.open("https://www.paypal.me/chilllove43?locale.x=fr_FR", "_blank");
     }, 2000);
   });
 });
