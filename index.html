@@ -29,8 +29,8 @@
 
     <section class="gallery">
       <div class="gallery-grid">
-        <!-- 24 images -->
-        <!-- Copie-colle jusqu'à photo24.jpg -->
+        <!-- 24 photos à placer dans asset/images/ -->
+        <!-- Change les noms si besoin -->
         <img src="asset/images/photo1.jpg" alt="photo1" onclick="openModal(this)" />
         <img src="asset/images/photo2.jpg" alt="photo2" onclick="openModal(this)" />
         <img src="asset/images/photo3.jpg" alt="photo3" onclick="openModal(this)" />
@@ -57,6 +57,7 @@
         <img src="asset/images/photo24.jpg" alt="photo24" onclick="openModal(this)" />
       </div>
 
+      <!-- Modal d’agrandissement -->
       <div id="modal" onclick="closeModal()">
         <img id="modal-img" />
       </div>
@@ -107,5 +108,18 @@
   <footer>
     <p>© 2025 Chill Love – Tous droits réservés</p>
   </footer>
+
+  <script>
+    function openModal(img) {
+      const modal = document.getElementById("modal");
+      const modalImg = document.getElementById("modal-img");
+      modal.style.display = "flex";
+      modalImg.src = img.src;
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+  </script>
 </body>
 </html>
