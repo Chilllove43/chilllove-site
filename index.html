@@ -5,161 +5,169 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>💛 Chill Love 43 – Suite romantique</title>
 
-  <!-- Style -->
+  <!-- Feuilles de style -->
   <link rel="stylesheet" href="asset/style.css" />
-
-  <!-- Favicon -->
   <link rel="icon" href="asset/images/favicon.png" type="image/png" />
-
-  <!-- Masquer l’anglais au chargement -->
-  <style>[data-lang="en"] { display: none; }</style>
 
   <!-- Scripts -->
   <script src="js/lang.js" defer></script>
   <script src="js/calendar.js" defer></script>
   <script src="js/scooter.js" defer></script>
-  <script src="js/gallery.js" defer></script>
 </head>
 
 <body>
-  <!-- HEADER -->
+  <!-- Header -->
   <header>
-    <div class="logo-text">Chill Love 43 💛</div>
+    <h1 class="logo">Chill Love 43 💛</h1>
     <div class="lang-switch">
       <button onclick="switchLang('fr')">FR</button>
       <button onclick="switchLang('en')">EN</button>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h2 data-lang="fr">Suite romantique avec jacuzzi & sauna privés</h2>
-    <h2 data-lang="en">Romantic suite with private jacuzzi & sauna</h2>
-    <p data-lang="fr">Offrez-vous une parenthèse d’amour au cœur de la nature 🌿</p>
-    <p data-lang="en">Treat yourself to a romantic escape in the heart of nature 🌿</p>
-  </section>
+  <main>
+    <!-- Section Hero -->
+    <section class="hero">
+      <h2 data-lang="fr">Suite romantique avec jacuzzi & sauna</h2>
+      <h2 data-lang="en">Romantic Suite with Jacuzzi & Sauna</h2>
+      <p data-lang="fr">Offrez-vous une parenthèse d’amour dans un cadre naturel et apaisant.</p>
+      <p data-lang="en">Enjoy a romantic getaway in a peaceful natural setting.</p>
+    </section>
 
-  <div class="separator"></div>
+    <div class="separator"></div>
 
-  <!-- À PROPOS -->
-  <section class="apropos">
-    <h2 data-lang="fr">À propos de ce logement</h2>
-    <h2 data-lang="en">About this place</h2>
-    <p data-lang="fr">
-      Offrez-vous une escapade romantique dans une ferme du 18ᵉ siècle rénovée. Studio chaleureux avec vue panoramique sur les montagnes, jacuzzi & sauna privatifs, sans vis-à-vis. 🌹 Champagne, fleurs & pétales disponibles pour sublimer vos soirées. Espace extérieur cosy avec barbecue, à 5 min des restaurants & rivière. 📍35 min St-Étienne, 10 min Yssingeaux, 30 min Le Puy, 10 min passerelles himalayennes.
-    </p>
-  </section>
+    <!-- Section À propos -->
+    <section class="about">
+      <h2 data-lang="fr">À propos de ce logement</h2>
+      <h2 data-lang="en">About this place</h2>
 
-  <div class="separator"></div>
+      <p data-lang="fr">
+        Offrez-vous une escapade romantique dans une ferme du 18ᵉ siècle rénovée.
+        Studio chaleureux avec vue panoramique sur les montagnes, jacuzzi & sauna privatifs, sans vis-à-vis. 🌹 Champagne, fleurs & pétales disponibles pour sublimer vos soirées.
+        Espace extérieur cosy avec barbecue, à 5 min des restaurants & rivière. 📍35 min St-Étienne, 10 min Yssingeaux, 30 min Le Puy, 10 min passerelles himalayennes.
+      </p>
+      <p data-lang="en">
+        Enjoy a romantic getaway in an 18th-century renovated farmhouse.
+        Cozy studio with panoramic mountain views, private jacuzzi & sauna, no vis-à-vis. 🌹 Champagne, flowers & petals available for your romantic evenings.
+      </p>
+    </section>
 
-  <!-- GALERIE -->
-  <section class="gallery">
-    <h2 data-lang="fr">Photos</h2>
-    <h2 data-lang="en">Photos</h2>
-    <div class="gallery-grid">
-      <img src="asset/images/photo_01.jpg" alt="photo1" onclick="openModal(this)" />
-      <img src="asset/images/photo_02.jpg" alt="photo2" onclick="openModal(this)" />
-      <img src="asset/images/photo_03.jpg" alt="photo3" onclick="openModal(this)" />
-      <img src="asset/images/photo_04.jpg" alt="photo4" onclick="openModal(this)" />
-      <img src="asset/images/photo_05.jpg" alt="photo5" onclick="openModal(this)" />
-      <img src="asset/images/photo_06.jpg" alt="photo6" onclick="openModal(this)" />
-      <img src="asset/images/photo_07.jpg" alt="photo7" onclick="openModal(this)" />
-      <img src="asset/images/photo_08.jpg" alt="photo8" onclick="openModal(this)" />
-      <img src="asset/images/photo_09.jpg" alt="photo9" onclick="openModal(this)" />
-      <img src="asset/images/photo_10.jpg" alt="photo10" onclick="openModal(this)" />
-      <img src="asset/images/photo_11.jpg" alt="photo11" onclick="openModal(this)" />
-      <img src="asset/images/photo_12.jpg" alt="photo12" onclick="openModal(this)" />
-      <img src="asset/images/photo_13.jpg" alt="photo13" onclick="openModal(this)" />
-      <img src="asset/images/photo_14.jpg" alt="photo14" onclick="openModal(this)" />
-      <img src="asset/images/photo_15.jpg" alt="photo15" onclick="openModal(this)" />
-      <img src="asset/images/photo_16.jpg" alt="photo16" onclick="openModal(this)" />
-      <img src="asset/images/photo_17.jpg" alt="photo17" onclick="openModal(this)" />
-      <img src="asset/images/photo_18.jpg" alt="photo18" onclick="openModal(this)" />
-      <img src="asset/images/photo_19.jpg" alt="photo19" onclick="openModal(this)" />
-      <img src="asset/images/photo_20.jpg" alt="photo20" onclick="openModal(this)" />
-      <img src="asset/images/photo_21.jpg" alt="photo21" onclick="openModal(this)" />
-      <img src="asset/images/photo_22.jpg" alt="photo22" onclick="openModal(this)" />
-      <img src="asset/images/photo_23.jpg" alt="photo23" onclick="openModal(this)" />
-      <img src="asset/images/photo_24.jpg" alt="photo24" onclick="openModal(this)" />
-    </div>
-  </section>
+    <div class="separator"></div>
 
-  <!-- MODAL -->
-  <div id="modal" onclick="closeModal()">
-    <img id="modal-img" />
-  </div>
+    <!-- Galerie -->
+    <section class="gallery">
+      <h2 data-lang="fr">Galerie</h2>
+      <h2 data-lang="en">Gallery</h2>
+      <div class="gallery-grid">
+        <!-- 24 images -->
+        <img src="asset/images/photo_01.jpg" alt="photo1" onclick="openModal(this)" />
+        <img src="asset/images/photo_02.jpg" alt="photo2" onclick="openModal(this)" />
+        <img src="asset/images/photo_03.jpg" alt="photo3" onclick="openModal(this)" />
+        <img src="asset/images/photo_04.jpg" alt="photo4" onclick="openModal(this)" />
+        <img src="asset/images/photo_05.jpg" alt="photo5" onclick="openModal(this)" />
+        <img src="asset/images/photo_06.jpg" alt="photo6" onclick="openModal(this)" />
+        <img src="asset/images/photo_07.jpg" alt="photo7" onclick="openModal(this)" />
+        <img src="asset/images/photo_08.jpg" alt="photo8" onclick="openModal(this)" />
+        <img src="asset/images/photo_09.jpg" alt="photo9" onclick="openModal(this)" />
+        <img src="asset/images/photo_10.jpg" alt="photo10" onclick="openModal(this)" />
+        <img src="asset/images/photo_11.jpg" alt="photo11" onclick="openModal(this)" />
+        <img src="asset/images/photo_12.jpg" alt="photo12" onclick="openModal(this)" />
+        <img src="asset/images/photo_13.jpg" alt="photo13" onclick="openModal(this)" />
+        <img src="asset/images/photo_14.jpg" alt="photo14" onclick="openModal(this)" />
+        <img src="asset/images/photo_15.jpg" alt="photo15" onclick="openModal(this)" />
+        <img src="asset/images/photo_16.jpg" alt="photo16" onclick="openModal(this)" />
+        <img src="asset/images/photo_17.jpg" alt="photo17" onclick="openModal(this)" />
+        <img src="asset/images/photo_18.jpg" alt="photo18" onclick="openModal(this)" />
+        <img src="asset/images/photo_19.jpg" alt="photo19" onclick="openModal(this)" />
+        <img src="asset/images/photo_20.jpg" alt="photo20" onclick="openModal(this)" />
+        <img src="asset/images/photo_21.jpg" alt="photo21" onclick="openModal(this)" />
+        <img src="asset/images/photo_22.jpg" alt="photo22" onclick="openModal(this)" />
+        <img src="asset/images/photo_23.jpg" alt="photo23" onclick="openModal(this)" />
+        <img src="asset/images/photo_24.jpg" alt="photo24" onclick="openModal(this)" />
+      </div>
+      <div id="modal" onclick="closeModal()">
+        <img id="modal-img" />
+      </div>
+    </section>
 
-  <div class="separator"></div>
+    <div class="separator"></div>
 
-  <!-- TARIFS -->
-  <section class="tarif">
-    <h2 data-lang="fr">Tarifs</h2>
-    <h2 data-lang="en">Rates</h2>
-    <ul>
-      <li data-lang="fr">🗓️ Dimanche → Jeudi : 120€ / nuit (hors jour férié)</li>
-      <li data-lang="en">Sunday → Thursday: €120 / night</li>
-      <li data-lang="fr">🗓️ Vendredi & Samedi : 150€ / nuit</li>
-      <li data-lang="en">Friday & Saturday: €150 / night</li>
-      <li data-lang="fr">🍽️ Petit-déjeuner (2 pers.) : +20 €</li>
-      <li data-lang="en">Breakfast (2 people): +€20</li>
-      <li data-lang="fr">🍾 Champagne + Pétales de roses : +40 €</li>
-      <li data-lang="en">Champagne + rose petals: +€40</li>
-    </ul>
-  </section>
+    <!-- Tarifs -->
+    <section class="tarif">
+      <h2 data-lang="fr">Tarifs</h2>
+      <h2 data-lang="en">Rates</h2>
+      <ul>
+        <li data-lang="fr">🗓️ Dimanche → Jeudi : 120€ / nuit (hors jour férié)</li>
+        <li data-lang="en">🗓️ Sunday → Thursday: €120 / night (excluding public holidays)</li>
+        <li data-lang="fr">🗓️ Vendredi & Samedi : 150€ / nuit</li>
+        <li data-lang="en">🗓️ Friday & Saturday: €150 / night</li>
+        <li data-lang="fr">🍽️ Petit-déjeuner (2 pers.) : +20 €</li>
+        <li data-lang="fr">🍾 Option Champagne + Pétales de roses : +40 €</li>
+      </ul>
+    </section>
 
-  <div class="separator"></div>
+    <div class="separator"></div>
 
-  <!-- CALENDRIER -->
-  <section id="calendar">
-    <h2 data-lang="fr">Disponibilités</h2>
-    <h2 data-lang="en">Availability</h2>
-    <div id="calendar-container">
-      <p>Chargement du calendrier en cours…</p>
-    </div>
-  </section>
+    <!-- Disponibilités -->
+    <section class="calendar">
+      <h2 data-lang="fr">Disponibilités</h2>
+      <div id="calendar-container"></div>
+    </section>
 
-  <div class="separator"></div>
+    <div class="separator"></div>
 
-  <!-- RÉSERVATION -->
-  <section class="reserver">
-    <h2 data-lang="fr">Réservation</h2>
-    <h2 data-lang="en">Booking</h2>
-    <form id="booking-form">
-      <label for="start-date">Date d’arrivée :</label>
-      <input type="date" id="start-date" required />
-      <label for="end-date">Date de départ :</label>
-      <input type="date" id="end-date" required />
-      <button type="submit">Calculer et réserver</button>
-    </form>
-    <p id="total"></p>
-  </section>
+    <!-- Réservation -->
+    <section class="reservation">
+      <h2 data-lang="fr">Réserver maintenant</h2>
+      <form id="booking-form">
+        <label for="start-date">Date d’arrivée :</label>
+        <input type="date" id="start-date" required />
+        <label for="end-date">Date de départ :</label>
+        <input type="date" id="end-date" required />
+        <button type="submit" class="reserver-btn">Calculer et payer</button>
+      </form>
+      <p id="total"></p>
+    </section>
 
-  <div class="separator"></div>
+    <div class="separator"></div>
 
-  <!-- AVIS -->
-  <section class="avis">
-    <h2 data-lang="fr">Avis</h2>
-    <h2 data-lang="en">Reviews</h2>
-    <blockquote>“Endroit magnifique et romantique !” – Sarah</blockquote>
-    <blockquote>“Calme, propre, et super bien décoré.” – Julien</blockquote>
-    <blockquote>“Le sauna et jacuzzi au top !” – Emma</blockquote>
-    <a href="https://www.airbnb.fr/rooms/13384631?viralityEntryPoint=1&s=76" target="_blank">→ Voir plus d’avis Airbnb</a>
-  </section>
+    <!-- Avis -->
+    <section class="avis">
+      <h2 data-lang="fr">Avis des voyageurs</h2>
+      <div class="avis-bloc">
+        <blockquote>“Endroit magnifique et romantique !” – Sarah</blockquote>
+        <blockquote>“Calme, propre, et super bien décoré.” – Julien</blockquote>
+        <blockquote>“Le sauna et jacuzzi au top !” – Emma</blockquote>
+        <a href="https://www.airbnb.fr/rooms/13384631?viralityEntryPoint=1&s=76" target="_blank">
+          → Voir plus d’avis sur Airbnb
+        </a>
+      </div>
+    </section>
 
-  <div class="separator"></div>
+    <div class="separator"></div>
 
-  <!-- CONTACT -->
-  <section class="contact">
-    <h2>Contact</h2>
-    <p>📧 <a href="mailto:sadri.berrabah@gmail.com">sadri.berrabah@gmail.com</a></p>
-    <p>📞 <a href="tel:+33666050148">+33 6 66 05 01 48</a></p>
-  </section>
+    <!-- Contact -->
+    <section class="contact">
+      <h2 data-lang="fr">Contact</h2>
+      <p>📧 <a href="mailto:sadri.berrabah@gmail.com">sadri.berrabah@gmail.com</a></p>
+      <p>📱 <a href="tel:+33666050148">+33 6 66 05 01 48</a></p>
+    </section>
 
-  <div class="separator"></div>
+  </main>
 
-  <!-- FOOTER -->
   <footer>
     <p>© 2025 Chill Love 43 💛 – Tous droits réservés</p>
   </footer>
+
+  <!-- Script galerie -->
+  <script>
+    function openModal(img) {
+      document.getElementById("modal").style.display = "flex";
+      document.getElementById("modal-img").src = img.src;
+    }
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+  </script>
 </body>
 </html>
