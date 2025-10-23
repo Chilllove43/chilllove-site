@@ -1,13 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
-
 :root {
   --fond-clair: #fefefe;
   --vert-sauge: #b8c2b0;
   --rose-doux: #f8e8e8;
   --texte: #2d2d2d;
   --accent: #a67c8b;
-  --translucide: rgba(0, 0, 0, 0.8);
-  --police: 'Dancing Script', cursive;
+  --translucide: rgba(0, 0, 0, 0.75);
+  --police: 'Segoe UI', 'Dancing Script', cursive, sans-serif;
 }
 
 * {
@@ -17,13 +15,21 @@
 }
 
 body {
-  font-family: var(--police), sans-serif;
+  font-family: var(--police);
   background-color: var(--fond-clair);
   color: var(--texte);
   line-height: 1.6;
   padding-bottom: 80px;
 }
 
+/* Ruban de séparation */
+.ruban {
+  height: 10px;
+  background: linear-gradient(to right, var(--rose-doux), var(--vert-sauge));
+  margin: 40px 0;
+}
+
+/* Header */
 header {
   background-color: var(--vert-sauge);
   padding: 10px 20px;
@@ -45,9 +51,9 @@ header {
   margin-left: 5px;
   padding: 5px 10px;
   cursor: pointer;
-  font-family: inherit;
 }
 
+/* Hero */
 .hero {
   text-align: center;
   padding: 30px 20px;
@@ -63,25 +69,25 @@ header {
   font-size: 1.1em;
 }
 
-/* GALERIE */
+/* Galerie */
 .gallery {
   padding: 30px 10px;
 }
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 10px;
   padding: 10px;
 }
 
 .gallery-grid img {
   width: 100%;
+  height: auto;
   border-radius: 8px;
   cursor: pointer;
   object-fit: cover;
-  height: 80px;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s;
 }
 
 .gallery-grid img:hover {
@@ -100,10 +106,6 @@ header {
   align-items: center;
 }
 
-#modal.show {
-  display: flex;
-}
-
 #modal-img {
   max-width: 90%;
   max-height: 90%;
@@ -111,8 +113,8 @@ header {
   box-shadow: 0 0 20px rgba(255,255,255,0.5);
 }
 
-/* TARIFS & CALENDRIER & AVIS */
-.tarif, .calendar, .avis, .reserver, .contact {
+/* Tarifs, Calendrier, Avis */
+.tarif, .calendar, .avis, .contact {
   padding: 30px 20px;
   background: #fff;
 }
@@ -126,15 +128,11 @@ header {
   margin: 5px 0;
 }
 
-/* AVIS */
 .avis-bloc blockquote {
   font-style: italic;
   margin: 10px 0;
   border-left: 4px solid var(--accent);
   padding-left: 10px;
-  background-color: var(--rose-doux);
-  border-radius: 5px;
-  padding: 10px;
 }
 
 .avis a {
@@ -144,36 +142,7 @@ header {
   text-decoration: underline;
 }
 
-/* RÉSERVATION */
-.reserver {
-  text-align: center;
-}
-
-.reserver input {
-  margin: 10px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.reserver button {
-  background: var(--accent);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1em;
-  margin-top: 10px;
-}
-
-/* CONTACT */
-.contact a {
-  color: var(--texte);
-  text-decoration: none;
-}
-
-/* INSTAGRAM / FOOTER */
+/* Call To Action */
 .cta {
   text-align: center;
   padding: 30px 20px;
@@ -197,6 +166,18 @@ header {
   font-size: 1.1em;
 }
 
+/* Contact */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form p {
+  margin: 5px 0;
+  font-size: 1.1em;
+}
+
+/* Footer */
 footer {
   position: fixed;
   bottom: 0;
@@ -221,8 +202,9 @@ footer {
     font-size: 0.9em;
     padding: 8px 16px;
   }
+}
 
-  .gallery-grid img {
-    height: 70px;
-  }
+/* Cacher la traduction par défaut */
+.hidden {
+  display: none;
 }
