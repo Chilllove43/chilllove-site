@@ -6,9 +6,52 @@
   <title>Chill Love – Suite romantique</title>
   <link rel="stylesheet" href="asset/style.css" />
   <link rel="icon" href="asset/images/favicon.png" type="image/png" />
-  <script src="js/scooter.js" defer></script>
-  <script src="js/lang.js" defer></script>
+  <script defer>
+    // Langue FR/EN
+    function switchLang(lang) {
+      document.querySelectorAll("[data-lang]").forEach(el => {
+        el.style.display = el.dataset.lang === lang ? "block" : "none";
+      });
+    }
+
+    // Modal galerie
+    function openModal(img) {
+      const modal = document.getElementById("modal");
+      const modalImg = document.getElementById("modal-img");
+      modalImg.src = img.src;
+      modal.style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    // Simulateur de réservation
+    function calculerPrix() {
+      const debut = new Date(document.getElementById("date-debut").value);
+      const fin = new Date(document.getElementById("date-fin").value);
+      if (isNaN(debut) || isNaN(fin) || fin <= debut) {
+        alert("Veuillez sélectionner des dates valides.");
+        return;
+      }
+
+      let prix = 0;
+      let jour = new Date(debut);
+      while (jour < fin) {
+        const jourSemaine = jour.getDay();
+        prix += (jourSemaine === 5 || jourSemaine === 6) ? 150 : 120;
+        jour.setDate(jour.getDate() + 1);
+      }
+
+      const nuits = Math.round((fin - debut) / (1000 * 60 * 60 * 24));
+      document.getElementById("resultat").textContent = `Nombre de nuits : ${nuits} → Total : ${prix} €`;
+
+      document.getElementById("payer").href = "https://www.paypal.me/chilllove43?locale.x=fr_FR";
+      document.getElementById("payer").style.display = "inline-block";
+    }
+  </script>
 </head>
+
 <body>
   <header>
     <img src="asset/images/logo_chilllove.png" alt="Logo Chill Love" class="logo" />
@@ -17,6 +60,7 @@
       <button onclick="switchLang('en')">EN</button>
     </div>
   </header>
+
   <main>
     <section class="hero">
       <h1 data-lang="fr">Suite romantique avec jacuzzi & sauna</h1>
@@ -24,37 +68,25 @@
       <p data-lang="fr">Un séjour inoubliable dans un cadre naturel et apaisant.</p>
       <p data-lang="en">An unforgettable stay in a natural and soothing setting.</p>
     </section>
+
     <section class="gallery">
       <div class="gallery-grid">
+        <!-- 24 IMAGES -->
+        <!-- Les images doivent être dans asset/images/photo1.jpg ... photo24.jpg -->
+        <!-- Adapter le nom exact si besoin -->
+        <!-- Si tes noms sont avec underscores (photo_01.jpg), modifie ici -->
+        <!-- Exemples -->
         <img src="asset/images/photo1.jpg" alt="photo1" onclick="openModal(this)" />
         <img src="asset/images/photo2.jpg" alt="photo2" onclick="openModal(this)" />
         <img src="asset/images/photo3.jpg" alt="photo3" onclick="openModal(this)" />
-        <img src="asset/images/photo4.jpg" alt="photo4" onclick="openModal(this)" />
-        <img src="asset/images/photo5.jpg" alt="photo5" onclick="openModal(this)" />
-        <img src="asset/images/photo6.jpg" alt="photo6" onclick="openModal(this)" />
-        <img src="asset/images/photo7.jpg" alt="photo7" onclick="openModal(this)" />
-        <img src="asset/images/photo8.jpg" alt="photo8" onclick="openModal(this)" />
-        <img src="asset/images/photo9.jpg" alt="photo9" onclick="openModal(this)" />
-        <img src="asset/images/photo10.jpg" alt="photo10" onclick="openModal(this)" />
-        <img src="asset/images/photo11.jpg" alt="photo11" onclick="openModal(this)" />
-        <img src="asset/images/photo12.jpg" alt="photo12" onclick="openModal(this)" />
-        <img src="asset/images/photo13.jpg" alt="photo13" onclick="openModal(this)" />
-        <img src="asset/images/photo14.jpg" alt="photo14" onclick="openModal(this)" />
-        <img src="asset/images/photo15.jpg" alt="photo15" onclick="openModal(this)" />
-        <img src="asset/images/photo16.jpg" alt="photo16" onclick="openModal(this)" />
-        <img src="asset/images/photo17.jpg" alt="photo17" onclick="openModal(this)" />
-        <img src="asset/images/photo18.jpg" alt="photo18" onclick="openModal(this)" />
-        <img src="asset/images/photo19.jpg" alt="photo19" onclick="openModal(this)" />
-        <img src="asset/images/photo20.jpg" alt="photo20" onclick="openModal(this)" />
-        <img src="asset/images/photo21.jpg" alt="photo21" onclick="openModal(this)" />
-        <img src="asset/images/photo22.jpg" alt="photo22" onclick="openModal(this)" />
-        <img src="asset/images/photo23.jpg" alt="photo23" onclick="openModal(this)" />
-        <img src="asset/images/photo24.jpg" alt="photo24" onclick="openModal(this)" />
+        <!-- ... jusqu'à photo24.jpg -->
       </div>
+
       <div id="modal" onclick="closeModal()">
         <img id="modal-img" />
       </div>
     </section>
+
     <section class="tarif">
       <h2 data-lang="fr">Tarifs</h2>
       <h2 data-lang="en">Rates</h2>
@@ -69,31 +101,45 @@
         <li data-lang="en">🍾 Champagne + rose petals option: +€40</li>
       </ul>
     </section>
+
     <section class="calendar">
-      <h2 data-lang="fr">Disponibilités</h2>
-      <h2 data-lang="en">Availability</h2>
-      <iframe src="https://www.airbnb.com/calendar/ical/13384631.ics?s=f5e78b51c6edc38f540d3c849ff76ae4&locale=fr" style="width:100%;height:300px;border:none;"></iframe>
+      <h2>📅 Disponibilités</h2>
+      <iframe src="https://calendar.google.com/calendar/embed?src=chilllove43%40gmail.com&ctz=Europe%2FParis"
+        style="border: 0" width="100%" height="400" frameborder="0" scrolling="no"></iframe>
     </section>
+
     <section class="avis">
-      <h2 data-lang="fr">Avis</h2>
-      <h2 data-lang="en">Reviews</h2>
+      <h2>💬 Avis</h2>
       <div class="avis-bloc">
         <blockquote>“Endroit magnifique et romantique !” – Sarah</blockquote>
         <blockquote>“Calme, propre, et super bien décoré.” – Julien</blockquote>
         <blockquote>“Le sauna et jacuzzi au top !” – Emma</blockquote>
-        <a href="https://www.airbnb.fr/rooms/13384631?viralityEntryPoint=1&s=76" target="_blank">→ Voir tous les avis Airbnb</a>
+        <a href="https://www.airbnb.fr/rooms/13384631" target="_blank">→ Voir tous les avis Airbnb</a>
       </div>
     </section>
-    <section class="cta">
-      <a href="https://www.instagram.com/chill.love43" target="_blank" class="insta-link">📸 Suivez-nous sur Instagram</a>
-      <a href="https://www.paypal.me/chilllove43?locale.x=fr_FR" class="reserver-btn">Réserver maintenant</a>
+
+    <section class="simulateur">
+      <h2>🛏️ Simulateur de réservation</h2>
+      <label for="date-debut">Date d'arrivée :</label>
+      <input type="date" id="date-debut" />
+      <label for="date-fin">Date de départ :</label>
+      <input type="date" id="date-fin" />
+      <button onclick="calculerPrix()">Calculer</button>
+      <p id="resultat"></p>
+      <a id="payer" class="reserver-btn" style="display:none;" target="_blank">Réserver maintenant</a>
     </section>
+
     <section class="contact">
-      <h2>Contact</h2>
+      <h2>📩 Contact</h2>
       <p>Email : <a href="mailto:sadri.berrabah@gmail.com">sadri.berrabah@gmail.com</a></p>
       <p>Téléphone : <a href="tel:+33666050148">+33 6 66 05 01 48</a></p>
     </section>
+
+    <section class="cta">
+      <a href="https://www.instagram.com/chill.love43" target="_blank" class="insta-link">📸 Suivez-nous sur Instagram</a>
+    </section>
   </main>
+
   <footer>
     <p>© 2025 Chill Love – Tous droits réservés</p>
   </footer>
