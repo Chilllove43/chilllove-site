@@ -1,43 +1,43 @@
-// ==============================
-// 💛 Chill Love 43 — Réservation & Paiement
-// ==============================
-
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("booking-form");
-  const totalDisplay = document.getElementById("total");
+  const totalEl = document.getElementById("total");
 
   form.addEventListener("submit", (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Empêche le rechargement de la page
 
-    const startDate = new Date(document.getElementById("start-date").value);
-    const endDate = new Date(document.getElementById("end-date").value);
+    const start = new Date(document.getElementById("start-date").value);
+    const end = new Date(document.getElementById("end-date").value);
 
-    if (isNaN(startDate) || isNaN(endDate) || endDate <= startDate) {
-      totalDisplay.textContent = "⚠️ Veuillez sélectionner des dates valides.";
-      totalDisplay.style.color = "red";
+    if (!start || !end || end <= start) {
+      totalEl.textContent = "⚠️ Veuillez sélectionner des dates valides.";
       return;
     }
 
-    let nights = 0;
-    let total = 0;
+    // Calcul du nombre de nuits
+    const nights = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
 
-    for (let d = new Date(startDate); d < endDate; d.setDate(d.getDate() + 1)) {
-      nights++;
-      const day = d.getDay(); // 0 = dimanche, 6 = samedi
-      if (day === 5 || day === 6) {
-        total += 150; // vendredi / samedi
-      } else {
-        total += 120; // semaine
-      }
+    if (nights <= 0) {
+      totalEl.textContent = "⚠️ Durée minimale : 1 nuit.";
+      return;
     }
 
-    totalDisplay.innerHTML = `🌙 ${nights} nuit(s) – Total : <strong>${total} €</strong>`;
-    totalDisplay.style.color = "#2e2e2e";
-    totalDisplay.style.marginTop = "10px";
+    // Calcul du tarif
+    let total = 0;
+    for (let i = 0; i < nights; i++) {
+      const day = new Date(start);
+      day.setDate(start.getDate() + i);
+      const isWeekend = day.getDay() === 5 || day.getDay() === 6; // Vendredi ou samedi
+      total += isWeekend ? 150 : 120;
+    }
 
-    // ✅ Redirection PayPal après 2 secondes
+    totalEl.textContent = `💰 Total pour ${nights} nuit(s) : ${total} €`;
+
+    // Lien PayPal professionnel
+    const paypalURL = `https://www.paypal.me/chilllove43?locale.x=fr_FR`;
+
+    // Attendre un court instant avant de rediriger
     setTimeout(() => {
-      window.open("https://www.paypal.me/chilllove43?locale.x=fr_FR", "_blank");
+      window.open(paypalURL, "_blank");
     }, 2000);
   });
 });
