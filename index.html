@@ -6,8 +6,8 @@
   <title>Chill Love – Suite romantique</title>
   <link rel="stylesheet" href="asset/style.css" />
   <link rel="icon" href="asset/images/favicon.png" type="image/png" />
-  <script src="js/scooter.js" defer></script>
-  <script src="js/lang.js" defer></script>
+  <script src="asset/js/lang.js" defer></script>
+  <script src="asset/js/scooter.js" defer></script>
 </head>
 
 <body>
@@ -28,18 +28,34 @@
     </section>
 
     <section class="gallery">
-      <h2 data-lang="fr">Galerie</h2>
-      <h2 data-lang="en">Gallery</h2>
       <div class="gallery-grid">
-        <!-- PHOTOS 1 à 24 -->
-        <!-- Raccourci ici, remets jusqu'à 24 -->
-        <img src="asset/images/photo_01.jpg" alt="photo1" onclick="openModal(this)">
-        <img src="asset/images/photo_02.jpg" alt="photo2" onclick="openModal(this)">
-        <img src="asset/images/photo_03.jpg" alt="photo3" onclick="openModal(this)">
-        <!-- ... jusqu’à photo_24.jpg -->
-        <img src="asset/images/photo_24.jpg" alt="photo24" onclick="openModal(this)">
+        <!-- Les noms de fichier doivent correspondre à ceux que TU as (photo_01.jpg à photo_24.jpg) -->
+        <!-- Copie-colle 24 fois si besoin -->
+        <img src="asset/images/photo_01.jpg" alt="photo1" onclick="openModal(this)" />
+        <img src="asset/images/photo_02.jpg" alt="photo2" onclick="openModal(this)" />
+        <img src="asset/images/photo_03.jpg" alt="photo3" onclick="openModal(this)" />
+        <img src="asset/images/photo_04.jpg" alt="photo4" onclick="openModal(this)" />
+        <img src="asset/images/photo_05.jpg" alt="photo5" onclick="openModal(this)" />
+        <img src="asset/images/photo_06.jpg" alt="photo6" onclick="openModal(this)" />
+        <img src="asset/images/photo_07.jpg" alt="photo7" onclick="openModal(this)" />
+        <img src="asset/images/photo_08.jpg" alt="photo8" onclick="openModal(this)" />
+        <img src="asset/images/photo_09.jpg" alt="photo9" onclick="openModal(this)" />
+        <img src="asset/images/photo_10.jpg" alt="photo10" onclick="openModal(this)" />
+        <img src="asset/images/photo_11.jpg" alt="photo11" onclick="openModal(this)" />
+        <img src="asset/images/photo_12.jpg" alt="photo12" onclick="openModal(this)" />
+        <img src="asset/images/photo_13.jpg" alt="photo13" onclick="openModal(this)" />
+        <img src="asset/images/photo_14.jpg" alt="photo14" onclick="openModal(this)" />
+        <img src="asset/images/photo_15.jpg" alt="photo15" onclick="openModal(this)" />
+        <img src="asset/images/photo_16.jpg" alt="photo16" onclick="openModal(this)" />
+        <img src="asset/images/photo_17.jpg" alt="photo17" onclick="openModal(this)" />
+        <img src="asset/images/photo_18.jpg" alt="photo18" onclick="openModal(this)" />
+        <img src="asset/images/photo_19.jpg" alt="photo19" onclick="openModal(this)" />
+        <img src="asset/images/photo_20.jpg" alt="photo20" onclick="openModal(this)" />
+        <img src="asset/images/photo_21.jpg" alt="photo21" onclick="openModal(this)" />
+        <img src="asset/images/photo_22.jpg" alt="photo22" onclick="openModal(this)" />
+        <img src="asset/images/photo_23.jpg" alt="photo23" onclick="openModal(this)" />
+        <img src="asset/images/photo_24.jpg" alt="photo24" onclick="openModal(this)" />
       </div>
-
       <div id="modal" onclick="closeModal()">
         <img id="modal-img" />
       </div>
@@ -61,12 +77,17 @@
     </section>
 
     <section class="calendar">
-      <h2 data-lang="fr">Disponibilités</h2>
-      <h2 data-lang="en">Availability</h2>
-      <iframe
-        src="https://www.airbnb.com/calendar/ical/13384631.ics?s=f5e78b51c6edc38f540d3c849ff76ae4&locale=fr"
-        style="width:100%;height:300px;border:none;">
-      </iframe>
+      <h2 data-lang="fr">Réservation</h2>
+      <h2 data-lang="en">Booking</h2>
+      <p data-lang="fr">🗓️ Choisissez vos dates :</p>
+      <p data-lang="en">🗓️ Choose your dates:</p>
+      <div class="reservation-form">
+        <label for="date-debut">Début:</label>
+        <input type="date" id="date-debut" />
+        <label for="date-fin">Fin:</label>
+        <input type="date" id="date-fin" />
+        <button onclick="calculerPrix()">Réserver maintenant</button>
+      </div>
     </section>
 
     <section class="avis">
@@ -82,15 +103,10 @@
       </div>
     </section>
 
-    <section class="reserver" id="reserver">
-      <h2 data-lang="fr">Réserver</h2>
-      <h2 data-lang="en">Booking</h2>
-      <label for="date-debut">Date d’arrivée:</label>
-      <input type="date" id="date-debut" />
-      <label for="date-fin">Date de départ:</label>
-      <input type="date" id="date-fin" />
-      <button onclick="calculerEtRediriger()">Réserver maintenant</button>
-      <p id="prix"></p>
+    <section class="cta">
+      <a href="https://www.instagram.com/chill.love43" target="_blank" class="insta-link">
+        📸 Suivez-nous sur Instagram
+      </a>
     </section>
 
     <section class="contact">
@@ -99,56 +115,10 @@
       <p>Email : <a href="mailto:sadri.berrabah@gmail.com">sadri.berrabah@gmail.com</a></p>
       <p>Téléphone : <a href="tel:+33666050148">+33 6 66 05 01 48</a></p>
     </section>
-
-    <section class="cta">
-      <a href="https://www.instagram.com/chill.love43" target="_blank" class="insta-link">
-        📸 Suivez-nous sur Instagram
-      </a>
-    </section>
   </main>
 
   <footer>
     <p>© 2025 Chill Love – Tous droits réservés</p>
   </footer>
-
-  <script>
-    function openModal(img) {
-      const modal = document.getElementById("modal");
-      const modalImg = document.getElementById("modal-img");
-      modalImg.src = img.src;
-      modal.classList.add("show");
-    }
-
-    function closeModal() {
-      const modal = document.getElementById("modal");
-      modal.classList.remove("show");
-    }
-
-    function calculerEtRediriger() {
-      const debut = new Date(document.getElementById("date-debut").value);
-      const fin = new Date(document.getElementById("date-fin").value);
-      if (isNaN(debut) || isNaN(fin) || fin <= debut) {
-        alert("Veuillez choisir des dates valides.");
-        return;
-      }
-
-      let total = 0;
-      const jours = (fin - debut) / (1000 * 3600 * 24);
-      for (let i = 0; i < jours; i++) {
-        const jour = new Date(debut);
-        jour.setDate(jour.getDate() + i);
-        const jourSem = jour.getDay();
-        if (jourSem === 5 || jourSem === 6) total += 150; // Ven/Sam
-        else total += 120;
-      }
-
-      document.getElementById("prix").innerText =
-        `Total estimé : ${total} € pour ${jours} nuit(s)`;
-
-      setTimeout(() => {
-        window.open("https://www.paypal.me/chilllove43?locale.x=fr_FR", "_blank");
-      }, 1500);
-    }
-  </script>
 </body>
 </html>
