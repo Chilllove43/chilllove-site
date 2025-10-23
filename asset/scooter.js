@@ -19,8 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const totalDisplay = document.getElementById("total");
   const calcBtn = document.getElementById("calculateBtn");
 
-  if (!calcBtn) return;
-
   calcBtn.addEventListener("click", () => {
     const startDate = new Date(startInput.value);
     const endDate = new Date(endInput.value);
@@ -40,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     totalDisplay.textContent = `💰 Total : ${total} €`;
 
+    // Ouvre PayPal après 1.5s
     setTimeout(() => {
       window.open("https://www.paypal.me/chilllove43?locale.x=fr_FR", "_blank");
     }, 1500);
