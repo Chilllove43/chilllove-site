@@ -1,15 +1,11 @@
-/* ===========================
-   🌸 Chill Love 43 – Style global
-   =========================== */
-
 :root {
   --fond-clair: #fefefe;
-  --vert-sauge: #c8d0c1;
-  --rose-doux: #f4e3e3;
+  --vert-sauge: #b8c2b0;
+  --rose-doux: #f8e8e8;
+  --texte: #2d2d2d;
   --accent: #a67c8b;
-  --texte: #2e2e2e;
-  --translucide: rgba(0, 0, 0, 0.7);
-  --police: 'Dancing Script', 'Segoe UI', sans-serif;
+  --translucide: rgba(0, 0, 0, 0.75);
+  --police: 'Dancing Script', 'Segoe UI', cursive, sans-serif;
 }
 
 * {
@@ -19,99 +15,117 @@
 }
 
 body {
-  background: var(--fond-clair);
-  color: var(--texte);
   font-family: var(--police);
+  background-color: var(--fond-clair);
+  color: var(--texte);
   line-height: 1.6;
-  text-align: center;
+  padding-bottom: 80px;
 }
 
-/* ===========================
-   🌿 HEADER
-   =========================== */
-
+/* Header */
 header {
   background-color: var(--vert-sauge);
-  padding: 12px 20px;
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.2em;
 }
 
-.logo-text {
-  font-weight: bold;
-  font-size: 1.3em;
-  color: var(--accent);
+.logo {
+  font-size: 1.5em;
+  font-style: italic;
+  color: white;
 }
 
 .lang-switch button {
   background: var(--rose-doux);
+  color: var(--texte);
   border: 1px solid var(--accent);
   border-radius: 5px;
-  margin-left: 6px;
+  margin-left: 5px;
   padding: 5px 10px;
   cursor: pointer;
-  color: var(--texte);
+  transition: all 0.3s;
 }
 
-/* ===========================
-   💕 HERO
-   =========================== */
+.lang-switch button:hover {
+  background: var(--accent);
+  color: white;
+}
 
+/* Ruban de séparation */
+.separator {
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(to right, var(--rose-doux), var(--vert-sauge));
+  margin: 40px 0;
+  border-radius: 20px;
+}
+
+/* Section Hero */
 .hero {
+  text-align: center;
   padding: 40px 20px;
-  background-color: var(--rose-doux);
+  background: var(--rose-doux);
 }
 
 .hero h2 {
-  font-size: 1.8em;
+  font-size: 2em;
   margin-bottom: 10px;
 }
 
 .hero p {
-  font-size: 1.1em;
+  font-size: 1.2em;
 }
 
-/* ===========================
-   🌹 À PROPOS
-   =========================== */
+/* À propos */
+.about {
+  padding: 30px 20px;
+  background: #fff;
+}
 
-.apropos {
-  padding: 30px 15px;
-  max-width: 900px;
+.about h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.about p {
+  max-width: 800px;
   margin: auto;
-  font-size: 1.05em;
+  text-align: justify;
 }
 
-/* ===========================
-   🖼️ GALERIE
-   =========================== */
-
+/* Galerie */
 .gallery {
-  padding: 20px;
+  padding: 30px 10px;
+  background: #fff;
+}
+
+.gallery h2 {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 10px;
-  margin-top: 15px;
+  gap: 8px;
+  padding: 10px;
 }
 
 .gallery-grid img {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .gallery-grid img:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Modale photo */
+/* Modale d'image */
 #modal {
   display: none;
   position: fixed;
@@ -119,30 +133,23 @@ header {
   width: 100%;
   height: 100%;
   background-color: var(--translucide);
+  z-index: 1000;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
 }
 
 #modal-img {
   max-width: 90%;
   max-height: 90%;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
 }
 
-/* ===========================
-   💰 TARIFS
-   =========================== */
-
+/* Tarifs */
 .tarif {
-  padding: 40px 20px;
-  background: #fff;
-}
-
-.tarif h2 {
-  font-size: 1.6em;
-  margin-bottom: 10px;
+  padding: 30px 20px;
+  background: var(--rose-doux);
+  text-align: center;
 }
 
 .tarif ul {
@@ -151,21 +158,19 @@ header {
 }
 
 .tarif li {
-  margin: 6px 0;
+  margin: 5px 0;
   font-size: 1.1em;
 }
 
-/* ===========================
-   📅 CALENDRIER
-   =========================== */
-
-#calendar {
-  padding: 40px 20px;
+/* Calendrier Airbnb */
+.calendar {
+  padding: 30px 20px;
+  background: #fff;
+  text-align: center;
 }
 
-#calendar-container {
-  margin-top: 20px;
-  text-align: center;
+.calendar h2 {
+  margin-bottom: 20px;
 }
 
 .calendar-header {
@@ -175,77 +180,80 @@ header {
   gap: 15px;
 }
 
+.nav-btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 5px;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .calendar-day {
-  padding: 10px;
-  border-radius: 6px;
+  padding: 8px;
+  border-radius: 5px;
+  text-align: center;
   font-size: 0.9em;
 }
 
-.available {
-  background-color: #d4f8d4;
+.calendar-day.available {
+  background: var(--vert-sauge);
+  color: white;
 }
 
-.reserved {
-  background-color: #f8d4d4;
-}
-
-/* ===========================
-   🛏️ RÉSERVATION
-   =========================== */
-
-.reserver {
-  padding: 40px 20px;
-}
-
-#booking-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  max-width: 300px;
-  margin: auto;
-}
-
-#booking-form input,
-#booking-form button {
-  padding: 10px;
-  border: 1px solid var(--accent);
-  border-radius: 6px;
-  width: 100%;
-}
-
-#booking-form button {
-  background: var(--accent);
+.calendar-day.reserved {
+  background: #f2b6b6;
   color: #fff;
+}
+
+/* Réservation */
+.reservation {
+  padding: 30px 20px;
+  background: var(--rose-doux);
+  text-align: center;
+}
+
+.reservation input, .reservation button {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--accent);
+}
+
+.reserver-btn {
+  background: var(--accent);
+  color: white;
   cursor: pointer;
   transition: 0.3s;
 }
 
-#booking-form button:hover {
-  background: var(--rose-doux);
-  color: var(--texte);
+.reserver-btn:hover {
+  background: var(--vert-sauge);
 }
 
-/* ===========================
-   💬 AVIS
-   =========================== */
-
+/* Avis */
 .avis {
-  padding: 40px 20px;
+  padding: 30px 20px;
+  background: #fff;
+  text-align: center;
 }
 
-.avis blockquote {
+.avis h2 {
+  margin-bottom: 20px;
+}
+
+.avis-bloc blockquote {
   font-style: italic;
-  margin: 10px auto;
   border-left: 4px solid var(--accent);
   padding-left: 10px;
+  margin: 10px auto;
   max-width: 600px;
 }
 
@@ -256,60 +264,42 @@ header {
   text-decoration: underline;
 }
 
-/* ===========================
-   📞 CONTACT
-   =========================== */
-
+/* Contact */
 .contact {
-  padding: 40px 20px;
+  padding: 30px 20px;
+  background: var(--vert-sauge);
+  color: white;
+  text-align: center;
 }
 
 .contact a {
-  color: var(--accent);
+  color: white;
   text-decoration: none;
 }
 
-/* ===========================
-   🎀 SÉPARATEURS
-   =========================== */
-
-.separator {
-  width: 90%;
-  height: 6px;
-  background: linear-gradient(to right, var(--rose-doux), var(--vert-sauge));
-  margin: 30px auto;
-  border-radius: 10px;
-}
-
-/* ===========================
-   👣 FOOTER
-   =========================== */
-
+/* Footer */
 footer {
-  background: var(--vert-sauge);
-  padding: 15px;
+  background: var(--accent);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
   font-size: 0.9em;
-  color: var(--texte);
 }
 
-/* ===========================
-   📱 RESPONSIVE
-   =========================== */
-
+/* Responsive */
 @media (max-width: 768px) {
   .hero h2 {
-    font-size: 1.4em;
-  }
-
-  .logo-text {
-    font-size: 1.1em;
+    font-size: 1.6em;
   }
 
   .gallery-grid {
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   }
 
-  .tarif li {
-    font-size: 1em;
+  .calendar-day {
+    font-size: 0.8em;
   }
 }
