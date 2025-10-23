@@ -1,15 +1,17 @@
 function switchLang(lang) {
-  const allElements = document.querySelectorAll('[data-lang]');
-  allElements.forEach(el => {
-    if (el.getAttribute('data-lang') === lang) {
-      el.classList.remove('hidden');
+  const allTexts = document.querySelectorAll("[data-lang]");
+  allTexts.forEach(el => {
+    if (el.getAttribute("data-lang") === lang) {
+      el.style.display = "";
     } else {
-      el.classList.add('hidden');
+      el.style.display = "none";
     }
   });
+  localStorage.setItem("lang", lang); // on garde le choix de l’utilisateur
 }
 
-// Activer le français par défaut
-document.addEventListener('DOMContentLoaded', () => {
-  switchLang('fr');
+// 🏁 Au chargement de la page : FR par défaut
+document.addEventListener("DOMContentLoaded", () => {
+  const savedLang = localStorage.getItem("lang") || "fr";
+  switchLang(savedLang);
 });
