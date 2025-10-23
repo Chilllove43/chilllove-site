@@ -1,41 +1,51 @@
-// === Chill Love 43 💛 — Réservation avec calcul automatique + redirection PayPal ===
+// === Chill Love 43 💛 — Gestion galerie + réservation ===
 
+// ---- GALERIE PHOTO (zoom en grand) ----
+function openModal(img) {
+  const modal = document.getElementById("modal");
+  const modalImg = document.getElementById("modal-img");
+  modal.style.display = "flex";
+  modalImg.src = img.src;
+}
+
+function closeModal() {
+  const modal = document.getElementById("modal");
+  modal.style.display = "none";
+}
+
+// ---- SIMULATEUR DE RÉSERVATION ----
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("booking-form");
-  const totalDiv = document.getElementById("total");
+  const form = document.getElementById("bookingForm");
+  const totalDisplay = document.getElementById("total");
 
   if (!form) return;
 
   form.addEventListener("submit", (e) => {
-    e.preventDefault(); // 🔥 Empêche le rechargement de la page
+    e.preventDefault();
 
-    const start = new Date(document.getElementById("start-date").value);
-    const end = new Date(document.getElementById("end-date").value);
+    const startDate = new Date(document.getElementById("start").value);
+    const endDate = new Date(document.getElementById("end").value);
 
-    if (isNaN(start) || isNaN(end) || end <= start) {
-      totalDiv.textContent = "⚠️ Sélectionnez des dates valides.";
+    if (isNaN(startDate) || isNaN(endDate) || endDate <= startDate) {
+      alert("Veuillez sélectionner des dates valides.");
       return;
     }
 
-    // Calcul du nombre de nuits
-    const nights = (end - start) / (1000 * 60 * 60 * 24);
     let total = 0;
+    const dayMs = 24 * 60 * 60 * 1000;
 
-    for (let i = 0; i < nights; i++) {
-      const day = new Date(start);
-      day.setDate(start.getDate() + i);
-      const weekday = day.getDay(); // 0 = dimanche ... 6 = samedi
-
-      // 💰 Tarifs
-      if (weekday === 5 || weekday === 6) total += 150; // Vendredi & samedi
-      else total += 120; // Dimanche → jeudi
+    for (let d = new Date(startDate); d < endDate; d = new Date(d.getTime() + dayMs)) {
+      const day = d.getDay(); // 0 = dimanche, 6 = samedi
+      if (day === 5 || day === 6) total += 150; // Vendredi, Samedi
+      else total += 120; // Autres jours
     }
 
-    totalDiv.textContent = `💶 Total pour ${nights} nuit(s) : ${total} €`;
+    totalDisplay.textContent = `💰 Total : ${total} €`;
 
-    // 💛 Redirection vers PayPal Pro après 2 secondes
+    // Redirection vers PayPal après un léger délai
     setTimeout(() => {
-      window.open("https://www.paypal.me/chilllove43?locale.x=fr_FR", "_blank");
-    }, 2000);
+      const paypalUrl = "https://www.paypal.me/chilllove43?locale.x=fr_FR";
+      window.open(paypalUrl, "_blank");
+    }, 1500);
   });
 });
