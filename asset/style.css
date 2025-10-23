@@ -22,14 +22,6 @@ body {
   padding-bottom: 80px;
 }
 
-/* Ruban de séparation */
-.ruban {
-  height: 10px;
-  background: linear-gradient(to right, var(--rose-doux), var(--vert-sauge));
-  margin: 40px 0;
-}
-
-/* Header */
 header {
   background-color: var(--vert-sauge);
   padding: 10px 20px;
@@ -39,8 +31,8 @@ header {
 }
 
 .logo {
-  height: 50px;
-  opacity: 0.9;
+  height: 45px;
+  opacity: 0.85;
 }
 
 .lang-switch button {
@@ -53,7 +45,6 @@ header {
   cursor: pointer;
 }
 
-/* Hero */
 .hero {
   text-align: center;
   padding: 30px 20px;
@@ -69,24 +60,30 @@ header {
   font-size: 1.1em;
 }
 
-/* Galerie */
+/* Ruban entre sections */
+.ruban {
+  width: 100%;
+  height: 30px;
+  background: var(--vert-sauge);
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
 .gallery {
-  padding: 30px 10px;
+  padding: 20px 10px;
 }
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 8px;
   padding: 10px;
 }
 
 .gallery-grid img {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
-  object-fit: cover;
   transition: transform 0.2s;
 }
 
@@ -113,8 +110,7 @@ header {
   box-shadow: 0 0 20px rgba(255,255,255,0.5);
 }
 
-/* Tarifs, Calendrier, Avis */
-.tarif, .calendar, .avis, .contact {
+.tarif, .calendar, .avis, .contact, .simulateur {
   padding: 30px 20px;
   background: #fff;
 }
@@ -128,11 +124,13 @@ header {
   margin: 5px 0;
 }
 
+/* Avis */
 .avis-bloc blockquote {
   font-style: italic;
   margin: 10px 0;
   border-left: 4px solid var(--accent);
   padding-left: 10px;
+  color: #444;
 }
 
 .avis a {
@@ -142,7 +140,7 @@ header {
   text-decoration: underline;
 }
 
-/* Call To Action */
+/* CTA & Instagram */
 .cta {
   text-align: center;
   padding: 30px 20px;
@@ -167,14 +165,27 @@ header {
 }
 
 /* Contact */
-.contact-form {
-  max-width: 600px;
-  margin: 0 auto;
+.contact p {
+  margin-bottom: 8px;
+  font-size: 1em;
 }
 
-.contact-form p {
-  margin: 5px 0;
-  font-size: 1.1em;
+/* Simulateur */
+.simulateur label,
+.simulateur input {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.simulateur input[type="date"] {
+  padding: 6px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.simulateur #prix {
+  font-weight: bold;
+  margin-top: 10px;
 }
 
 /* Footer */
@@ -195,16 +206,11 @@ footer {
   }
 
   .logo {
-    height: 40px;
+    height: 35px;
   }
 
   .reserver-btn {
     font-size: 0.9em;
     padding: 8px 16px;
   }
-}
-
-/* Cacher la traduction par défaut */
-.hidden {
-  display: none;
 }
