@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <header>
+  <header class="fade-in">
     <div class="header-left">Chill Love 43 💛</div>
     <div class="lang-switch">
       <button onclick="switchLang('fr')">FR</button>
@@ -20,16 +20,16 @@
   </header>
 
   <main>
-    <!-- Section principale -->
-    <section class="hero">
-      <h1 data-lang="fr">Suite romantique avec jacuzzi & sauna</h1>
-      <p data-lang="fr">Un séjour inoubliable dans un cadre naturel et apaisant.</p>
+    <!-- HERO -->
+    <section class="hero fade-in">
+      <h1>Suite romantique avec jacuzzi & sauna</h1>
+      <p>Un séjour inoubliable dans un cadre naturel et apaisant.</p>
     </section>
 
     <hr class="separator" />
 
-    <!-- À propos -->
-    <section id="a-propos">
+    <!-- À PROPOS -->
+    <section id="a-propos" class="fade-in">
       <h2>À propos de ce logement</h2>
       <p>
         Offrez-vous une escapade romantique dans une ferme du 18ᵉ siècle rénovée.
@@ -47,11 +47,10 @@
 
     <hr class="separator" />
 
-    <!-- Galerie -->
-    <section class="gallery">
+    <!-- GALERIE -->
+    <section class="gallery fade-in">
       <h2>Galerie photos</h2>
       <div class="gallery-grid">
-        <!-- Tes 24 photos -->
         <img src="asset/images/photo_01.jpg" alt="photo1" onclick="openModal(this)" />
         <img src="asset/images/photo_02.jpg" alt="photo2" onclick="openModal(this)" />
         <img src="asset/images/photo_03.jpg" alt="photo3" onclick="openModal(this)" />
@@ -78,7 +77,6 @@
         <img src="asset/images/photo_24.jpg" alt="photo24" onclick="openModal(this)" />
       </div>
 
-      <!-- Modale agrandissement -->
       <div id="modal" onclick="closeModal()">
         <img id="modal-img" />
       </div>
@@ -86,8 +84,8 @@
 
     <hr class="separator" />
 
-    <!-- Tarifs -->
-    <section id="tarifs">
+    <!-- TARIFS -->
+    <section id="tarifs" class="fade-in">
       <h2>Tarifs</h2>
       <ul>
         <li>🗓️ Dimanche → Jeudi : 120 € / nuit (hors jour férié)</li>
@@ -99,8 +97,8 @@
 
     <hr class="separator" />
 
-    <!-- Réservation -->
-    <section id="reserver">
+    <!-- RÉSERVATION -->
+    <section id="reserver" class="fade-in">
       <h2>Réservation</h2>
       <form id="reservationForm" onsubmit="return calculerReservation(event)">
         <label for="arrivee">Date d'arrivée :</label>
@@ -114,8 +112,8 @@
 
     <hr class="separator" />
 
-    <!-- Calendrier -->
-    <section id="disponibilites">
+    <!-- DISPONIBILITÉS -->
+    <section id="disponibilites" class="fade-in">
       <h2>Disponibilités</h2>
       <p>📅 Consultez nos disponibilités directement sur Airbnb :</p>
       <iframe src="https://www.airbnb.com/calendar/ical/13384631.ics?s=f5e78b51c6edc38f540d3c849ff76ae4&locale=fr" style="width:100%;height:300px;border:none;"></iframe>
@@ -124,8 +122,8 @@
 
     <hr class="separator" />
 
-    <!-- Avis -->
-    <section id="avis">
+    <!-- AVIS -->
+    <section id="avis" class="fade-in">
       <h2>Avis clients</h2>
       <blockquote>“Endroit magnifique et romantique !” – Sarah</blockquote>
       <blockquote>“Calme, propre, et super bien décoré.” – Julien</blockquote>
@@ -135,22 +133,30 @@
 
     <hr class="separator" />
 
-    <!-- Contact -->
-    <section id="contact">
+    <!-- CONTACT -->
+    <section id="contact" class="fade-in">
       <h2>Contact</h2>
       <p>📧 <a href="mailto:sadri.berrabah@gmail.com">sadri.berrabah@gmail.com</a></p>
       <p>📞 <a href="tel:+33666050148">+33 6 66 05 01 48</a></p>
       <a href="https://www.instagram.com/chill.love43" target="_blank">📸 Suivez-nous sur Instagram</a>
     </section>
-
   </main>
 
-  <footer>
+  <footer class="fade-in">
     <p>© 2025 Chill Love 43 – Tous droits réservés</p>
   </footer>
 
-  <!-- Script pour la réservation -->
+  <!-- SCRIPT réservation -->
   <script>
+    function openModal(img) {
+      document.getElementById("modal-img").src = img.src;
+      document.getElementById("modal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
     function calculerReservation(e) {
       e.preventDefault();
       const arrivee = new Date(document.getElementById('arrivee').value);
@@ -164,7 +170,7 @@
         const jour = new Date(arrivee);
         jour.setDate(arrivee.getDate() + i);
         const day = jour.getDay();
-        total += (day === 5 || day === 6) ? 150 : 120; // Ven/Sam = 150€, sinon 120€
+        total += (day === 5 || day === 6) ? 150 : 120;
       }
 
       document.getElementById("prixTotal").innerText = `💰 Total : ${total} € (${diff} nuits)`;
