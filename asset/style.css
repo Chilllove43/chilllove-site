@@ -8,12 +8,14 @@
   --police: 'Dancing Script', 'Segoe UI', cursive, sans-serif;
 }
 
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* STRUCTURE GLOBALE */
 body {
   font-family: var(--police);
   background-color: var(--fond-clair);
@@ -22,46 +24,35 @@ body {
   padding-bottom: 80px;
 }
 
-/* === HEADER === */
 header {
   background-color: var(--vert-sauge);
   padding: 10px 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-}
-
-.logo {
-  font-size: 1.8em;
+  color: white;
+  font-size: 1.5em;
   font-style: italic;
-  color: #fff;
   letter-spacing: 1px;
 }
 
-.lang-switch button {
-  background: var(--rose-doux);
-  color: var(--texte);
-  border: 1px solid var(--accent);
-  border-radius: 5px;
-  margin-left: 5px;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
-/* === RUBAN DE SÉPARATION === */
+/* RUBANS DE SÉPARATION */
 .separator {
-  width: 100%;
-  height: 8px;
-  background: linear-gradient(90deg, var(--rose-doux), var(--vert-sauge));
+  height: 5px;
+  background: linear-gradient(to right, var(--rose-doux), var(--vert-sauge));
   margin: 30px 0;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 
-/* === SECTION HERO === */
-.hero {
+/* SECTIONS */
+section {
+  padding: 30px 20px;
   text-align: center;
-  padding: 40px 20px;
+}
+
+.hero {
   background: var(--rose-doux);
+  padding: 40px 20px;
 }
 
 .hero h2 {
@@ -73,19 +64,23 @@ header {
   font-size: 1.1em;
 }
 
-/* === À PROPOS === */
+/* À PROPOS */
 .about {
-  padding: 30px 20px;
-  text-align: center;
   background: #fff;
-  font-size: 1.1em;
-  line-height: 1.7;
+  color: var(--texte);
+  text-align: left;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-/* === GALERIE === */
+/* GALERIE */
 .gallery {
-  text-align: center;
-  padding: 30px 10px;
+  background: #fff;
+}
+
+.gallery h2 {
+  margin-bottom: 15px;
 }
 
 .gallery-grid {
@@ -97,23 +92,21 @@ header {
 
 .gallery-grid img {
   width: 100%;
-  height: auto;
   border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .gallery-grid img:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
 /* MODALE PHOTO */
 #modal {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
   background-color: var(--translucide);
@@ -125,15 +118,17 @@ header {
 #modal-img {
   max-width: 90%;
   max-height: 90%;
-  border-radius: 8px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.6);
 }
 
-/* === TARIFS === */
+/* TARIFS */
 .tarif {
-  background: #fff;
-  padding: 30px 20px;
-  text-align: center;
+  background: var(--rose-doux);
+}
+
+.tarif h2 {
+  margin-bottom: 10px;
 }
 
 .tarif ul {
@@ -145,115 +140,97 @@ header {
   margin: 6px 0;
 }
 
-/* === CALENDRIER === */
+/* CALENDRIER Airbnb */
 .calendar {
-  text-align: center;
-  background: var(--rose-doux);
-  padding: 30px 10px;
+  background: #fff;
 }
 
-.calendar-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
+.calendar h2 {
   margin-bottom: 10px;
 }
 
-.calendar-header h3 {
-  font-size: 1.4em;
-}
-
-.nav-btn {
-  background: var(--accent);
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 6px;
-  cursor: pointer;
+.calendar-box {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 5px;
-  max-width: 350px;
-  margin: 0 auto;
+  margin-top: 10px;
 }
 
 .calendar-day {
   padding: 8px;
   border-radius: 6px;
   font-size: 0.9em;
-  text-align: center;
-}
-
-.calendar-day.header {
-  font-weight: bold;
-  background: #ddd;
 }
 
 .calendar-day.reserved {
-  background: var(--accent);
+  background-color: #e0b3b3;
   color: #fff;
 }
 
 .calendar-day.available {
-  background: var(--vert-sauge);
-  color: #fff;
+  background-color: #cfe3d8;
+  color: #333;
 }
 
 .calendar-day.empty {
   background: transparent;
 }
 
-/* === FORMULAIRE DE RÉSERVATION === */
+/* FORMULAIRE DE RÉSERVATION */
 .reservation {
-  text-align: center;
-  background: #fff;
-  padding: 30px 20px;
+  background: var(--rose-doux);
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.reservation form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
 }
 
 .reservation label {
-  display: block;
-  margin-top: 10px;
+  font-weight: bold;
 }
 
 .reservation input {
-  margin-top: 5px;
-  padding: 6px;
-  border: 1px solid var(--accent);
-  border-radius: 5px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 }
 
 .reserver-btn {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 25px;
+  padding: 10px 20px;
   background: var(--accent);
   color: white;
-  text-decoration: none;
+  border: none;
   border-radius: 8px;
-  font-weight: bold;
   cursor: pointer;
-  transition: transform 0.2s;
+  font-size: 1em;
+  transition: background 0.3s;
 }
 
 .reserver-btn:hover {
-  transform: scale(1.05);
+  background: #8f6878;
 }
 
-#total {
-  margin-top: 10px;
-  font-weight: bold;
-  color: var(--texte);
-}
-
-/* === AVIS === */
+/* AVIS */
 .avis {
-  background: var(--rose-doux);
-  padding: 30px 20px;
-  text-align: center;
+  background: #fff;
+}
+
+.avis h2 {
+  margin-bottom: 15px;
 }
 
 .avis-bloc blockquote {
@@ -270,34 +247,31 @@ header {
   text-decoration: underline;
 }
 
-/* === CONTACT === */
+/* CONTACT */
 .contact {
-  background: #fff;
-  text-align: center;
+  background: var(--vert-sauge);
+  color: white;
   padding: 30px 20px;
-  font-size: 1.1em;
 }
 
 .contact a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-.contact a:hover {
+  color: white;
   text-decoration: underline;
 }
 
-/* === FOOTER === */
+/* FOOTER */
 footer {
-  position: relative;
-  background: var(--vert-sauge);
   text-align: center;
-  padding: 15px;
+  background: var(--vert-sauge);
+  color: white;
+  padding: 10px;
   font-size: 0.9em;
-  color: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
-/* === RESPONSIVE === */
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .hero h2 {
     font-size: 1.6em;
@@ -307,12 +281,8 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   }
 
-  .calendar-grid {
-    max-width: 90%;
-    gap: 3px;
-  }
-
-  .logo {
-    font-size: 1.4em;
+  .reserver-btn {
+    font-size: 0.9em;
+    padding: 8px 16px;
   }
 }
