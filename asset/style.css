@@ -15,7 +15,6 @@
   box-sizing: border-box;
 }
 
-/* STRUCTURE GLOBALE */
 body {
   font-family: var(--police);
   background-color: var(--fond-clair);
@@ -24,23 +23,28 @@ body {
   padding-bottom: 80px;
 }
 
+/* HEADER */
 header {
   background-color: var(--vert-sauge);
-  padding: 10px 20px;
+  padding: 15px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
-  font-size: 1.5em;
-  font-style: italic;
-  letter-spacing: 1px;
 }
 
-/* RUBANS DE SÉPARATION */
+.logo-text {
+  font-size: 1.8em;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* RUBANS ENTRE SECTIONS */
 .separator {
-  height: 5px;
+  height: 6px;
   background: linear-gradient(to right, var(--rose-doux), var(--vert-sauge));
-  margin: 30px 0;
+  margin: 40px 0;
   border-radius: 3px;
 }
 
@@ -50,9 +54,17 @@ section {
   text-align: center;
 }
 
+h2 {
+  color: var(--accent);
+  font-size: 1.8em;
+  margin-bottom: 15px;
+}
+
+/* HERO */
 .hero {
   background: var(--rose-doux);
   padding: 40px 20px;
+  border-bottom: 3px solid var(--vert-sauge);
 }
 
 .hero h2 {
@@ -64,28 +76,35 @@ section {
   font-size: 1.1em;
 }
 
-/* À PROPOS */
+/* ABOUT */
 .about {
-  background: #fff;
-  color: var(--texte);
+  background-color: #fff;
+  border-left: 4px solid var(--accent);
+  border-right: 4px solid var(--accent);
+  border-radius: 6px;
+  margin: 20px;
+  padding: 20px;
   text-align: left;
-  line-height: 1.8;
-  max-width: 900px;
-  margin: 0 auto;
+  font-size: 1.05em;
+}
+
+.about a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.about a:hover {
+  text-decoration: underline;
 }
 
 /* GALERIE */
 .gallery {
-  background: #fff;
-}
-
-.gallery h2 {
-  margin-bottom: 15px;
+  padding: 30px 10px;
 }
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   gap: 10px;
   padding: 10px;
 }
@@ -94,15 +113,14 @@ section {
   width: 100%;
   border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease-in-out;
 }
 
 .gallery-grid img:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
-/* MODALE PHOTO */
+/* MODALE */
 #modal {
   display: none;
   position: fixed;
@@ -119,125 +137,85 @@ section {
   max-width: 90%;
   max-height: 90%;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(255,255,255,0.6);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.7);
 }
 
 /* TARIFS */
-.tarif {
-  background: var(--rose-doux);
-}
-
-.tarif h2 {
-  margin-bottom: 10px;
-}
-
 .tarif ul {
   list-style: none;
-  margin-top: 10px;
-}
-
-.tarif li {
-  margin: 6px 0;
-}
-
-/* CALENDRIER Airbnb */
-.calendar {
-  background: #fff;
-}
-
-.calendar h2 {
-  margin-bottom: 10px;
-}
-
-.calendar-box {
-  background: #fff;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.calendar-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 5px;
-  margin-top: 10px;
-}
-
-.calendar-day {
-  padding: 8px;
-  border-radius: 6px;
-  font-size: 0.9em;
-}
-
-.calendar-day.reserved {
-  background-color: #e0b3b3;
-  color: #fff;
-}
-
-.calendar-day.available {
-  background-color: #cfe3d8;
-  color: #333;
-}
-
-.calendar-day.empty {
-  background: transparent;
-}
-
-/* FORMULAIRE DE RÉSERVATION */
-.reservation {
-  background: var(--rose-doux);
-  border-radius: 10px;
+  text-align: left;
   max-width: 500px;
   margin: 0 auto;
 }
 
+.tarif li {
+  margin: 8px 0;
+  padding: 6px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+/* CALENDRIER */
+.calendar-box {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* RÉSERVATION */
 .reservation form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 10px;
-  padding: 20px;
+  max-width: 350px;
+  margin: 0 auto;
 }
 
 .reservation label {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .reservation input {
   padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  border: 1px solid var(--accent);
+  border-radius: 5px;
+  width: 100%;
 }
 
 .reserver-btn {
-  padding: 10px 20px;
-  background: var(--accent);
+  background-color: var(--accent);
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
+  padding: 10px 20px;
   cursor: pointer;
   font-size: 1em;
   transition: background 0.3s;
 }
 
 .reserver-btn:hover {
-  background: #8f6878;
+  background-color: #8f667c;
 }
 
 /* AVIS */
 .avis {
-  background: #fff;
+  background-color: var(--rose-doux);
 }
 
-.avis h2 {
-  margin-bottom: 15px;
+.avis-bloc {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.avis-bloc blockquote {
+blockquote {
   font-style: italic;
-  margin: 10px 0;
   border-left: 4px solid var(--accent);
   padding-left: 10px;
+  margin: 10px 0;
+  color: #444;
 }
 
 .avis a {
@@ -248,41 +226,41 @@ section {
 }
 
 /* CONTACT */
-.contact {
-  background: var(--vert-sauge);
-  color: white;
-  padding: 30px 20px;
+.contact p {
+  margin: 10px 0;
+  font-size: 1.1em;
 }
 
 .contact a {
-  color: white;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.contact a:hover {
   text-decoration: underline;
 }
 
 /* FOOTER */
 footer {
-  text-align: center;
-  background: var(--vert-sauge);
+  background-color: var(--vert-sauge);
   color: white;
-  padding: 10px;
+  text-align: center;
+  padding: 15px;
   font-size: 0.9em;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+  position: relative;
 }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .hero h2 {
-    font-size: 1.6em;
+    font-size: 1.5em;
   }
 
   .gallery-grid {
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   }
 
-  .reserver-btn {
-    font-size: 0.9em;
-    padding: 8px 16px;
+  .logo-text {
+    font-size: 1.4em;
   }
 }
