@@ -29,35 +29,33 @@
 
     <section class="gallery">
       <div class="gallery-grid">
-        <!-- 24 photos à placer dans asset/images/ -->
-        <!-- Change les noms si besoin -->
-        <img src="asset/images/photo1.jpg" alt="photo1" onclick="openModal(this)" />
-        <img src="asset/images/photo2.jpg" alt="photo2" onclick="openModal(this)" />
-        <img src="asset/images/photo3.jpg" alt="photo3" onclick="openModal(this)" />
-        <img src="asset/images/photo4.jpg" alt="photo4" onclick="openModal(this)" />
-        <img src="asset/images/photo5.jpg" alt="photo5" onclick="openModal(this)" />
-        <img src="asset/images/photo6.jpg" alt="photo6" onclick="openModal(this)" />
-        <img src="asset/images/photo7.jpg" alt="photo7" onclick="openModal(this)" />
-        <img src="asset/images/photo8.jpg" alt="photo8" onclick="openModal(this)" />
-        <img src="asset/images/photo9.jpg" alt="photo9" onclick="openModal(this)" />
-        <img src="asset/images/photo10.jpg" alt="photo10" onclick="openModal(this)" />
-        <img src="asset/images/photo11.jpg" alt="photo11" onclick="openModal(this)" />
-        <img src="asset/images/photo12.jpg" alt="photo12" onclick="openModal(this)" />
-        <img src="asset/images/photo13.jpg" alt="photo13" onclick="openModal(this)" />
-        <img src="asset/images/photo14.jpg" alt="photo14" onclick="openModal(this)" />
-        <img src="asset/images/photo15.jpg" alt="photo15" onclick="openModal(this)" />
-        <img src="asset/images/photo16.jpg" alt="photo16" onclick="openModal(this)" />
-        <img src="asset/images/photo17.jpg" alt="photo17" onclick="openModal(this)" />
-        <img src="asset/images/photo18.jpg" alt="photo18" onclick="openModal(this)" />
-        <img src="asset/images/photo19.jpg" alt="photo19" onclick="openModal(this)" />
-        <img src="asset/images/photo20.jpg" alt="photo20" onclick="openModal(this)" />
-        <img src="asset/images/photo21.jpg" alt="photo21" onclick="openModal(this)" />
-        <img src="asset/images/photo22.jpg" alt="photo22" onclick="openModal(this)" />
-        <img src="asset/images/photo23.jpg" alt="photo23" onclick="openModal(this)" />
-        <img src="asset/images/photo24.jpg" alt="photo24" onclick="openModal(this)" />
+        <!-- 24 IMAGES AVEC UNDERSCORE -->
+        <img src="asset/images/photo_01.jpg" alt="photo1" onclick="openModal(this)" />
+        <img src="asset/images/photo_02.jpg" alt="photo2" onclick="openModal(this)" />
+        <img src="asset/images/photo_03.jpg" alt="photo3" onclick="openModal(this)" />
+        <img src="asset/images/photo_04.jpg" alt="photo4" onclick="openModal(this)" />
+        <img src="asset/images/photo_05.jpg" alt="photo5" onclick="openModal(this)" />
+        <img src="asset/images/photo_06.jpg" alt="photo6" onclick="openModal(this)" />
+        <img src="asset/images/photo_07.jpg" alt="photo7" onclick="openModal(this)" />
+        <img src="asset/images/photo_08.jpg" alt="photo8" onclick="openModal(this)" />
+        <img src="asset/images/photo_09.jpg" alt="photo9" onclick="openModal(this)" />
+        <img src="asset/images/photo_10.jpg" alt="photo10" onclick="openModal(this)" />
+        <img src="asset/images/photo_11.jpg" alt="photo11" onclick="openModal(this)" />
+        <img src="asset/images/photo_12.jpg" alt="photo12" onclick="openModal(this)" />
+        <img src="asset/images/photo_13.jpg" alt="photo13" onclick="openModal(this)" />
+        <img src="asset/images/photo_14.jpg" alt="photo14" onclick="openModal(this)" />
+        <img src="asset/images/photo_15.jpg" alt="photo15" onclick="openModal(this)" />
+        <img src="asset/images/photo_16.jpg" alt="photo16" onclick="openModal(this)" />
+        <img src="asset/images/photo_17.jpg" alt="photo17" onclick="openModal(this)" />
+        <img src="asset/images/photo_18.jpg" alt="photo18" onclick="openModal(this)" />
+        <img src="asset/images/photo_19.jpg" alt="photo19" onclick="openModal(this)" />
+        <img src="asset/images/photo_20.jpg" alt="photo20" onclick="openModal(this)" />
+        <img src="asset/images/photo_21.jpg" alt="photo21" onclick="openModal(this)" />
+        <img src="asset/images/photo_22.jpg" alt="photo22" onclick="openModal(this)" />
+        <img src="asset/images/photo_23.jpg" alt="photo23" onclick="openModal(this)" />
+        <img src="asset/images/photo_24.jpg" alt="photo24" onclick="openModal(this)" />
       </div>
 
-      <!-- Modal d’agrandissement -->
       <div id="modal" onclick="closeModal()">
         <img id="modal-img" />
       </div>
@@ -108,18 +106,5 @@
   <footer>
     <p>© 2025 Chill Love – Tous droits réservés</p>
   </footer>
-
-  <script>
-    function openModal(img) {
-      const modal = document.getElementById("modal");
-      const modalImg = document.getElementById("modal-img");
-      modal.style.display = "flex";
-      modalImg.src = img.src;
-    }
-
-    function closeModal() {
-      document.getElementById("modal").style.display = "none";
-    }
-  </script>
 </body>
 </html>
